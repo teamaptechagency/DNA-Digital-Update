@@ -9,14 +9,16 @@ const { sections } = Astro.props;
       <h2 class="font-montserrat font-semibold ml-1" style="font-size: 28px; line-height: 47.2px; color: #2A2A2A;">{section.title}</h2>
     </div>
     <div class="font-merriweather text-[18px] leading-[30.6px] space-y-4" style="color: rgba(42,42,42,0.88);">
-      {section.blocks.map(block => block.type === 'bullet' ? (
+      {section.blocks.map((block, index) => block.type === 'bullet' ? (
         <p class="flex items-start gap-4"><span aria-hidden="true" class="flex-shrink-0 mt-[11px]" style="width: 8px; height: 8px; background-color: #9E927D;"></span><span>{block.text}</span></p>
-      ) : <p>{block.text}</p>)}
+      ) : <p class:list={{ 'legal-clause-heading': block.text === 'Mobile Information & SMS Consent Non-Sharing Clause:', 'legal-clause-body': section.blocks[index - 1]?.text === 'Mobile Information & SMS Consent Non-Sharing Clause:' }}>{block.text}</p>)}
     </div>
   </div>
 ))}
 
 <style>
+.legal-clause-heading { font-weight: 700; }
+.legal-clause-body { margin-top: 0 !important; }
 @media (max-width: 768px) {
   .legal-section-heading h2, .legal-section-number { font-size: 20px !important; line-height: 34px !important; }
 }
