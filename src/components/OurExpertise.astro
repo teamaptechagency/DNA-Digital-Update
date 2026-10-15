@@ -1,221 +1,16 @@
 ﻿---
 // Our Expertise — exact Figma carousel layout
 
-const tabs = [
-{
-  id: 'ai-strategy',
-  label: 'AI Strategy & Transformation',
-  title: 'AI Strategy & Transformation',
-  capabilities: [
-    'AI Strategy & Execution Roadmaps',
-    'AI Maturity & Readiness Audits',
-    'AI Governance, Risk & Compliance',
-    'AI Opportunity Review & ROI Analysis',
-    'AI CoE & Delivery Framework Development',
-    'AI Technical Feasibility & Pilot Validation',
-    'AI Program Leadership & Delivery Oversight',
-  ],
-  featuredCap: 'AI Strategy & Execution Roadmaps',
-  featuredDesc: 'We develop clear, actionable AI strategies and roadmaps that align business priorities, technical feasibility, and organizational readiness. This eliminates execution paralysis, giving leaders a prioritized plan that converts AI hype into a measurable roadmap with realistic timelines and cross-functional alignment.',
-},
-{
-  id: 'tech-leadership',
-  label: 'Technology Leadership & Governance',
-  title: 'Technology Leadership & Governance',
-  capabilities: [
-    'Fractional Executive Engineering Leadership',
-    'Engineering Org Design & Team Scaling',
-    'PMO Establishment & Delivery Governance',
-    'SDLC, DevOps & SRE Framework Development',
-    'Technology Portfolio Audit & Optimization Strategy',
-    'AI & Technical Governance, Risk & Compliance (GRC)',
-    'Ecosystem Governance & Accountability Frameworks',
-  ],
-  featuredCap: 'Fractional Executive Engineering Leadership',
-  featuredDesc: 'We provide senior-level technology leadership on a fractional basis to stabilize strategic direction, improve decision-making, and ensure disciplined execution across engineering, architecture, and delivery functions.',
-},
-{
-  id: 'ai-growth',
-  label: 'AI-Powered Growth & Experience',
-  title: 'AI-Powered Growth & Experience',
-  capabilities: [
-    'AI-Driven Discoverability & Growth Engineering',
-    'AI-Assisted Content & Media Orchestration',
-    'Automated CX & Engagement Workflows',
-    'AI Audience Sentiment & Behavioral Intelligence',
-    'AI Personalization & Recommendation Systems',
-    'AI Journey Analytics & Conversion Engineering',
-    'AI Brand Intelligence & Creative Strategy',
-  ],
-  featuredCap: 'AI-Driven Discoverability & Growth Engineering',
-  featuredDesc: 'We apply AI to optimize search visibility, content discoverability, and growth performance across organic, paid, and emerging AI-driven channels so brands remain visible as discovery shifts toward AI-first experiences.',
-},
-{
-  id: 'solution-engineering',
-  label: 'Solution & Product Engineering',
-  title: 'Solution & Product Engineering',
-  capabilities: [
-    'Full-Stack Web & Mobile Product Development',
-    'Legacy Product AI Augmentation',
-    'Custom AI Model Engineering',
-    'Scalable Backend & API Architecture Development',
-    'Data Architecture & Performance Optimization',
-    'Secure & Resilient Systems Engineering',
-    'Rapid Prototyping & MVP Development',
-  ],
-  featuredCap: 'Full-Stack Web & Mobile Product Development',
-  featuredDesc: 'We design and build modern web and mobile applications using scalable architectures, clean engineering practices, and production-ready patterns that support long-term business growth.',
-},
-{
-  id: 'enterprise-digital',
-  label: 'Enterprise Digital & Technology Transformation',
-  title: 'Enterprise Digital & Technology Transformation',
-  capabilities: [
-    'Enterprise Platform Evaluation & RFP Governance',
-    'Core Enterprise Platform Implementation',
-    'Legacy Platform & Infrastructure Modernization',
-    'Mission-Critical System Rescue & Stabilization',
-    'Digital Workflow & Process Optimization',
-    'Enterprise Architecture & Strategic Alignment',
-    'Technical Debt Reduction & Risk Mitigation Strategy',
-  ],
-  featuredCap: 'Enterprise Platform Evaluation & RFP Governance',
-  featuredDesc: 'We assess business needs, technical requirements, and operational constraints to identify optimal enterprise platforms and manage RFP and vendor evaluation with lower selection risk.',
-},
-{
-  id: 'ai-micro-agents',
-  label: 'AI Micro-Agents & CRM Intelligence',
-  title: 'AI Micro-Agents & CRM Intelligence',
-  capabilities: [
-    'AI Voice, Chat & Interaction Agents',
-    'Intelligent CRM Workflow Automation',
-    'Funnel Intelligence & Lead Conversion Optimization',
-    'Personalized Outreach & Content Scaling',
-    'Automated Reputation & Review Management',
-    'AI-Enhanced Customer Service & Support Systems',
-    'Sales & Marketing Operational Intelligence',
-  ],
-  featuredCap: 'AI Voice, Chat & Interaction Agents',
-  featuredDesc: 'We design and deploy AI-powered voice, chat, and interaction agents that automate complex conversations, handle routine inquiries, and deliver fast, consistent engagement across channels.',
-},
-{
-  id: 'digital-execution',
-  label: 'Digital Execution & Delivery Enablement',
-  title: 'Digital Execution & Delivery Enablement',
-  capabilities: [
-    'Engineering Talent Augmentation',
-    'Architecture & Technical Leadership',
-    'Project & Program Delivery Management',
-    'Cloud Infrastructure Engineering Support',
-    'Data Engineering & Database Development',
-    'AI/ML Engineering Support',
-    'Quality Assurance (QA) Support',
-  ],
-  featuredCap: 'Engineering Talent Augmentation',
-  featuredDesc: 'We provide certified engineers across frontend, backend, full-stack, mobile, QA, DevOps, and platform engineering to strengthen internal teams and fill critical skill gaps.',
-},
-];
+import { practices, capabilityDescriptions } from '../data/practices';
 
-const capabilityDescriptions: Record<string, string> = {
-  'AI Strategy & Execution Roadmaps':
-    'We develop clear, actionable AI strategies and roadmaps that align business priorities, technical feasibility, and organizational readiness. This eliminates execution paralysis, giving leaders a prioritized plan that converts AI hype into a measurable roadmap with realistic timelines and cross-functional alignment.',
-  'AI Maturity & Readiness Audits':
-    'We assess data, systems, governance, talent, and operational processes to determine an organization\'s readiness to adopt and scale AI responsibly. This reveals critical gaps, risks, and opportunities early, ensuring AI initiatives start on solid ground and avoid the costly missteps of premature scaling.',
-  'AI Governance, Risk & Compliance':
-    'We evaluate potential AI use cases for value, feasibility, risk, and expected return to prioritize the initiatives most likely to deliver measurable business impact. This prevents "random acts of AI," ensuring capital and talent are strictly allocated to high-value, high-feasibility opportunities that produce defensible financial and operational results.',
-  'AI Opportunity Review & ROI Analysis':
-    'We establish the frameworks, controls, and oversight models required to manage AI risk, ensure responsible use, and meet emerging regulatory and ethical standards. This protects the organization from compliance exposure, reputational risk, and operational failures as AI adoption accelerates.',
-  'AI CoE & Delivery Framework Development':
-    'We design the operating models, Centers of Excellence, standards, and delivery frameworks needed to scale AI capabilities across teams and business units. This replaces fragmented experimentation with a repeatable, governed, enterprise-wide approach to AI delivery that accelerates time-to-value, and adoption reducing fragmentation across the enterprise.',
-  'AI Technical Feasibility & Pilot Validation':
-    'We validate data pipelines, model approaches, and technical assumptions through hands-on prototyping and pilot testing to confirm viability before full-scale investment. This reduces technical uncertainty, prevents wasted investment, and ensures only viable, production-ready AI initiatives move forward.',
-  'AI Program Leadership & Delivery Oversight':
-    'We provide strategic leadership, delivery governance, and cross-functional coordination to ensure AI initiatives execute predictably and align with business outcomes. This improves execution reliability, reduces delivery risk, and keeps AI programs aligned with strategic priorities and measurable results.',
-  'Fractional Executive Engineering Leadership':
-    'We provide senior-level technology leadership on a fractional basis to stabilize strategic direction, improve decision-making, and ensure disciplined execution across engineering, architecture, and delivery functions. This approach strengthens internal leadership and aligns technology investments with business goals, bringing executive-level clarity to complex technical environments without the overhead of a full-time hire.',
-  'Engineering Org Design & Team Scaling':
-    'We design the structures, roles, processes, and operating models required to build, scale, and mature high-performing engineering organizations. This creates clarity, improves communication, reduces friction, and enables your engineering department to grow efficiently while maintaining delivery velocity and preventing the accumulation of technical debt.',
-  'PMO Establishment & Delivery Governance':
-    'We build the standards, cadences, KPIs, and oversight mechanisms that create predictable delivery cycles, reduce execution risk, and improve accountability. This establishes a disciplined, transparent delivery environment where initiatives move faster, blockers are surfaced earlier, and leadership gains reliable, data-driven visibility into program outcomes.',
-  'SDLC, DevOps & SRE Framework Development':
-    'We define and implement engineering, release, reliability, and quality frameworks that standardize how software is built, tested, deployed, and supported. This creates a consistent, automated "software factory" that improves quality, accelerates releases cycles, and ensures systems remain resilient and maintainable in production.',
-  'Technology Portfolio Audit & Optimization Strategy':
-    'We evaluate initiatives, budgets, systems, and capacity to align technology investments with business priorities, eliminate waste, and maximize organizational impact. This redirects resources toward high-value work, reduces financial and operational risk, and ensures your technology portfolio delivers a measurable and defensible commercial return.',
-  'AI & Technical Governance, Risk & Compliance (GRC)':
-    'We establish the guardrails, controls, and oversight models required for responsible AI use, technical compliance, and long-term architectural health. This protects the organization from regulatory, ethical, and systemic risks while ensuring AI and technical systems remain secure, transparent, and aligned with enterprise standards.',
-  'Ecosystem Governance & Accountability Frameworks':
-    'We design the selection, management, and accountability models for platforms, vendors, and partners to ensure long-term operational integrity and reliability. This strengthens vendor performance, reduces third-party dependency risk, and ensures external partners meet strict standards for security, delivery, and financial stewardship.',
-  'AI-Driven Discoverability & Growth Engineering':
-    'We apply AI to optimize search visibility, content discoverability, and growth performance across organic, paid, and emerging AI-driven channels. This strengthens demand generation, increases qualified traffic, and ensures your brand remains visible and competitive as search and discovery ecosystems shift toward AI-first experiences, answer-based experiences.',
-  'AI-Assisted Content & Media Orchestration':
-    'We leverage AI to accelerate content creation, automate media production workflows, and orchestrate assets across channels with greater speed and consistency. This significantly expands creative capacity, reduces production bottlenecks, and enables teams to deliver more content with higher-quality assets at a substantially lower operational cost.',
-  'Automated CX & Engagement Workflows':
-    'We design intelligent workflows and AI-powered automations that personalize outreach, trigger timely engagement, and streamline customer interactions across the lifecycle. This improves responsiveness, increases conversion, and frees teams from repetitive tasks allowing them to focus on high-value strategic work.',
-  'AI Audience Sentiment & Behavioral Intelligence':
-    'We analyze audience sentiment, behavioral patterns, and intent signals using AI to uncover what customers care about and how they make decisions. This gives brands deeper, actionable insight into customer motivations, preferences, and friction points, enabling the development of more relevant messaging and highly effective engagement strategies grounded in data.',
-  'AI Personalization & Recommendation Systems':
-    'We build AI-driven personalization and recommendation systems that tailor content, offers, and digital experiences to individual users in real time. This increases brand relevance, boosts engagement, and drives higher conversion by ensuring the right product or message is delivered at the precise moment of intent, driving higher lifetime value and conversion.',
-  'AI Journey Analytics & Conversion Engineering':
-    'We use AI to analyze customer journeys and optimize conversion paths by identifying hidden drop-off points across all touchpoints. This reveals friction that manual analysis misses, improving funnel performance and ensuring that marketing and experience teams can make data-driven decisions that directly impact revenue growth.',
-  'AI Brand Intelligence & Creative Strategy':
-    'We apply AI to analyze brand perception and competitive positioning to guide smarter creative and messaging decisions. This strengthens brand consistency and improves campaign effectiveness, ensuring your creative strategy is grounded in real-time audience insight rather than historical guesswork.',
-  'Full-Stack Web & Mobile Product Development':
-    'We design and build modern web and mobile applications using scalable architectures, clean engineering practices, and production-ready patterns. This accelerates time-to-market and improves product quality, ensuring your digital experiences are reliable, maintainable, and engineered to support long-term business growth.',
-  'Legacy Product AI Augmentation':
-    'We modernize existing products by integrating AI capabilities such as intelligent search, automated workflows, predictive insights, and conversational interfaces. This extends the functional lifespan of legacy systems, unlocks new value, and enables organizations to compete with modern AI-powered experiences without the risk and cost of a total system rebuild.',
-  'Custom AI Model Engineering':
-    'We design, train, and integrate custom machine learning models and intelligent features tailored to solve specific business challenges. This delivers highly differentiated capabilities and improves automated decision-making, ensuring that your AI solutions are accurate, scalable, and perfectly aligned with your operational realities.',
-  'Scalable Backend & API Architecture Development':
-    'We architect and build secure, high-performance backend systems and APIs that support complex applications and multi-channel digital experiences. This strengthens system reliability and improves developer velocity, ensuring your products can scale seamlessly as user demand and architectural complexity grow.',
-  'Data Architecture & Performance Optimization':
-    'We design data models, pipelines, and storage strategies that improve performance, reliability, and accessibility across applications and analytics systems. This enhances product responsiveness, reduces operational bottlenecks, ensuring your data infrastructure can support both real-time user experiences and long-term growth.',
-  'Secure & Resilient Systems Engineering':
-    'We engineer systems with rigorous security, reliability, and fault-tolerance patterns to ensure products remain stable under real-world conditions. This reduces systemic risk and protects customer trust by ensuring digital products can withstand operational failures, security threats, and unpredictable traffic loads.',
-  'Rapid Prototyping & MVP Development':
-    'We rapidly prototype and build minimum viable products that validate concepts, test assumptions, and accelerate learning before full-scale investment. This reduces risk, shortens innovation cycles, ensuring your organization invests in solutions that are both technically viable and aligned with verified user needs.',
-  'Enterprise Platform Evaluation & RFP Governance':
-    'We assess business needs, technical requirements, and operational constraints to identify the optimal enterprise platforms and manage the complete RFP and vendor evaluation process. This reduces selection risk and accelerates procurement, ensuring your organization invests in platforms that strictly align with long-term strategy, scalability, and operational realities.',
-  'Core Enterprise Platform Implementation':
-    'We implement and integrate core enterprise platforms such as CRM, CMS, PIM, and DAM using proven delivery patterns, process models and governance frameworks. This significantly accelerates time-to-value, reduces implementation risk, and ensures systems are configured to support real business workflows rather than generic vendor defaults.',
-  'Legacy Platform & Infrastructure Modernization':
-    'We modernize legacy systems, infrastructure, and architectures to improve performance, reliability, and long-term maintainability. This reduces operational risk and eliminates technical bottlenecks, positioning your organization to adopt modern capabilities, including AI, without being held back by the constraints of outdated technology.',
-  'Mission-Critical System Rescue & Stabilization':
-    'We diagnose failing projects, unstable systems, and high-risk delivery environments to restore stability, rebuild stakeholder trust, and get high-risk initiatives back on track. This protects critical business operations, prevents further financial and reputational damage, ensuring your essential systems are stabilized and delivered successfully.',
-  'Digital Workflow & Process Optimization':
-    'We analyze and redesign digital workflows, processes, and cross-team handoffs to eliminate friction, reduce manual effort, and improve operational efficiency. This increases organizational throughput, improves efficiency, reduces errors, and ensures teams can scale effectively without adding unnecessary headcount or administrative complexity.',
-  'Enterprise Architecture & Strategic Alignment':
-    'We define enterprise architecture standards, integration patterns, and technology roadmaps that align systems with business strategy and operational goals. This creates clarity across the organization, reduces fragmentation, and ensures technology decisions support sustainable long-term growth rather than just providing short-term fixes.',
-  'Technical Debt Reduction & Risk Mitigation Strategy':
-    'We identify, quantify, and prioritize technical debt across systems, codebases, and infrastructure to reduce risk and improve long-term maintainability. This strengthens overall system health, lowers operational cost, and ensures engineering capacity is focused on strategic initiatives rather than perpetual firefighting.',
-  'AI Voice, Chat & Interaction Agents':
-    'We design and deploy AI-powered voice, chat, and interaction agents that automate complex conversations, handle routine inquiries, and deliver fast, consistent customer engagement across all channels. This improves organizational responsiveness, reduces support load, and creates a scalable, always-on interaction model that maintains your specific brand tone at any volume.',
-  'Intelligent CRM Workflow Automation':
-    'We build intelligent CRM automations that streamline sales, marketing, and service workflows by triggering the high-precision actions at the right time based on real-time customer behavior and operational context. This reduces manual effort, increases follow-through, and ensures teams operate with greater consistency, accuracy, and speed.',
-  'Funnel Intelligence & Lead Conversion Optimization':
-    'We apply AI to analyze funnel performance, identify friction points, and optimize conversion paths across acquisition, nurture, and sales stages. This reveals hidden opportunities, improves lead quality, and increases overall conversion rates by aligning engagement strategy with real customer intent and behavioral signals.',
-  'Personalized Outreach & Content Scaling':
-    'We use AI to generate, personalize, and scale outreach and content across email, SMS, social, and CRM channels. This significantly increases brand relevance, accelerates production, and enables teams to deliver tailored messaging at a volume and speed that would be impossible to achieve through manual efforts.',
-  'Automated Reputation & Review Management':
-    'We implement AI-driven systems that monitor sentiment, request reviews, respond intelligently, and manage reputation across major digital platforms. This strengthens brand trust, improves local and digital visibility, and ensures customer feedback loops are handled consistently and proactively.',
-  'AI-Enhanced Customer Service & Support Systems':
-    'We integrate AI into customer service workflows to triage complex issues, surface insights, recommend agent actions, and automate routine support tasks. This drastically reduces resolution time, improves service quality, and frees human agents to focus on complex, high-value, high-empathy customer interactions.',
-  'Sales & Marketing Operational Intelligence':
-    'We use AI to analyze historical performance, forecast outcomes, and surface insights that improve decision-making across sales and marketing operations. This increases pipeline visibility, strengthens forecasting accuracy, and ensures your teams operate with data-driven clarity rather than intuition or guesswork.',
-  'Engineering Talent Augmentation':
-    'We provide certified engineers across frontend, backend, full-stack, mobile, QA, DevOps, and platform engineering to strengthen your internal delivery teams and fill critical skill gaps. This accelerates overall execution, increases engineering capacity, and ensures your teams have the technical depth required to deliver complex solutions reliably and at speed.',
-  'Architecture & Technical Leadership':
-    'We deliver senior-level architects who guide solution design, technical decision-making, integration patterns, and system-level oversight across digital and AI initiatives. This significantly reduces rework, improves scalability, and ensures systems are architected correctly from the start and aligned with business and operational goals.',
-  'Project & Program Delivery Management':
-    'We provide experienced project managers, technical program managers, Scrum Masters, and delivery leads who drive execution, maintain momentum, and coordinate complex cross-team delivery. This improves predictability, accelerates timelines, and ensures high-stakes initiatives stay aligned, unblocked, and on track across multiple teams and workstreams.',
-  'Cloud Infrastructure Engineering Support':
-    'We supply cloud infrastructure engineers who build, optimize, and support cloud environments, CI/CD pipelines, security controls, and production-grade deployment architectures. This ensures cloud systems are stable, secure, scalable, and cost-efficient, reducing operational risk and enabling faster, more reliable delivery cycles for modern applications.',
-  'Data Engineering & Database Development':
-    'We provide data engineers and database specialists who design robust pipelines, build data models, optimize queries, optimize storage systems, and support enterprise analytics and AI workloads. This improves data quality, performance, and accessibility, enabling better decision-making, stronger AI outcomes, and more reliable operational systems that can scale with your data requirements.',
-  'AI/ML Engineering Support':
-    'We deliver specialized AI/ML engineers who build, integrate, and operationalize machine learning models, AI agents, and intelligent systems across cloud and enterprise environments. This accelerates AI adoption, improves model performance and reliability, and ensures AI systems are production-ready, maintainable, and aligned with business objectives.',
-  'Quality Assurance (QA) Support':
-    'We provide QA engineers and test automation specialists who develop test strategies, design and execute rigorous test plans, build automated test suites, validate system behavior, and ensure digital and AI solutions meet functional, performance, reliability and accessibility standards. This improves product stability, reduces defects, accelerates release cycles, and ensures high-stakes digital initiatives launch with confidence and quality.',
-};
+const tabs = practices.map(practice => ({
+  ...practice,
+  id: practice.tabId,
+  label: practice.title,
+  capabilities: practice.expertiseCapabilities ?? practice.capabilities,
+  featuredCap: (practice.expertiseCapabilities ?? practice.capabilities)[0],
+  featuredDesc: capabilityDescriptions[(practice.expertiseCapabilities ?? practice.capabilities)[0]],
+}));
 
 // Card height
 const CARD_HEIGHT = 415;
@@ -283,11 +78,15 @@ const CARD_HEIGHT = 415;
                       class={`expertise-capability-btn ${ci === 0 ? 'is-active' : ''}`}
                       data-capability-title={cap}
                       data-capability-desc={capabilityDescriptions[cap]}
+                      data-capability-cta={tab.id === 'smb-growth' && ci === 0 ? 'true' : undefined}
                       aria-pressed={ci === 0 ? 'true' : 'false'}
                     >
                       <span class="expertise-capability-dot"></span>
                       <span class="expertise-capability-label">{cap}</span>
                     </button>
+                    {ci === 0 && tab.subCapabilities.length > 0 && (
+                      <ul class="expertise-sub-capabilities">{(tab.expertiseSubCapabilities ?? tab.subCapabilities).map(sub => <li>{sub}</li>)}</ul>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -296,6 +95,7 @@ const CARD_HEIGHT = 415;
               <div class="expertise-feature-copy">
                 <h5 class="font-montserrat expertise-feature-title" style="font-size: 14px; font-weight: 700; line-height: 20px; color: #36342F; margin-bottom: 10px;">{tab.featuredCap}</h5>
                 <p class="font-merriweather expertise-drop-cap expertise-feature-desc" style="font-size: 12px; font-weight: 400; line-height: 1.5; color: #4C453E;">{capabilityDescriptions[tab.featuredCap] ?? tab.featuredDesc}</p>
+                <a class="expertise-dge-cta font-montserrat" href="https://digitalgrowthengine.ai" target="_blank" rel="noopener noreferrer" hidden={tab.id !== 'smb-growth'}>Click here to learn more about the Digital Growth Engine</a>
               </div>
             </div>
           </div>
@@ -307,16 +107,17 @@ const CARD_HEIGHT = 415;
     <div class="expertise-side-stack" data-side="right" style={`display: flex; flex-direction: row; align-items: center; gap: 0; margin-left: 8px; flex-shrink: 0; height: ${CARD_HEIGHT}px; position: relative;`}>
       <div class="expertise-tab-slot" data-slot="0" style="position: relative; display: flex; align-items: center; height: 100%; margin-right: -14px; z-index: 3;"></div>
       <div class="expertise-tab-slot" data-slot="1" style="position: relative; display: flex; align-items: center; height: 100%; margin-right: -14px; z-index: 2;"></div>
-      <div class="expertise-tab-slot" data-slot="2" style="position: relative; display: flex; align-items: center; height: 100%; z-index: 1;"></div>
+      <div class="expertise-tab-slot" data-slot="2" style="position: relative; display: flex; align-items: center; height: 100%; z-index: 2;"></div>
+      <div class="expertise-tab-slot" data-slot="3" style="position: relative; display: flex; align-items: center; height: 100%; z-index: 1;"></div>
     </div>
 
     <!-- Navigation Arrow Left -->
-    <button id="expertise-prev" type="button" data-expertise-prev style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #FFFFFF; box-shadow: 0 4px 12px rgba(0,0,0,0.14); z-index: 10; border: none; cursor: pointer; transition: color 0.2s; color: #4E5854;">
+    <button id="expertise-prev" type="button" aria-label="Previous expertise" data-expertise-prev style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #FFFFFF; box-shadow: 0 4px 12px rgba(0,0,0,0.14); z-index: 10; border: none; cursor: pointer; transition: color 0.2s; color: #4E5854;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
 
     <!-- Navigation Arrow Right -->
-    <button id="expertise-next" type="button" data-expertise-next style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #FFFFFF; box-shadow: 0 4px 12px rgba(0,0,0,0.14); z-index: 10; border: none; cursor: pointer; transition: color 0.2s; color: #4E5854;">
+    <button id="expertise-next" type="button" aria-label="Next expertise" data-expertise-next style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #FFFFFF; box-shadow: 0 4px 12px rgba(0,0,0,0.14); z-index: 10; border: none; cursor: pointer; transition: color 0.2s; color: #4E5854;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
     </button>
   </div>
@@ -333,27 +134,16 @@ const CARD_HEIGHT = 415;
 
 <script>
 import gsap from 'gsap';
+import { practices } from '../data/practices';
 
 type TabMeta = { id: string; label: string };
 
-const tabsMeta: TabMeta[] = [
-  { id: 'solution-engineering', label: 'Solution & Product Engineering' },
-  { id: 'ai-growth', label: 'AI-Powered Growth & Experience' },
-  { id: 'tech-leadership', label: 'Technology Leadership & Governance' },
-  { id: 'ai-strategy', label: 'AI Strategy & Transformation' },
-  { id: 'enterprise-digital', label: 'Enterprise Digital & Technology Transformation' },
-  { id: 'ai-micro-agents', label: 'AI Micro-Agents & CRM Intelligence' },
-  { id: 'digital-execution', label: 'Digital Execution & Delivery Enablement' },
-];
+const tabsMeta: TabMeta[] = practices.map(practice => ({ id: practice.tabId, label: practice.title }));
 
-// Initial active = ai-strategy (index 3) — center position
-// tabsMeta is ordered so that with ai-strategy active:
-//   left (outer→inner): solution, ai-growth, tech-leadership
-//   right (inner→outer): enterprise-digital, ai-micro-agents, digital-execution
-
+// Start with the new SMB practice.
 const panels = document.querySelectorAll<HTMLElement>('.expertise-panel');
 const expertiseShell = document.querySelector<HTMLElement>('.expertise-card-shell');
-let currentIndex = 3; // ai-strategy
+let currentIndex = 0;
 let expertiseShellHeightFrame: number | undefined;
 
 // Heights: innermost (slot 2 on left, slot 0 on right) = card height, then progressively shorter outward
@@ -383,9 +173,9 @@ function buildTabButton(tab: TabMeta, side: 'left' | 'right', height: number): H
 }
 
 function getRotatedOrder(activeIdx: number): { left: TabMeta[]; right: TabMeta[] } {
-  // Want exactly 3 left + 3 right around the active.
+  // Show all seven other practices: three on the left, four on the right.
   // Left = 3 tabs before active (wrap), order: outermost → innermost
-  // Right = 3 tabs after active (wrap), order: innermost → outermost
+  // Right = remaining tabs after active (wrap), order: innermost → outermost
   const n = tabsMeta.length;
   const left: TabMeta[] = [];
   const right: TabMeta[] = [];
@@ -393,8 +183,8 @@ function getRotatedOrder(activeIdx: number): { left: TabMeta[]; right: TabMeta[]
   for (let k = 3; k >= 1; k--) {
     left.push(tabsMeta[(activeIdx - k + n) % n]);
   }
-  // Right side: activeIdx+1, activeIdx+2, activeIdx+3 (inner→outer)
-  for (let k = 1; k <= 3; k++) {
+  // Right side: the four following practices (inner→outer)
+  for (let k = 1; k <= tabsMeta.length - 4; k++) {
     right.push(tabsMeta[(activeIdx + k) % n]);
   }
   return { left, right };
@@ -416,7 +206,7 @@ function renderStacks(activeIdx: number) {
   // RIGHT SIDE: slot 0 = innermost (tallest), slot 1 = middle, slot 2 = outermost (shortest)
   const rightStack = document.querySelector<HTMLElement>('.expertise-side-stack[data-side="right"]')!;
   const rightSlots = rightStack.querySelectorAll<HTMLElement>('.expertise-tab-slot');
-  const rightHeights = [HEIGHTS.innermost, HEIGHTS.middle, HEIGHTS.outermost];
+  const rightHeights = [HEIGHTS.innermost, HEIGHTS.middle, HEIGHTS.outermost, 280];
   rightSlots.forEach((slot, i) => {
     slot.innerHTML = '';
     const tab = right[i];
@@ -436,7 +226,7 @@ function setExpertiseMobileShellHeight(panel: HTMLElement, immediate = false) {
 
   const targetHeight = Math.ceil(Math.max(622, panel.scrollHeight + 28));
 
-  window.cancelAnimationFrame(expertiseShellHeightFrame);
+  if (expertiseShellHeightFrame !== undefined) window.cancelAnimationFrame(expertiseShellHeightFrame);
 
   if (immediate) {
     expertiseShell.style.setProperty('--expertise-mobile-shell-height', `${targetHeight}px`);
@@ -514,6 +304,10 @@ function updateCapability(button: HTMLButtonElement) {
 
   titleEl.textContent = title;
   descEl.textContent = desc;
+  const cta = panel.querySelector<HTMLAnchorElement>('.expertise-dge-cta');
+  if (cta) cta.hidden = button.dataset.capabilityCta !== 'true';
+  const rightPane = panel.querySelector<HTMLElement>('.expertise-panel-right');
+  if (rightPane) rightPane.scrollTop = 0;
 
   setExpertiseMobileShellHeight(panel);
 
@@ -531,6 +325,8 @@ function updateCapability(button: HTMLButtonElement) {
 }
 
 function resetPanelCapability(panel: HTMLElement) {
+  const capabilityList = panel.querySelector<HTMLElement>('.expertise-panel-left');
+  if (capabilityList) capabilityList.scrollTop = 0;
   const firstButton = panel.querySelector<HTMLButtonElement>('.expertise-capability-btn');
   if (firstButton) updateCapability(firstButton);
 }
@@ -581,11 +377,22 @@ window.addEventListener('resize', () => {
   });
 };
 
-// Init — start at ai-strategy
-showTab(3);
+// Preserve the selected practice when arriving from another site page.
+const requestedPractice = new URLSearchParams(window.location.search).get('practice');
+const requestedIndex = tabsMeta.findIndex(tab => tab.id === requestedPractice);
+showTab(requestedIndex >= 0 ? requestedIndex : 0);
+
+document.fonts.ready.then(() => {
+  const activePanel = Array.from(panels).find(panel => panel.style.display === 'flex');
+  if (activePanel) setExpertiseMobileShellHeight(activePanel, true);
+});
 </script>
 
 <style>
+.expertise-feature-desc { white-space: pre-line; }
+.expertise-sub-capabilities { padding-left: 22px; margin: 8px 0 12px; list-style: disc; font-family: Merriweather, serif; font-size: 11px; line-height: 1.6; color: #4C453E; }
+.expertise-dge-cta { display: inline-block; margin-top: 16px; font-size: 12px; color: #683547; text-decoration: underline; }
+.expertise-dge-cta[hidden] { display: none; }
 .expertise-capability-btn {
   display: flex;
   align-items: flex-start;

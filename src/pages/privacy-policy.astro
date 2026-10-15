@@ -1,91 +1,161 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LegalSections from '../components/LegalSections.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const sections = [
   {
-    num: '1.',
-    title: 'INTRODUCTION',
-    content: {
-      type: 'dropcap',
-      dropcap: 'D',
-      text: 'NA Digital Consultancy (\u201cwe,\u201d \u201cus,\u201d or \u201cour\u201d), a DBA of Dna Web Solutions, Inc., is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or engage our professional services. We operate with a military-grade commitment to accountability; we do exactly what we say we\u2019ll do, especially regarding the security of your data.',
-    },
+    "num": "1.",
+    "title": "INTRODUCTION",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "DNA Digital Consultancy (“we,” “us,” or “our”), a DBA of Dna Web Solutions, Inc., is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or engage our professional services. We operate with a military-grade commitment to accountability; we do exactly what we say we’ll do, especially when it comes to your data security."
+      }
+    ]
   },
   {
-    num: '2.',
-    title: 'INFORMATION WE COLLECT',
-    content: {
-      type: 'bullets',
-      intro: 'We collect information that allows us to deliver high-performance consulting and technical solutions. This falls into two categories:',
-      bullets: [
-        { label: 'Voluntary Information:', text: ' This includes names, email addresses, and project details provided via our \u201cStart the Conversation\u201d contact forms or consultation bookings.' },
-        { label: 'Technical Data:', text: ' We automatically collect IP addresses, browser types, and usage patterns via cookies to optimize the performance of our \u201carchitectural plates\u201d and digital experience.' },
-      ],
-    },
+    "num": "2.",
+    "title": "INFORMATION WE COLLECT",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "We collect information that allows us to deliver high-performance consulting and technical solutions. This falls into two categories:"
+      },
+      {
+        "type": "bullet",
+        "text": "Voluntary Information: This includes names, email addresses, phone numbers, SMS opt-in consent records, and project details provided via our “Start the Conversation” contact forms, inquiry submissions, or consultation bookings."
+      },
+      {
+        "type": "bullet",
+        "text": "Technical Data: We automatically collect IP addresses, browser types, and usage patterns via cookies to optimize the performance of our digital experience."
+      }
+    ]
   },
   {
-    num: '3.',
-    title: 'HOW WE USE YOUR DATA',
-    content: {
-      type: 'bullets',
-      intro: 'Your data is the blueprint for our engagement. We use it strictly to:',
-      bullets: [
-        { label: '', text: 'Facilitate strategic AI roadmapping and technology leadership.' },
-        { label: '', text: 'Develop and deploy custom software, mobile apps, and CRM intelligence.' },
-        { label: '', text: 'Communicate project milestones and delivery enablement.' },
-        { label: '', text: 'Ensure the security and resilience of our digital infrastructure.' },
-      ],
-    },
+    "num": "3.",
+    "title": "HOW WE USE YOUR DATA",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Your data is the blueprint for our engagement. We use it strictly to:"
+      },
+      {
+        "type": "bullet",
+        "text": "Facilitate strategic AI roadmapping and technology leadership."
+      },
+      {
+        "type": "bullet",
+        "text": "Develop and deploy custom software, mobile apps, and CRM intelligence."
+      },
+      {
+        "type": "bullet",
+        "text": "Communicate project milestones, inquiry responses, and delivery enablement."
+      },
+      {
+        "type": "bullet",
+        "text": "Ensure the security and resilience of our digital infrastructure."
+      }
+    ]
   },
   {
-    num: '4.',
-    title: 'DATA SHARING & THIRD PARTIES',
-    content: {
-      type: 'paragraph',
-      text: 'We do not measure success by the size of our database, and we certainly do not sell it. Data is only shared with third-party partners (such as AWS for cloud hosting or GoHighLevel for CRM management) when essential to execute the mission you have hired us to perform. All partners are vetted for proactive risk anticipation and high-performance integrity.',
-    },
+    "num": "4.",
+    "title": "DATA SHARING & THIRD PARTIES",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "We do not measure success by the size of our database, and we certainly do not sell it. Data is only shared with third-party service providers (such as AWS for cloud hosting or GoHighLevel for CRM platform management) strictly when essential to execute the mission you have hired us to perform. All partners are vetted for proactive risk anticipation and high-performance integrity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Mobile Information & SMS Consent Non-Sharing Clause:"
+      },
+      {
+        "type": "paragraph",
+        "text": "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties under any circumstances."
+      }
+    ]
   },
   {
-    num: '5.',
-    title: 'YOUR DATA RIGHTS',
-    content: {
-      type: 'leftborder',
-      text: 'YOU HAVE THE RIGHT TO ACCESS: You have the right to request a copy of the personal data we hold about you. You may also request that we correct, delete, or restrict the processing of your information at any time.',
-      boldLabel: 'YOUR RIGHT TO ACCESS:',
-    },
+    "num": "5.",
+    "title": "SMS & MOBILE COMMUNICATIONS",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "When you provide your phone number through our website contact forms and check the SMS consent box, you consent to receive text messages from DNA Digital Consultancy regarding your inquiry, scheduled consultations, or active projects."
+      },
+      {
+        "type": "bullet",
+        "text": "Voluntary Consent: Opting in to SMS is entirely voluntary and is not required as a condition of purchasing any consulting or development services."
+      },
+      {
+        "type": "bullet",
+        "text": "Opt-Out Mechanics: You may opt out of SMS communications at any time by replying “STOP” to any text message received. After replying “STOP,” we will send one final SMS confirming your unsubscription."
+      },
+      {
+        "type": "bullet",
+        "text": "Help & Support: If you experience issues or need assistance, reply “HELP” to any message or contact us at privacypolicy@dnadigitalconsultancy.ai."
+      },
+      {
+        "type": "bullet",
+        "text": "Message Frequency & Rates: Message frequency varies depending on your interactions with us. Standard message and data rates may apply according to your cellular carrier plan."
+      }
+    ]
   },
   {
-    num: '6.',
-    title: 'COOKIES & TRACKING',
-    content: {
-      type: 'paragraph',
-      text: 'We use functional and analytical cookies to ensure our website\u2019s glassmorphism and motion effects perform at peak efficiency. You can manage these at any time via our Cookie Preferences dashboard.',
-    },
+    "num": "6.",
+    "title": "YOUR DATA RIGHTS",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "YOUR RIGHT TO ACCESS: You have the right to request a copy of the personal data we hold about you. You may also request that we correct, delete, or restrict the processing of your information at any time."
+      }
+    ]
   },
   {
-    num: '7.',
-    title: 'DATA SECURITY',
-    content: {
-      type: 'paragraph',
-      text: 'Integrity is our operating system. We implement industry-standard technical and organizational measures\u2014including hardware cold storage for digital assets when applicable\u2014to protect your information from unauthorized access or structural failure.',
-    },
+    "num": "7.",
+    "title": "COOKIES & TRACKING",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "We use functional and analytical cookies to ensure our website’s glassmorphism and motion effects perform at peak efficiency. You can manage these at any time via our Cookie Preferences dashboard."
+      }
+    ]
   },
   {
-    num: '8.',
-    title: 'CONTACT US',
-    content: {
-      type: 'contact',
-      intro: 'If you have questions regarding this policy or our data practices, please contact us at:',
-      details: [
-        { text: 'Dna Digital Consultancy', bold: true },
-        { text: 'Signal Hill, California', bold: false },
-        { text: 'Email: privacypolicy@dnadigitalconsultancy.com', bold: false },
-      ],
-    },
+    "num": "8.",
+    "title": "DATA SECURITY",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Integrity is our operating system. We implement industry-standard technical and organizational measures—including hardware cold storage for digital assets when applicable—to protect your information from unauthorized access or structural failure."
+      }
+    ]
   },
+  {
+    "num": "9.",
+    "title": "CONTACT US",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "If you have questions regarding this policy or our data practices, please contact us at:"
+      },
+      {
+        "type": "paragraph",
+        "text": "DNA Digital Consultancy"
+      },
+      {
+        "type": "paragraph",
+        "text": "Signal Hill, California"
+      },
+      {
+        "type": "paragraph",
+        "text": "Email: privacypolicy@dnadigitalconsultancy.ai"
+      }
+    ]
+  }
 ];
 ---
 
@@ -126,7 +196,7 @@ const sections = [
           class="font-merriweather font-medium"
           style="font-size: 20px; line-height: 36px; color: #91836C;"
         >
-          Last Updated: October 15, 2025
+          Last Updated: October 06, 2026
         </p>
       </div>
     </section>
@@ -138,95 +208,7 @@ const sections = [
         <div class="mx-auto" style="max-width: 900px;">
           <div class="flex flex-col" style="gap: 96px;">
 
-            {sections.map((section) => (
-              <div>
-                <!-- Section Heading Row -->
-                <div
-                  class="legal-section-heading flex items-center gap-1 pb-3 mb-4"
-                  style="border-bottom: 1px solid #E2DED6;"
-                >
-                  <span
-                    class="legal-section-number font-montserrat font-semibold"
-                    style="font-size: 28px; line-height: 47.2px; color: #2A2A2A; font-variant: small-caps;"
-                  >
-                    {section.num}
-                  </span>
-                  <span
-                    class="font-montserrat font-semibold ml-1"
-                    style="font-size: 28px; line-height: 47.2px; color: #2A2A2A; font-variant: small-caps;"
-                  >
-                    {section.title}
-                  </span>
-                </div>
-
-                <!-- Section Body -->
-                {section.content.type === 'dropcap' && (
-                  <div class="font-merriweather text-[18px] leading-[30.6px]" style="color: rgba(42,42,42,0.88); display: flow-root;">
-                    <span
-                      class="float-left font-normal mr-2"
-                      style="font-family: Merriweather, serif; font-size: 60px; color: #91836C; line-height: 0.66; margin-top: 10px;"
-                    >
-                      {section.content.dropcap}
-                    </span>
-                    {section.content.text}
-                  </div>
-                )}
-
-                {section.content.type === 'paragraph' && (
-                  <p class="font-merriweather text-[18px] leading-[30.6px]" style="color: rgba(42,42,42,0.88);">
-                    {section.content.text}
-                  </p>
-                )}
-
-                {section.content.type === 'bullets' && (
-                  <div>
-                    {section.content.intro && (
-                      <p class="font-merriweather text-[18px] leading-[30.6px] mb-4" style="color: rgba(42,42,42,0.88);">
-                        {section.content.intro}
-                      </p>
-                    )}
-                    <ul class="space-y-3">
-                      {section.content.bullets.map((bullet) => (
-                        <li class="flex items-start gap-4">
-                          <!-- Bullet diamond -->
-                          <span
-                            class="flex-shrink-0 mt-[11px]"
-                            style="width: 8px; height: 8px; background-color: #9E927D; display: inline-block;"
-                          ></span>
-                          <p class="font-merriweather text-[18px] leading-[30.6px]" style="color: rgba(42,42,42,0.88);">
-                            {bullet.label && <strong class="font-semibold">{bullet.label}</strong>}
-                            {bullet.text}
-                          </p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {section.content.type === 'leftborder' && (
-                  <div class="pl-7" style="border-left: 4px solid #91836C;">
-                    <p class="font-merriweather italic text-[18px] leading-[30.6px]" style="color: rgba(42,42,42,0.88);">
-                      <strong class="font-bold not-italic">YOUR RIGHT TO ACCESS:</strong>
-                      {' '}You have the right to request a copy of the personal data we hold about you. You may also request that we correct, delete, or restrict the processing of your information at any time.
-                    </p>
-                  </div>
-                )}
-
-                {section.content.type === 'contact' && (
-                  <div>
-                    <p class="font-merriweather text-[18px] leading-[30.6px] mb-4" style="color: rgba(42,42,42,0.88);">
-                      {section.content.intro}
-                    </p>
-                    <div class="font-merriweather text-[18px] leading-[30.6px]" style="color: rgba(42,42,42,0.88);">
-                      {section.content.details.map((d) => (
-                        <p class={d.bold ? 'font-bold' : ''}>{d.text}</p>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-              </div>
-            ))}
+            <LegalSections sections={sections} />
 
           </div>
         </div>

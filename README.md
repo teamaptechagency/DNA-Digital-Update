@@ -70,7 +70,7 @@ Install Command: npm install
 The current site URL is configured in `astro.config.mjs`:
 
 ```js
-site: 'https://dna-digital.vercel.app'
+site: 'https://dnadigitalconsultancy.ai'
 ```
 
 If deploying to a different live domain, update that `site` value before building so social previews and canonical URLs use the correct domain.

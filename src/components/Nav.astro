@@ -5,20 +5,22 @@ const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/';
 const isAbout = currentPath === '/about';
 
-const practiceLinks = [
-  { label: 'Overview', href: '#', tabId: null },
-  { label: 'AI Strategy & Transformation', href: '#', tabId: null },
-  { label: 'Technology Leadership & Governance', href: '#', tabId: null },
-  { label: 'AI-Powered Growth & Experience', href: '#', tabId: null },
-  { label: 'Solution & Product Engineering', href: '#', tabId: null },
-  { label: 'Enterprise Digital & Technology Transformation', href: '#', tabId: null },
-  { label: 'AI Micro-Agents & CRM Intelligence', href: '#', tabId: null },
-  { label: 'Digital Execution & Delivery Enablement', href: '#', tabId: null },
-];
+import { practices } from '../data/practices';
+const practiceLinks = practices.map(practice => ({ label: practice.title, href: `/?practice=${practice.tabId}#expertise`, tabId: practice.tabId }));
 
 const productLinks = [
-  { label: 'Sifter CRM', href: '#' },
-  { label: 'Mobile Apps', href: '#' },
+  {
+    "label": "Digital Growth Engine",
+    "href": "https://digitalgrowthengine.ai"
+  },
+  {
+    "label": "CPMAI Mastery System",
+    "href": "https://www.cpmaimastery.com/"
+  },
+  {
+    "label": "Mobile Apps",
+    "href": "#"
+  }
 ];
 ---
 
@@ -274,9 +276,9 @@ class="fixed top-0 left-0 right-0 z-[200] h-[72px] md:h-[112px] flex items-cente
     <!-- LeadConnector Embedded Form -->
     <div class="conversation-form conversation-leadconnector-form">
       <iframe
-        src="https://api.leadconnectorhq.com/widget/form/FSDKwUyo2o3zxMkTewfP?radio_1z5n=Email"
-        style="width:100%;height:100%;border:none;border-radius:4px;"
-        id="inline-FSDKwUyo2o3zxMkTewfP"
+        src="https://api.leadconnectorhq.com/widget/form/sLvKUPU9fncv2nyE5VeJ"
+        style="width:100%;height:100%;border:none;border-radius:8px;"
+        id="inline-sLvKUPU9fncv2nyE5VeJ"
         data-layout='{"id":"INLINE"}'
         data-trigger-type="alwaysShow"
         data-trigger-value=""
@@ -284,8 +286,12 @@ class="fixed top-0 left-0 right-0 z-[200] h-[72px] md:h-[112px] flex items-cente
         data-activation-value=""
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
-        data-form-id="FSDKwUyo2o3zxMkTewfP"
-        data-layout-iframe-id="inline-FSDKwUyo2o3zxMkTewfP"
+        data-form-id="sLvKUPU9fncv2nyE5VeJ"
+        data-form-name="Form 0"
+        data-height="785"
+        data-cookie-consent="true"
+        data-cookie-consent-provider="auto"
+        data-layout-iframe-id="inline-sLvKUPU9fncv2nyE5VeJ"
         title="Start a Conversation Form"
       >
       </iframe>
@@ -311,7 +317,7 @@ const aiClose = document.getElementById('ai-concierge-close') as HTMLButtonEleme
 const aiChatForm = document.getElementById('ai-chat-form') as HTMLFormElement;
 const aiChatInput = document.getElementById('ai-chat-input') as HTMLInputElement;
 const aiChatThread = document.getElementById('ai-chat-thread') as HTMLElement;
-const GHL_WIDGET_ID = '6a0c52d6246241882e89827d';
+const GHL_WIDGET_ID = '6ac5795bc407264032740ca8';
 
 function clickElement(el: HTMLElement) {
   el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
@@ -422,6 +428,11 @@ function openConversationPanel() {
   panel.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
   panel.classList.add('translate-x-0', 'opacity-100');
   panel.setAttribute('aria-hidden', 'false');
+  const content = panel.querySelector<HTMLElement>('.conversation-panel-content');
+  if (content) {
+    content.scrollTop = 0;
+    window.requestAnimationFrame(() => { content.scrollTop = 0; });
+  }
 }
 
 function closeConversationPanel() {
@@ -435,7 +446,7 @@ function closeConversationPanel() {
 window.addEventListener('message', (event) => {
   if (!panel || !Array.isArray(event.data)) return;
 
-  const formFrame = document.getElementById('inline-FSDKwUyo2o3zxMkTewfP') as HTMLIFrameElement | null;
+  const formFrame = document.getElementById('inline-sLvKUPU9fncv2nyE5VeJ') as HTMLIFrameElement | null;
   const [action, userDataKey] = event.data;
 
   if (
@@ -719,6 +730,7 @@ document.querySelectorAll<HTMLAnchorElement>('.nav-practice-link').forEach((link
 
     event.preventDefault();
     scrollToNavTarget(targetId);
+    window.history.replaceState(null, '', link.href);
 
     if (!tabId) return;
 
@@ -753,6 +765,9 @@ document.querySelectorAll<HTMLAnchorElement>('.nav-submenu-link').forEach((link)
 </script>
 
 <style>
+#conversation-panel .conversation-panel-content { overflow-y: auto; overscroll-behavior: contain; }
+#conversation-panel .conversation-leadconnector-form { height: auto; min-height: 785px; overflow: visible; flex-shrink: 0; }
+#conversation-panel iframe { background: transparent !important; width: 100% !important; border: none !important; min-height: 785px; }
 .nav-menu-group.is-locked .nav-menu-panel {
   opacity: 0 !important;
   pointer-events: none !important;

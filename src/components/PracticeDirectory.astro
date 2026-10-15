@@ -1,142 +1,8 @@
 ﻿---
-const cards = [
-  {
-    num: '01',
-    title: 'AI Strategy & Transformation',
-    description:
-      'We help organizations understand where AI fits, what is possible, and how to move forward with clarity, governance, and measurable value. To make that possible, we help:',
-    expandOnHover: true,
-    tabId: 'ai-strategy',
-    capabilities: [
-      'AI Strategy & Execution Roadmaps',
-      'AI Maturity & Readiness Audits',
-      'AI Governance, Risk & Compliance',
-      'AI Opportunity Review & ROI Analysis',
-      'AI CoE & Delivery Framework Development',
-      'AI Technical Feasibility & Pilot Validation',
-      'AI Program Leadership & Delivery Oversight',
-    ],
-    headerColor: '#818A79',
-    iconSrc: '/images/practices/icons/icon-1.svg',
-  },
-  {
-    num: '02',
-    title: 'Technology Leadership & Governance',
-    description:
-      'We provide senior-level technology leadership, organizational design, and delivery governance for complex engineering environments. That means we help:',
-    expandOnHover: true,
-    tabId: 'tech-leadership',
-    capabilities: [
-      'Fractional Executive Engineering Leadership',
-      'Engineering Org Design & Team Scaling',
-      'PMO Establishment & Delivery Governance',
-      'SDLC, DevOps & SRE Framework Development',
-      'Technology Portfolio Audit & Optimization Strategy',
-      'AI & Technical Governance, Risk & Compliance (GRC)',
-      'Ecosystem Governance & Accountability Frameworks',
-    ],
-    headerColor: '#887660',
-    iconSrc: '/images/practices/icons/icon-2.svg',
-  },
-  {
-    num: '03',
-    title: 'AI-Powered Growth & Experience',
-    description:
-      'We apply AI to discoverability, content, engagement, personalization, and conversion so brands can grow with sharper intelligence and greater speed. To deliver on that, we help:',
-    expandOnHover: true,
-    tabId: 'ai-growth',
-    capabilities: [
-      'AI-Driven Discoverability & Growth Engineering',
-      'AI-Assisted Content & Media Orchestration',
-      'Automated CX & Engagement Workflows',
-      'AI Audience Sentiment & Behavioral Intelligence',
-      'AI Personalization & Recommendation Systems',
-      'AI Journey Analytics & Conversion Engineering',
-      'AI Brand Intelligence & Creative Strategy',
-    ],
-    headerColor: '#75867E',
-    iconSrc: '/images/practices/icons/icon-3.svg',
-  },
-  {
-    num: '04',
-    title: 'Solution & Product Engineering',
-    description:
-      'We design, build, modernize, and stabilize digital products and AI-enabled applications for real-world scale, security, and performance. To make that possible, we help:',
-    expandOnHover: true,
-    tabId: 'solution-engineering',
-    capabilities: [
-      'Full-Stack Web & Mobile Product Development',
-      'Legacy Product AI Augmentation',
-      'Custom AI Model Engineering',
-      'Scalable Backend & API Architecture Development',
-      'Data Architecture & Performance Optimization',
-      'Secure & Resilient Systems Engineering',
-      'Rapid Prototyping & MVP Development',
-    ],
-    headerColor: '#6A747D',
-    iconSrc: '/images/practices/icons/icon-4.svg',
-  },
-  {
-    num: '05',
-    title: 'Enterprise Digital & Technology Transformation',
-    description:
-      'We guide platform decisions, enterprise implementations, modernization, rescue work, and architecture alignment across complex technology environments. To support that evolution, we help:',
-    expandOnHover: true,
-    tabId: 'enterprise-digital',
-    capabilities: [
-      'Enterprise Platform Evaluation & RFP Governance',
-      'Core Enterprise Platform Implementation',
-      'Legacy Platform & Infrastructure Modernization',
-      'Mission-Critical System Rescue & Stabilization',
-      'Digital Workflow & Process Optimization',
-      'Enterprise Architecture & Strategic Alignment',
-      'Technical Debt Reduction & Risk Mitigation Strategy',
-    ],
-    headerColor: '#86845E',
-    iconSrc: '/images/practices/icons/icon-5.svg',
-  },
-  {
-    num: '06',
-    title: 'AI Micro-Agents & CRM Intelligence',
-    description:
-      'We deploy AI agents, CRM automation, funnel intelligence, and customer engagement systems that help teams act faster and with more precision. To deliver on that, we help:',
-    expandOnHover: true,
-    tabId: 'ai-micro-agents',
-    capabilities: [
-      'AI Voice, Chat & Interaction Agents',
-      'Intelligent CRM Workflow Automation',
-      'Funnel Intelligence & Lead Conversion Optimization',
-      'Personalized Outreach & Content Scaling',
-      'Automated Reputation & Review Management',
-      'AI-Enhanced Customer Service & Support Systems',
-      'Sales & Marketing Operational Intelligence',
-    ],
-    headerColor: '#828A7B',
-    iconSrc: '/images/practices/icons/icon-6.svg',
-  },
-  {
-    num: '07',
-    title: 'Digital Execution & Delivery Enablement',
-    description:
-      'We strengthen delivery with certified engineering talent, technical leadership, cloud, data, AI/ML, and QA support for high-stakes initiatives. To ensure that happens, we help:',
-    expandOnHover: true,
-    tabId: 'digital-execution',
-    capabilities: [
-      'Engineering Talent Augmentation',
-      'Architecture & Technical Leadership',
-      'Project & Program Delivery Management',
-      'Cloud Infrastructure Engineering Support',
-      'Data Engineering & Database Development',
-      'AI/ML Engineering Support',
-      'Quality Assurance (QA) Support',
-    ],
-    headerColor: '#968C80',
-    iconSrc: '/images/practices/icons/icon-7.svg',
-  },
-];
+import { practices as cards } from '../data/practices';
 
-const row1 = cards.slice(0, 3);
-const row2 = cards.slice(3);
+const row1 = cards.slice(0, 4);
+const row2 = cards.slice(4);
 ---
 
 <section id="practices" class="w-full py-[100px]" style="background-color: #F5F1EA;">
@@ -163,8 +29,8 @@ const row2 = cards.slice(3);
     </div>
 
     <div class="practice-desktop-content">
-    <!-- Row 1: 3 cards -->
-    <div class="mx-auto grid max-w-[904px] grid-cols-1 items-start gap-8 mb-8 md:grid-cols-3">
+    <!-- Row 1: 4 cards -->
+    <div class="mx-auto grid max-w-[1216px] grid-cols-1 items-start gap-8 mb-8 sm:grid-cols-2 lg:grid-cols-4">
       {row1.map((card) => (
         <article class={`practice-card practice-card-desktop ${card.expandOnHover ? 'practice-card-expandable' : ''} self-start flex min-h-[296px] flex-col overflow-hidden rounded-t-[8px] bg-white shadow-[0_6px_12px_-2px_rgba(0,0,0,0.09),0_1px_3px_rgba(0,0,0,0.08)] transition-all duration-700 hover:shadow-[0_12px_28px_-4px_rgba(0,0,0,0.15)]`}>
           <div class="flex h-16 items-center justify-between px-4" style={`background-color: ${card.headerColor};`}>
@@ -183,9 +49,12 @@ const row2 = cards.slice(3);
               )}
               {card.capabilities && (
                 <ul class="practice-hover-capabilities">
-                  {card.capabilities.map((item) => (
+                  {card.capabilities.map((item, capabilityIndex) => (
                     <li>
-                      <a href="#expertise" class="practice-capability-link" data-expertise-tab={card.tabId} data-expertise-capability={item}>{item}</a>
+                      <a href="#expertise" class="practice-capability-link" data-expertise-tab={card.tabId} data-expertise-capability={card.capabilityTargets?.[capabilityIndex] ?? item}>{item}</a>
+                      {capabilityIndex === 0 && card.subCapabilities.length > 0 && (
+                        <ul class="practice-sub-capabilities">{card.subCapabilities.map(sub => <li><a href="#expertise" class="practice-capability-link" data-expertise-tab={card.tabId} data-expertise-capability={card.capabilityTargets?.[0]}>{sub}</a></li>)}</ul>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -216,9 +85,12 @@ const row2 = cards.slice(3);
               )}
               {card.capabilities && (
                 <ul class="practice-hover-capabilities">
-                  {card.capabilities.map((item) => (
+                  {card.capabilities.map((item, capabilityIndex) => (
                     <li>
-                      <a href="#expertise" class="practice-capability-link" data-expertise-tab={card.tabId} data-expertise-capability={item}>{item}</a>
+                      <a href="#expertise" class="practice-capability-link" data-expertise-tab={card.tabId} data-expertise-capability={card.capabilityTargets?.[capabilityIndex] ?? item}>{item}</a>
+                      {capabilityIndex === 0 && card.subCapabilities.length > 0 && (
+                        <ul class="practice-sub-capabilities">{card.subCapabilities.map(sub => <li><a href="#expertise" class="practice-capability-link" data-expertise-tab={card.tabId} data-expertise-capability={card.capabilityTargets?.[0]}>{sub}</a></li>)}</ul>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -263,9 +135,12 @@ const row2 = cards.slice(3);
                 )}
                 {card.capabilities && (
                   <ul class="practice-hover-capabilities">
-                    {card.capabilities.map((item) => (
+                    {card.capabilities.map((item, capabilityIndex) => (
                       <li>
-                        <a href="#expertise" class="practice-capability-link" data-expertise-tab={card.tabId} data-expertise-capability={item}>{item}</a>
+                        <a href="#expertise" class="practice-capability-link" data-expertise-tab={card.tabId} data-expertise-capability={card.capabilityTargets?.[capabilityIndex] ?? item}>{item}</a>
+                      {capabilityIndex === 0 && card.subCapabilities.length > 0 && (
+                        <ul class="practice-sub-capabilities">{card.subCapabilities.map(sub => <li><a href="#expertise" class="practice-capability-link" data-expertise-tab={card.tabId} data-expertise-capability={card.capabilityTargets?.[0]}>{sub}</a></li>)}</ul>
+                      )}
                       </li>
                     ))}
                   </ul>
@@ -330,9 +205,7 @@ const row2 = cards.slice(3);
 
     const navHeight = document.getElementById('main-nav')?.getBoundingClientRect().height || 0;
     const rect = target.getBoundingClientRect();
-    const availableHeight = window.innerHeight - navHeight;
-    const centeredTop = navHeight + Math.max(16, (availableHeight - rect.height) / 2);
-    const top = window.scrollY + rect.top - centeredTop;
+    const top = window.scrollY + rect.top - navHeight - 16;
 
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   }
@@ -381,17 +254,9 @@ const row2 = cards.slice(3);
     card.style.setProperty('--practice-hover-body-height', `${hoverBodyHeight}px`);
   }
 
-  function scrollPracticeCardToCapabilities(card: HTMLElement) {
+  function resetPracticeCardScroll(card: HTMLElement) {
     const body = card.querySelector<HTMLElement>('.practice-card-body-stack');
-    const description = card.querySelector<HTMLElement>('.practice-card-description');
-    const capabilities = card.querySelector<HTMLElement>('.practice-hover-capabilities');
-    if (!body || !description || !capabilities) return;
-
-    const capabilityGap = parseFloat(window.getComputedStyle(capabilities).marginTop) || 0;
-    body.scrollTo({
-      top: Math.ceil(description.offsetHeight + capabilityGap),
-      behavior: 'auto',
-    });
+    if (body) body.scrollTop = 0;
   }
 
   function isPointerNearPracticeCard(card: HTMLElement) {
@@ -442,7 +307,7 @@ const row2 = cards.slice(3);
 
       window.requestAnimationFrame(() => {
         if (card.classList.contains('is-practice-card-hovered')) {
-          scrollPracticeCardToCapabilities(card);
+          resetPracticeCardScroll(card);
         }
       });
     });
@@ -478,6 +343,8 @@ const row2 = cards.slice(3);
 </script>
 
 <style>
+.practice-sub-capabilities { margin: 8px 0 8px 8px; padding: 0; list-style: none; }
+.practice-card-body-stack { overflow-anchor: none; }
 .practice-card-body-stack {
   min-height: 0;
 }
@@ -565,7 +432,7 @@ const row2 = cards.slice(3);
 }
 
 .practice-card-description {
-  max-height: 220px;
+  max-height: none;
   opacity: 1;
   overflow: hidden;
   visibility: visible;
@@ -662,7 +529,7 @@ const row2 = cards.slice(3);
 .practice-card-expandable:hover .practice-card-description,
 .practice-card-expandable.is-practice-card-hovered .practice-card-description {
   opacity: 1;
-  max-height: 260px;
+  max-height: none;
   visibility: visible;
   margin-bottom: 0;
   pointer-events: auto;

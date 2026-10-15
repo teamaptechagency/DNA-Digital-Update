@@ -13,8 +13,8 @@ const {
   image = '/images/thumbnail.png',
 } = Astro.props;
 
-const canonicalUrl = Astro.url.href;
-const imageUrl = new URL(image, Astro.url).href;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const imageUrl = new URL(image, Astro.site).href;
 ---
 
 <!DOCTYPE html>
@@ -57,7 +57,7 @@ const imageUrl = new URL(image, Astro.url).href;
 <script
 src="https://widgets.leadconnectorhq.com/loader.js"
 data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-data-widget-id="6a0c52d6246241882e89827d"
+data-widget-id="6ac5795bc407264032740ca8"
 is:inline
 ></script>
   </body>

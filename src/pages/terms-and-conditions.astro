@@ -1,68 +1,117 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LegalSections from '../components/LegalSections.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const sections = [
   {
-    num: '1.',
-    title: 'AGREEMENT TO TERMS',
-    content: {
-      type: 'dropcap',
-      dropcap: 'B',
-      text: 'y accessing the website of Dna Digital Consultancy (\u201cthe Firm\u201d), a DBA of Dna Web Solutions, Inc., you agree to be bound by these Terms and Conditions. Our engagement is built on a foundation of integrity and proactive risk anticipation; we expect the same level of commitment from our digital visitors and clients. If you do not agree with all of these terms, you are prohibited from using the site.',
-    },
+    "num": "1.",
+    "title": "ACCEPTANCE OF TERMS",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "By accessing the website of DNA Digital Consultancy (“we,” “us,” or “our”), a DBA of Dna Web Solutions, Inc., or utilizing our services, you agree to be bound by these Terms and Conditions and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."
+      }
+    ]
   },
   {
-    num: '2.',
-    title: 'INTELLECTUAL PROPERTY RIGHTS',
-    content: {
-      type: 'paragraph',
-      text: 'The \u201cArchitectural Plates,\u201d custom software frameworks, CRM logic, and all visual designs (including the glassmorphism UI and Dna Digital branding) are the proprietary property of the Firm. You are granted a limited license to access the site for informational purposes. No part of our \u201cEngineered Outcomes\u201d or technical specs may be copied, reproduced, or exploited for commercial purposes without express written consent.',
-    },
+    "num": "2.",
+    "title": "CONSULTING & PROFESSIONAL SERVICES",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Dedicated Master Services Agreements (MSAs) or Statements of Work (SOWs) govern all scope deliverables, development milestones, software architecture, and advisory services between DNA Digital Consultancy and the client. Content provided on this website is for informational and demonstrative purposes only."
+      }
+    ]
   },
   {
-    num: '3.',
-    title: 'PROFESSIONAL SERVICES & ENGAGEMENT',
-    content: {
-      type: 'paragraph',
-      text: 'Consultancy services\u2014including AI Strategy, Technology Leadership, and Product Engineering\u2014are subject to individual Master Service Agreements (MSAs). The information on this site is for promotional and educational purposes and does not constitute a binding contract for delivery until a formal Statement of Work (SOW) is executed.',
-    },
+    "num": "3.",
+    "title": "SMS AND MOBILE MESSAGING TERMS",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "By submitting an inquiry form on our website and opting in via our SMS consent checkbox, you agree to receive text messages (SMS and MMS) from DNA Digital Consultancy (“we,” “us,” or “our”)."
+      },
+      {
+        "type": "bullet",
+        "text": "Program Description & Use Cases: Text messages sent from DNA Digital Consultancy are transactional and informational in nature. Messages may include responses to contact inquiries, consultation reminders, technical scoping updates, and delivery notifications regarding our professional services."
+      },
+      {
+        "type": "bullet",
+        "text": "Message Frequency: Message frequency varies depending on your interactions with us, project activity, and inquiry status."
+      },
+      {
+        "type": "bullet",
+        "text": "Message and Data Rates: Standard message and data rates may apply to any messages sent or received, as determined by your cellular service provider. DNA Digital Consultancy is not responsible for any mobile carrier charges incurred."
+      },
+      {
+        "type": "bullet",
+        "text": "How to Opt Out (Cancellation): You can cancel SMS communications at any time. Simply reply “STOP” to any text message you receive from us. After sending “STOP,” we will send one final SMS message confirming that you have been unsubscribed. No further messages will be sent unless you submit a new consent request."
+      },
+      {
+        "type": "bullet",
+        "text": "Support and Help: If you need assistance or have questions regarding our messaging program, reply “HELP” to any message you receive, or contact our team directly at privacypolicy@dnadigitalconsultancy.ai."
+      },
+      {
+        "type": "bullet",
+        "text": "Carrier Disclaimer: Cellular carriers (including, but not limited to, AT&T, T-Mobile, Verizon, and regional wireless providers) are not liable for delayed or undelivered messages."
+      }
+    ]
   },
   {
-    num: '4.',
-    title: 'LIMITATION OF LIABILITY',
-    content: {
-      type: 'leftborder',
-      boldLabel: 'NOTICE OF RISK:',
-      text: ' Dna Digital Consultancy provides technical oversight to anticipate issues before they impact momentum. However, the Firm shall not be liable for any indirect, consequential, or incidental damages resulting from the use of our digital content or the implementation of suggested architectural patterns by third parties.',
-    },
+    "num": "4.",
+    "title": "INTELLECTUAL PROPERTY RIGHTS",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "All custom architectural frameworks, code libraries, designs, graphics, branding, and copy displayed on this website are the intellectual property of Dna Web Solutions, Inc. DBA DNA Digital Consultancy and are protected by applicable copyright and trademark laws."
+      }
+    ]
   },
   {
-    num: '5.',
-    title: 'USER CONDUCT',
-    content: {
-      type: 'paragraph',
-      text: 'We measure success by the resilience of our solutions. Users are prohibited from attempting to reverse-engineer our mobile apps, CRM intelligence, or website code, or attempting to breach the \u201cmilitary-grade\u201d security measures protecting our infrastructure.',
-    },
+    "num": "5.",
+    "title": "LIMITATION OF LIABILITY",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "In no event shall DNA Digital Consultancy, its directors, employees, or partners be liable for any indirect, incidental, consequential, or punitive damages arising out of your access to, or use of, this website or messaging services."
+      }
+    ]
   },
   {
-    num: '6.',
-    title: 'GOVERNING LAW',
-    content: {
-      type: 'paragraph',
-      text: 'These terms are governed by the laws of the State of California. Any structural disputes or legal missions arising from these terms shall be resolved in the courts of Los Angeles County.',
-    },
+    "num": "6.",
+    "title": "GOVERNING LAW",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "These Terms and Conditions are governed by and construed in accordance with the laws of the State of California, without regard to conflict of law principles. Any legal action or proceeding relating to your access to or use of the website or services shall be instituted in a state or federal court located in Los Angeles County, California."
+      }
+    ]
   },
   {
-    num: '7.',
-    title: 'TERMINATION',
-    content: {
-      type: 'paragraph',
-      text: 'We reserve the right to terminate access to our digital platforms at our sole discretion, without notice, for conduct that we believe violates these Terms or is harmful to the integrity of the Dna Digital Consultancy brand.',
-    },
-  },
+    "num": "7.",
+    "title": "CONTACT INFORMATION",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "For any questions regarding these Terms and Conditions or our mobile messaging policies, please contact:"
+      },
+      {
+        "type": "paragraph",
+        "text": "DNA Digital Consultancy"
+      },
+      {
+        "type": "paragraph",
+        "text": "Signal Hill, California"
+      },
+      {
+        "type": "paragraph",
+        "text": "Email: privacypolicy@dnadigitalconsultancy.ai"
+      }
+    ]
+  }
 ];
 ---
 
@@ -103,7 +152,7 @@ const sections = [
           class="font-merriweather font-medium"
           style="font-size: 20px; line-height: 36px; color: #91836C;"
         >
-          Last Updated: October 15, 2025
+          Last Updated: October 06, 2026
         </p>
       </div>
     </section>
@@ -115,66 +164,7 @@ const sections = [
         <div class="mx-auto" style="max-width: 900px;">
           <div class="flex flex-col" style="gap: 96px;">
 
-            {sections.map((section) => (
-              <div>
-                <!-- Section Heading Row -->
-                <div
-                  class="flex items-start gap-1 pb-3 mb-6"
-                  style="border-bottom: 1px solid #E2DED6;"
-                >
-                  <span
-                    class="font-montserrat font-semibold"
-                    style="font-size: 28px; line-height: 47.2px; color: #2A2A2A; font-variant: small-caps;"
-                  >
-                    {section.num}
-                  </span>
-                  <span
-                    class="font-montserrat font-semibold ml-1"
-                    style="font-size: 28px; line-height: 47.2px; color: #2A2A2A; font-variant: small-caps;"
-                  >
-                    {section.title}
-                  </span>
-                </div>
-
-                <!-- Section Body -->
-                {section.content.type === 'dropcap' && (
-                  <div
-                    class="font-merriweather text-[18px] leading-[30.6px]"
-                    style="color: rgba(42,42,42,0.88); display: flow-root;"
-                  >
-                    <span
-                      class="float-left font-normal mr-2"
-                      style="font-family: Merriweather, serif; font-size: 60px; color: #91836C; line-height: 0.66; margin-top: 12px;"
-                    >
-                      {section.content.dropcap}
-                    </span>
-                    {section.content.text}
-                  </div>
-                )}
-
-                {section.content.type === 'paragraph' && (
-                  <p
-                    class="font-merriweather text-[18px] leading-[30.6px]"
-                    style="color: rgba(42,42,42,0.88);"
-                  >
-                    {section.content.text}
-                  </p>
-                )}
-
-                {section.content.type === 'leftborder' && (
-                  <div>
-                    <p
-                      class="font-merriweather italic text-[18px] leading-[30.6px]"
-                      style="color: rgba(42,42,42,0.88);"
-                    >
-                      <strong class="font-bold not-italic">{section.content.boldLabel}</strong>
-                      {section.content.text}
-                    </p>
-                  </div>
-                )}
-
-              </div>
-            ))}
+            <LegalSections sections={sections} />
 
           </div>
         </div>
