@@ -309,6 +309,32 @@ const mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
 const navLinks = document.querySelectorAll<HTMLElement>('#main-nav [data-nav-link]');
 
 const panel = document.getElementById('conversation-panel') as HTMLElement;
+// Fit the complete embedded form on full-HD desktops without cropping its footer.
+const conversationFrame = panel?.querySelector<HTMLIFrameElement>('iframe');
+const conversationForm = panel?.querySelector<HTMLElement>('.conversation-leadconnector-form');
+const conversationContent = panel?.querySelector<HTMLElement>('.conversation-panel-content');
+function fitDesktopConversationForm() {
+  if (!conversationFrame || !conversationForm || !conversationContent) return;
+  if (!window.matchMedia('(min-width: 1600px) and (min-height: 1000px)').matches) {
+    conversationFrame.style.removeProperty('transform');
+    return;
+  }
+  const available = conversationForm.clientHeight;
+  const naturalHeight = conversationFrame.offsetHeight;
+  if (available > 0 && naturalHeight > 0) {
+    const scale = Math.min(1, available / naturalHeight);
+    conversationFrame.style.transform = `scale(${scale})`;
+  }
+}
+if (conversationFrame && conversationForm && conversationContent) {
+  const formSizeObserver = new ResizeObserver(fitDesktopConversationForm);
+  formSizeObserver.observe(conversationFrame);
+  formSizeObserver.observe(conversationForm);
+  conversationFrame.addEventListener('load', fitDesktopConversationForm);
+  window.addEventListener('resize', fitDesktopConversationForm);
+  fitDesktopConversationForm();
+}
+
 const panelClose = document.getElementById('conversation-close') as HTMLButtonElement;
 const panelCloseInline = document.getElementById('conversation-close-inline') as HTMLButtonElement;
 
@@ -1140,5 +1166,12 @@ body.mobile-menu-open {
   .conversation-panel-submitted .conversation-close-inline-btn {
     top: 375px;
   }
+}
+@media (min-width: 1600px) and (min-height: 1000px) {
+  #conversation-panel { width: 460px; max-width: 460px; }
+  #conversation-panel .conversation-panel-content { padding: 20px; gap: 12px; overflow-y: hidden; }
+  #conversation-panel .conversation-title-wrap { width: 100%; flex-shrink: 0; }
+  #conversation-panel .conversation-leadconnector-form { flex: 1 1 0; min-height: 0; overflow: hidden; }
+  #conversation-panel iframe { transform-origin: top center; }
 }
 </style>
