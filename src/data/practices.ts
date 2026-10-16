@@ -3,7 +3,7 @@ export const practices = [
   {
     "num": "01",
     "title": "SMB Digital Transformation & Growth",
-    "description": "We help small to medium-sized businesses install an end-to-end Revenue Generating Operating System powered by our proprietary Digital Growth Engine, pairing automated client acquisition with practical AI to modernize operations. To make that possible, we help:",
+    "description": "We help small to medium-sized businesses install a Revenue Generating Operating System powered by our Digital Growth Engine, pairing automated client acquisition with practical AI to modernize operations. To make that possible, we help:",
     "expandOnHover": true,
     "tabId": "smb-growth",
     "capabilities": [
