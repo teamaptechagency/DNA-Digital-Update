@@ -168,3 +168,8 @@ ion-list, ion-item { --background: transparent !important; background: transpare
 :host .message-container.info-message-container .bubble.informational > .footer {
   display: none !important;
 }
+
+/* A little breathing room below the final restart card. */
+.live-message-end-pane {
+  margin-bottom: 16px !important;
+}
