@@ -2,14 +2,14 @@
 :host {
   --chat-widget-background-color: #1a1a1a !important;
   --chat-widget-received-message-color: #5a4d3b !important;
-  --chat-widget-sender-message-color: #5a4d3b !important;
+  --chat-widget-sender-message-color: #6b5c47 !important;
   --chat-widget-received-message-text-color: #ffffff !important;
   --chat-widget-sender-message-text-color: #ffffff !important;
   --chat-widget-welcome-message-text-color: #ffffff !important;
   --chat-widget-system-message-text-color: #ffffff !important;
   --chat-widget-header-message-text-color: #ffffff !important;
   --ion-text-color: #ffffff !important;
-  --ion-background-color: #5a4d3b !important;
+  --ion-background-color: #1a1a1a !important;
   --color: #ffffff !important;
   color: #ffffff !important;
 }
@@ -86,3 +86,66 @@ ion-checkbox {
 }
 
 .lc_text-widget--voice-ai-badge { background: #5a4d3b !important; }
+
+/* One rounded outline per field; avoid stacked square input borders. */
+.lc_text-widget--form {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  isolation: isolate;
+}
+.lc_text-widget--form::before, .lc_text-widget--form::after {
+  border-radius: 10px !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.lc_text-widget--text-input {
+  border: 1px solid rgba(255,255,255,.24) !important;
+  border-radius: 7px !important;
+  overflow: hidden !important;
+}
+.lc_text-widget--text-input-input {
+  border: 0 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.lc_text-widget--text-input:focus-within {
+  box-shadow: 0 0 0 2px rgba(255,255,255,.6) !important;
+}
+
+/* Keep the conversation canvas dark so individual olive bubbles stand out. */
+ion-content { --background: #1a1a1a !important; }
+ion-list, ion-item { --background: transparent !important; background: transparent !important; }
+.bubble {
+  background: #5a4d3b !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 10px !important;
+  padding: 10px 12px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.18) !important;
+}
+.bubble.outgoing { background: #6b5c47 !important; }
+.bubble.informational { background: #4e4436 !important; }
+.message-container { margin-block: 5px !important; }
+
+/* The composer owns the border; its textarea stays inside the same radius. */
+.input-container-textarea {
+  background: #5a4d3b !important;
+  border: 1px solid rgba(255,255,255,.35) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,.15) !important;
+}
+.input-container-textarea textarea, .input-container-textarea ion-textarea,
+.input-container-textarea .textarea-wrapper {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.input-container-textarea:focus-within {
+  border-color: rgba(255,255,255,.75) !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.16) !important;
+}
+
+.bubble.bubble-footer-padding { padding-bottom: 28px !important; }
