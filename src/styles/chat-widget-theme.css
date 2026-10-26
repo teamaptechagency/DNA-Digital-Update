@@ -209,3 +209,23 @@ ion-button.reset-chat-button:focus-within {
   outline: 2px solid #ffffff !important;
   outline-offset: 3px !important;
 }
+
+/* Restart prompt: no outer frame, with a single-line label above the action. */
+:host .live-message-end-pane {
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  width: fit-content !important;
+  max-width: calc(100% - 24px) !important;
+  margin-inline: auto !important;
+}
+:host .live-message-end-feedback {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 14px !important;
+}
