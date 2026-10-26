@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import AboutHero from '../components/about/AboutHero.astro';
+import AboutMission from '../components/about/AboutMission.astro';
+import AboutOurDNA from '../components/about/AboutOurDNA.astro';
+import AboutCredentials from '../components/about/AboutCredentials.astro';
+import AboutFederal from '../components/about/AboutFederal.astro';
+import ScrollPlates from '../components/ScrollPlates.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout
+  title="About | DNA Digital Consultancy"
+  description="DNA Digital Consultancy — a Service-Disabled Veteran-Owned boutique practice engineering digital resilience for over 30 years."
+>
+  <Nav />
+  <main style="background: #fdfcf6;">
+    <AboutHero />
+    <AboutMission />
+    <AboutOurDNA />
+    <AboutCredentials />
+    <AboutFederal />
+    <ScrollPlates />
+  </main>
+  <Footer />
+</Layout>

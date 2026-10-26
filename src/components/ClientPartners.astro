@@ -1,0 +1,261 @@
+﻿---
+// Client Partners — exact Figma match
+const clients = [
+  { name: 'Honda Power Sports', logo: '/images/clients/honda-power-sports.png' },
+  { name: 'Hughes Aircraft', logo: '/images/clients/hughes-aircraft.png' },
+  { name: 'Toyota', logo: '/images/clients/toyota.png' },
+  { name: 'Honda Financial Services', logo: '/images/clients/honda-financial-services.png' },
+  { name: 'Lexus Financial Services', logo: '/images/clients/lexus-financial-services.png' },
+  { name: 'Honda', logo: '/images/clients/honda.png' },
+  { name: 'Pixel506', logo: '/images/clients/pixel506.png' },
+  { name: 'Honda Power Equipment', logo: '/images/clients/honda-power-equipment.png' },
+  { name: 'Spohn Design', logo: '/images/clients/spohn-design.png' },
+  { name: 'HondaJet', logo: '/images/clients/hondajet.png' },
+  { name: '9th Wonder', logo: '/images/clients/9th-wonder.png' },
+  { name: '10 Pearls Studio', logo: '/images/clients/10-pearls-studio.png' },
+  { name: 'Acura', logo: '/images/clients/acura.png' },
+  { name: 'Acura Financial Services', logo: '/images/clients/acura-financial-services.png' },
+  { name: 'ADP', logo: '/images/clients/adp.png' },
+  { name: 'CSC', logo: '/images/clients/csc.png' },
+  { name: 'Dailey', logo: '/images/clients/dailey.png' },
+  { name: 'Honda Marine', logo: '/images/clients/honda-marine.png' },
+  { name: 'HRC Honda Racing', logo: '/images/clients/hrc-honda-racing.png' },
+  { name: 'Gravity', logo: '/images/clients/gravity.png' },
+  { name: 'Honda Engines', logo: '/images/clients/honda-engines.png' },
+];
+---
+
+<div id="products" aria-hidden="true"></div>
+<section id="clients" class="w-full overflow-hidden py-[100px]" style="background-color: #FFFFFF;">
+  <div class="section-container mb-10">
+    <!-- Section Header — CENTERED, small-caps -->
+    <div class="text-center mb-10">
+      <h2
+        class="font-montserrat font-bold leading-tight mb-4"
+        style="font-size: 40px; color: #4E5854; font-variant: small-caps;"
+      >Client Partners</h2>
+      <div class="mb-5 flex justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="208" height="28" viewBox="0 0 208 28" fill="none" aria-hidden="true">
+          <g clip-path="url(#clip0_client_partners)">
+            <path d="M117.338 14.0294L104.309 1L91.2797 14.0294L104.309 27.0588L117.338 14.0294Z" stroke="#796D56" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+            <path d="M113.948 14.0295L104.309 4.39062L94.6702 14.0295L104.309 23.6683L113.948 14.0295Z" fill="#766B53"/>
+            <path d="M3 14L74 14" stroke="#796D56" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round"/>
+            <path d="M134 13H205" stroke="#796D56" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_client_partners">
+              <rect width="208" height="28" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      <h3 class="font-montserrat text-[20px] font-semibold leading-[28px]" style="color: #2A2A2A;">Trusted by Fortune 500 companies for over 20 years</h3>
+    </div>
+  </div>
+
+  <div class="relative py-8">
+    <div class="relative mx-auto w-full max-w-[1440px] overflow-hidden">
+      <div class="clients-overlay-left pointer-events-none absolute bottom-0 left-0 top-0 z-[3] w-[180px]" style="background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0.88) 40%, rgba(255,255,255,0) 100%);"></div>
+      <div class="clients-overlay-right pointer-events-none absolute bottom-0 right-0 top-0 z-[3] w-[180px]" style="background: linear-gradient(270deg, #FFFFFF 0%, rgba(255,255,255,0.88) 40%, rgba(255,255,255,0) 100%);"></div>
+
+      <div class="marquee-track gap-12">
+        {clients.map((client) => (
+          <div class="flex h-[24px] w-auto flex-shrink-0 items-center justify-center">
+            <span class="client-logo-mark" role="img" aria-label={client.name} style={`--logo-url: url('${client.logo}')`}></span>
+          </div>
+        ))}
+        {clients.map((client) => (
+          <div class="flex h-[24px] w-auto flex-shrink-0 items-center justify-center">
+            <span class="client-logo-mark" role="img" aria-label={client.name} style={`--logo-url: url('${client.logo}')`}></span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="section-container mt-12">
+    <!-- Stats: single line with extending lines and bullet separators -->
+    <div class="client-stats-row flex items-center justify-center gap-0 mb-12">
+      <div class="flex-1 h-px" style="background-color: rgba(78,88,84,0.2);"></div>
+      <div class="client-stats-content flex items-center gap-4 px-6">
+        <span class="font-montserrat text-[18px] font-semibold tracking-wide" style="color: #4E5854;">Strategy Architected</span>
+        <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background-color: #887660;"></span>
+        <span class="font-montserrat text-[18px] font-semibold tracking-wide" style="color: #4E5854;">Integrity Represented</span>
+        <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background-color: #887660;"></span>
+        <span class="font-montserrat text-[18px] font-semibold tracking-wide" style="color: #4E5854;">Success, Delivered</span>
+      </div>
+      <div class="flex-1 h-px" style="background-color: rgba(78,88,84,0.2);"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <a href="#" data-open-conversation class="client-cta inline-flex items-center justify-center font-montserrat text-[13px] font-semibold tracking-[0.12em] uppercase text-white px-10 py-[14px] transition-all duration-300 hover:opacity-90" style="background-color: #683547; letter-spacing: 0.12em;">
+        Initiate a Consultation
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+@media (min-width: 769px) {
+  #clients {
+    --client-nav-offset: 112px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: auto;
+    padding-top: 96px !important;
+    padding-bottom: 96px !important;
+  }
+
+  #clients.scroll-plate {
+    background: #FFFFFF;
+    margin-top: calc(-1 * var(--client-nav-offset));
+    min-height: auto;
+    overflow: visible !important;
+    isolation: isolate;
+    justify-content: flex-start;
+  }
+
+  #clients.scroll-plate::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 -140px;
+    background: #FFFFFF;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #clients.scroll-plate > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  #clients > .section-container:first-of-type {
+    margin-bottom: 59px !important;
+  }
+
+  #clients > .relative.py-8 {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+
+  #clients > .section-container.mt-12 {
+    margin-top: 70px !important;
+  }
+
+  #clients .client-stats-row {
+    margin-bottom: 62px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #clients {
+    background-color: #F4F3F2 !important;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+
+  #clients h2 {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+
+  #clients h3 {
+    font-size: 18px !important;
+    line-height: 28px !important;
+    font-weight: 600;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #clients .marquee-track {
+    animation-duration: 38s;
+    gap: 16px !important;
+  }
+
+  #clients .marquee-track > div {
+    width: 112px !important;
+    height: 40px !important;
+  }
+
+  #clients .client-logo-mark {
+    width: 102px;
+    height: 24px;
+    background-color: #B8AE9E;
+  }
+
+  #clients .clients-overlay-left,
+  #clients .clients-overlay-right {
+    width: 42px !important;
+  }
+
+  #clients .clients-overlay-left {
+    background: linear-gradient(90deg, #F4F3F2 0%, rgba(244,243,242,0.88) 40%, rgba(244,243,242,0) 100%) !important;
+  }
+
+  #clients .clients-overlay-right {
+    background: linear-gradient(270deg, #F4F3F2 0%, rgba(244,243,242,0.88) 40%, rgba(244,243,242,0) 100%) !important;
+  }
+
+  #clients .client-stats-row {
+    margin-bottom: 28px !important;
+  }
+
+  #clients .client-stats-row > .flex-1 {
+    display: block;
+    flex: 1 1 20px !important;
+    max-width: 28px;
+  }
+
+  #clients .client-stats-content {
+    display: block !important;
+    gap: 0 4px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    white-space: normal;
+    max-width: 330px;
+    text-align: center;
+  }
+
+  #clients .client-stats-content span {
+    display: inline !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    font-weight: 600 !important;
+    color: #4E5854 !important;
+    opacity: 0.9;
+  }
+
+  #clients .client-stats-content span.w-1\.5 {
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    opacity: 1;
+    border-radius: 0 !important;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
+  #clients .client-stats-content span.w-1\.5::before {
+    content: '•';
+    color: #4E5854;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  #clients .client-stats-content span:not(.w-1\.5) {
+    text-align: center;
+  }
+
+  #clients .client-cta {
+    width: 100%;
+    max-width: 350px;
+    min-height: 52px;
+    font-size: 16px !important;
+    letter-spacing: 0.005em !important;
+  }
+}
+</style>

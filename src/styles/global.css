@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Merriweather:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply font-montserrat text-dna-dark overflow-x-hidden;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Prevent third-party fixed widgets/panels from creating horizontal scroll on mobile */
+@media (max-width: 768px) {
+  iframe,
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply font-montserrat text-[40px] font-bold leading-[47.2px] tracking-normal;
+  }
+
+  .section-subheading {
+    @apply font-montserrat text-[24px] font-semibold leading-[28.8px];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-montserrat text-[16px] font-semibold tracking-widest uppercase text-white bg-dna-gold px-8 py-[14px] hover:bg-dna-gold-dark transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center font-montserrat text-[16px] font-semibold tracking-widest uppercase text-dna-gold-light border border-dna-gold-light px-8 py-[14px] hover:bg-dna-gold hover:border-dna-gold hover:text-white transition-all duration-300 cursor-pointer;
+  }
+
+  .ornament-divider {
+    @apply flex items-center gap-4 my-4;
+  }
+
+  .ornament-divider::before,
+  .ornament-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-dna-dark opacity-30;
+  }
+
+  .section-container {
+    @apply max-w-[1280px] mx-auto px-8;
+  }
+}
+
+:where(
+  .btn-primary,
+  .btn-outline,
+  #hero-cta,
+  .hero-cta,
+  .client-cta,
+  #philosophy-expertise-cta,
+  [data-open-conversation],
+  [data-open-ai-concierge],
+  button:not(#mobile-menu-btn):not(.mobile-nav-toggle):not(.conversation-close-btn):not(.expertise-capability-btn):not(.expertise-tab-btn)
+) {
+  transform: translateY(0);
+  transition-property: transform, background-color, border-color, color, opacity, filter, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+:where(
+  .btn-primary,
+  .btn-outline,
+  #hero-cta,
+  .hero-cta,
+  .client-cta,
+  #philosophy-expertise-cta,
+  [data-open-conversation],
+  [data-open-ai-concierge],
+  button:not(#mobile-menu-btn):not(.mobile-nav-toggle):not(.conversation-close-btn):not(.expertise-capability-btn):not(.expertise-tab-btn)
+):hover,
+:where(
+  .btn-primary,
+  .btn-outline,
+  #hero-cta,
+  .hero-cta,
+  .client-cta,
+  #philosophy-expertise-cta,
+  [data-open-conversation],
+  [data-open-ai-concierge],
+  button:not(#mobile-menu-btn):not(.mobile-nav-toggle):not(.conversation-close-btn):not(.expertise-capability-btn):not(.expertise-tab-btn)
+):focus-visible {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .section-heading {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+
+  .section-subheading {
+    font-size: 18px !important;
+    line-height: 28px !important;
+  }
+
+}
+
+/* Marquee animation for client logos */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 55s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.client-logo-mark {
+  display: block;
+  width: 66.499px;
+  height: 24px;
+  aspect-ratio: 133 / 48;
+  background-color: #C1B7A9;
+  -webkit-mask-image: var(--logo-url);
+  mask-image: var(--logo-url);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* Card styles */
+.practice-card {
+  will-change: transform, box-shadow;
+}
+
+/* Tab styles */
+.tab-item {
+  @apply relative cursor-pointer py-4 px-6 font-montserrat text-sm font-semibold text-dna-dark border-b border-dna-dark/20 transition-all duration-300;
+}
+
+.tab-item.active {
+  @apply text-dna-dark bg-white border-l-4 border-l-dna-gold border-b-transparent;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}

@@ -1,0 +1,304 @@
+﻿---
+// Footer section — bg #5D5749
+
+import { practices } from '../data/practices';
+const practiceLinks = practices.map(practice => ({ label: practice.title, href: `/?practice=${practice.tabId}#expertise`, tabId: practice.tabId }));
+
+const productLinks = [
+  {
+    "label": "Digital Growth Engine",
+    "href": "https://digitalgrowthengine.ai"
+  },
+  {
+    "label": "CPMAI Mastery System",
+    "href": "https://www.cpmaimastery.com/"
+  },
+  {
+    "label": "Mobile Apps",
+    "href": "#"
+  }
+];
+
+const socialIcons = [
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/dnadigitalconsultancy/',
+    iconSrc: '/images/icons/fb.png',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/dna-digital-consultancy/',
+    iconSrc: '/images/icons/in.png',
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/dnadigitalconsultancy',
+    iconSrc: '/images/icons/instagram.svg',
+  },
+  {
+    label: 'Pinterest',
+    href: 'https://www.pinterest.com/dnadigitalconsultancy/',
+    iconSrc: '/images/icons/pinterest.svg',
+  },
+  {
+    label: 'X (Twitter)',
+    href: 'https://x.com/dna_digitalbiz/',
+    iconSrc: '/images/icons/x.png',
+  },
+];
+---
+
+<footer id="footer" class="w-full" style="background-color: #5D5749; position: relative; z-index: 100; overflow: hidden;">
+  <!-- Texture overlay (Figma noise treatment) -->
+  <svg aria-hidden="true" class="absolute inset-0 w-full h-full" viewBox="0 0 1440 887" preserveAspectRatio="none" style="pointer-events: none; z-index: 0;">
+    <defs>
+      <filter id="footer-noise-filter" x="0" y="0" width="1440" height="887" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.5 0.5" stitchTiles="stitch" numOctaves="3" result="noise" seed="9811"/>
+        <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise"/>
+        <feComponentTransfer in="alphaNoise" result="coloredNoise1">
+          <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        </feComponentTransfer>
+        <feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped"/>
+        <feFlood flood-color="rgba(0, 0, 0, 0.16)" result="color1Flood"/>
+        <feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1"/>
+        <feMerge>
+          <feMergeNode in="shape"/>
+          <feMergeNode in="color1"/>
+        </feMerge>
+      </filter>
+    </defs>
+    <rect width="1440" height="886.51" fill="#5D5749" filter="url(#footer-noise-filter)"/>
+  </svg>
+
+  <div class="section-container relative z-10 pt-[80px] pb-[30px]">
+    <!-- Top Section -->
+    <div class="flex flex-col lg:flex-row gap-12 mb-16">
+      <!-- Left: Logo + tagline + big text -->
+      <div class="lg:w-[292px] flex-shrink-0 flex items-start">
+        <img src="/images/logo.svg" alt="DNA Digital Consultancy" class="h-[44px] md:h-[80px] w-auto" />
+      </div>
+
+      <!-- Right: Big tagline + description -->
+      <div class="flex-1 pt-2">
+        <h2
+          class="font-montserrat font-bold leading-[1.15] mb-4"
+          style="font-size: clamp(26px, 2.8vw, 42px); color: #E8D8BC; font-variant: small-caps;"
+        >
+          Strategy. Execution. Transformation.
+        </h2>
+        <p class="font-merriweather text-[17px] font-semibold leading-[28px]" style="color: rgba(244,243,242,0.9);">
+          Engineering resilience into the Digital DNA of enterprise systems for over 30 years.
+        </p>
+      </div>
+    </div>
+
+    <!-- Nav Links Row -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10 mb-16 border-t pt-12" style="border-color: rgba(224,201,163,0.2);">
+      <!-- Home -->
+      <div>
+        <a
+          href="/"
+          id="footer-home-link"
+          class="footer-nav-heading-link font-montserrat text-[16px] md:text-[13px] font-bold tracking-wider uppercase mb-4 inline-block transition-colors duration-300"
+          style="color: #F5F1EA; font-variant: small-caps;"
+        >
+          Home
+        </a>
+      </div>
+
+      <!-- Practices -->
+      <div>
+        <h4 class="font-montserrat text-[16px] md:text-[13px] font-bold tracking-wider uppercase mb-3 md:mb-6" style="color: #F5F1EA; font-variant: small-caps;">Practices</h4>
+        <ul class="space-y-3">
+          {practiceLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                data-expertise-tab={link.tabId}
+                class="footer-placeholder-link font-merriweather text-[14px] md:text-[12px] font-normal leading-[24px] md:leading-[18px] transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <h4 class="font-montserrat text-[16px] md:text-[13px] font-bold tracking-wider uppercase mb-3 md:mb-6" style="color: #F5F1EA; font-variant: small-caps;">Products</h4>
+        <ul class="space-y-3">
+          {productLinks.map(link => (
+            <li>
+              <a href={link.href} class="footer-placeholder-link font-merriweather text-[14px] md:text-[12px] font-normal leading-[24px] md:leading-[18px] transition-colors duration-300">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- About -->
+      <div class="flex flex-col h-full">
+        <a
+          href="/about"
+          class="footer-nav-heading-link font-montserrat text-[16px] md:text-[13px] font-bold tracking-wider uppercase mb-3 md:mb-6 inline-block transition-colors duration-300"
+          style="color: #F5F1EA; font-variant: small-caps;"
+        >
+          About
+        </a>
+
+        <!-- Headquarters + Connect in one box -->
+        <div class="border p-5 mt-auto" style="border-color: rgba(145,131,108,0.85); border-radius: 8px; background: rgba(93,87,73,0.22);">
+          <p class="font-montserrat text-[16px] font-bold uppercase tracking-wider mb-2" style="color: #91836C; font-variant: small-caps;">Headquarters</p>
+          <p class="font-merriweather text-[14px] mb-8" style="color: rgba(244,243,242,0.88);">Signal Hill, California</p>
+
+          <p class="font-montserrat text-[16px] font-bold uppercase tracking-wider mb-3" style="color: #91836C; font-variant: small-caps;">Connect</p>
+          <a href="mailto:hello@dnadigitalconsultancy.ai" class="footer-contact-link flex items-center gap-2 mb-4" style="color: rgba(244,243,242,0.88);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18.824" height="16" viewBox="0 0 21 18" fill="none" style="flex-shrink: 0;">
+              <path d="M5.74993 5.48438L8.51889 7.12146C10.1332 8.07591 10.7784 8.07591 12.3928 7.12146L15.1617 5.48438M0.764842 10.1388C0.826367 13.0241 0.857134 14.4666 1.92173 15.5353C2.98631 16.6039 4.46796 16.6411 7.43125 16.7156C9.25758 16.7615 11.066 16.7615 12.8923 16.7156C15.8556 16.6411 17.3372 16.6039 18.4019 15.5353C19.4664 14.4666 19.4972 13.0241 19.5587 10.1388C19.5785 9.21108 19.5785 8.28892 19.5587 7.3612C19.4972 4.47599 19.4664 3.03338 18.4019 1.96474C17.3372 0.8961 15.8556 0.858876 12.8923 0.78442C11.066 0.738528 9.25758 0.738528 7.43124 0.784411C4.46796 0.858858 2.98631 0.896081 1.92172 1.96473C0.857125 3.03337 0.826367 4.47598 0.764833 7.3612C0.745049 8.28892 0.745059 9.21108 0.764842 10.1388Z" stroke="#91836C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="font-montserrat text-[12px]">hello@dnadigitalconsultancy.ai</span>
+          </a>
+          <a href="tel:+15623232924" class="footer-contact-link font-montserrat text-[12px] inline-block mb-4" style="color: rgba(244,243,242,0.88);">562.323.2924</a>
+          <!-- Social Icons -->
+          <div class="flex items-center" style="gap: 12px;">
+            {socialIcons.map(social => (
+              <a
+                href={social.href}
+                aria-label={social.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-icon flex items-center justify-center transition-all duration-300"
+              >
+                <img src={social.iconSrc} alt="" class="w-[36px] h-[36px] object-contain" loading="lazy" decoding="async" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4 pt-5 border-t" style="border-color: rgba(224,201,163,0.35);">
+      <p class="font-montserrat text-[12px] font-normal leading-[19.6px]" style="color: rgba(244,243,242,0.7);">
+        &copy; 2026 Dna Digital Consultancy. All rights reserved.
+      </p>
+      <div class="flex items-center gap-2 md:gap-3">
+        <a href="/privacy-policy" class="footer-legal-link font-montserrat text-[12px] font-normal leading-[19.6px]" style="color: rgba(244,243,242,0.7);">Privacy Policy</a>
+        <span style="color: rgba(244,243,242,0.4);">|</span>
+        <a href="/terms-and-conditions" class="footer-legal-link font-montserrat text-[12px] font-normal leading-[19.6px]" style="color: rgba(244,243,242,0.7);">Terms &amp; Conditions</a>
+        <span style="color: rgba(244,243,242,0.4);">|</span>
+        <a href="/cookie-preferences" class="footer-legal-link font-montserrat text-[12px] font-normal leading-[19.6px]" style="color: rgba(244,243,242,0.7);">Cookie Preferences</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.footer-placeholder-link').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (link.getAttribute('href') === '#') event.preventDefault();
+    });
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>('footer [data-expertise-tab]').forEach(link => {
+    link.addEventListener('click', event => {
+      const section = document.getElementById('expertise');
+      if (!section) return;
+      event.preventDefault();
+      (window as any).showExpertiseTab?.(link.dataset.expertiseTab);
+      const navHeight = document.getElementById('main-nav')?.getBoundingClientRect().height || 0;
+      const carousel = section.querySelector('.expertise-carousel') || section;
+      window.scrollTo({ top: window.scrollY + carousel.getBoundingClientRect().top - navHeight - 16, behavior: 'smooth' });
+      history.replaceState(null, '', link.href);
+    });
+  });
+
+  const footerHomeLink = document.getElementById('footer-home-link');
+  footerHomeLink?.addEventListener('click', (event) => {
+    if (window.location.pathname !== '/') return;
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+<style>
+.footer-placeholder-link {
+  color: rgba(244, 243, 242, 0.84);
+}
+
+.footer-placeholder-link:hover,
+.footer-placeholder-link:focus-visible {
+  color: #E0C9A3;
+}
+
+.footer-placeholder-link:focus-visible {
+  outline: 2px solid rgba(224, 201, 163, 0.42);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.footer-nav-heading-link:hover,
+.footer-nav-heading-link:focus-visible {
+  color: #E0C9A3 !important;
+}
+
+.footer-nav-heading-link:focus-visible {
+  outline: 2px solid rgba(224, 201, 163, 0.42);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.footer-contact-link:hover,
+.footer-contact-link:focus-visible {
+  color: #E0C9A3 !important;
+}
+
+.footer-legal-link:hover,
+.footer-legal-link:focus-visible {
+  color: #ffffff !important;
+}
+
+.footer-contact-link:focus-visible,
+.footer-legal-link:focus-visible {
+  outline: 2px solid rgba(224, 201, 163, 0.42);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.footer-social-icon {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 99px;
+  background: rgba(244, 243, 242, 0.04);
+  opacity: 0.82;
+  transform: translateY(0);
+}
+
+.footer-social-icon img {
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-social-icon:hover,
+.footer-social-icon:focus-visible {
+  border: 0;
+  background: rgba(224, 201, 163, 0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.footer-social-icon:hover img,
+.footer-social-icon:focus-visible img {
+  filter: brightness(1.18) saturate(1.08);
+}
+
+.footer-social-icon:focus-visible {
+  outline: 2px solid rgba(224, 201, 163, 0.42);
+  outline-offset: 3px;
+}
+</style>

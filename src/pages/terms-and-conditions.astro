@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalSections from '../components/LegalSections.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const sections = [
+  {
+    "num": "1.",
+    "title": "ACCEPTANCE OF TERMS",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "By accessing the website of DNA Digital Consultancy (“we,” “us,” or “our”), a DBA of Dna Web Solutions, Inc., or utilizing our services, you agree to be bound by these Terms and Conditions and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site."
+      }
+    ]
+  },
+  {
+    "num": "2.",
+    "title": "CONSULTING & PROFESSIONAL SERVICES",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Dedicated Master Services Agreements (MSAs) or Statements of Work (SOWs) govern all scope deliverables, development milestones, software architecture, and advisory services between DNA Digital Consultancy and the client. Content provided on this website is for informational and demonstrative purposes only."
+      }
+    ]
+  },
+  {
+    "num": "3.",
+    "title": "SMS AND MOBILE MESSAGING TERMS",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "By submitting an inquiry form on our website and opting in via our SMS consent checkbox, you agree to receive text messages (SMS and MMS) from DNA Digital Consultancy (“we,” “us,” or “our”)."
+      },
+      {
+        "type": "bullet",
+        "text": "Program Description & Use Cases: Text messages sent from DNA Digital Consultancy are transactional and informational in nature. Messages may include responses to contact inquiries, consultation reminders, technical scoping updates, and delivery notifications regarding our professional services."
+      },
+      {
+        "type": "bullet",
+        "text": "Message Frequency: Message frequency varies depending on your interactions with us, project activity, and inquiry status."
+      },
+      {
+        "type": "bullet",
+        "text": "Message and Data Rates: Standard message and data rates may apply to any messages sent or received, as determined by your cellular service provider. DNA Digital Consultancy is not responsible for any mobile carrier charges incurred."
+      },
+      {
+        "type": "bullet",
+        "text": "How to Opt Out (Cancellation): You can cancel SMS communications at any time. Simply reply “STOP” to any text message you receive from us. After sending “STOP,” we will send one final SMS message confirming that you have been unsubscribed. No further messages will be sent unless you submit a new consent request."
+      },
+      {
+        "type": "bullet",
+        "text": "Support and Help: If you need assistance or have questions regarding our messaging program, reply “HELP” to any message you receive, or contact our team directly at privacypolicy@dnadigitalconsultancy.ai."
+      },
+      {
+        "type": "bullet",
+        "text": "Carrier Disclaimer: Cellular carriers (including, but not limited to, AT&T, T-Mobile, Verizon, and regional wireless providers) are not liable for delayed or undelivered messages."
+      }
+    ]
+  },
+  {
+    "num": "4.",
+    "title": "INTELLECTUAL PROPERTY RIGHTS",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "All custom architectural frameworks, code libraries, designs, graphics, branding, and copy displayed on this website are the intellectual property of Dna Web Solutions, Inc. DBA DNA Digital Consultancy and are protected by applicable copyright and trademark laws."
+      }
+    ]
+  },
+  {
+    "num": "5.",
+    "title": "LIMITATION OF LIABILITY",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "In no event shall DNA Digital Consultancy, its directors, employees, or partners be liable for any indirect, incidental, consequential, or punitive damages arising out of your access to, or use of, this website or messaging services."
+      }
+    ]
+  },
+  {
+    "num": "6.",
+    "title": "GOVERNING LAW",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "These Terms and Conditions are governed by and construed in accordance with the laws of the State of California, without regard to conflict of law principles. Any legal action or proceeding relating to your access to or use of the website or services shall be instituted in a state or federal court located in Los Angeles County, California."
+      }
+    ]
+  },
+  {
+    "num": "7.",
+    "title": "CONTACT INFORMATION",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "For any questions regarding these Terms and Conditions or our mobile messaging policies, please contact:"
+      },
+      {
+        "type": "paragraph",
+        "text": "DNA Digital Consultancy"
+      },
+      {
+        "type": "paragraph",
+        "text": "Signal Hill, California"
+      },
+      {
+        "type": "paragraph",
+        "text": "Email: privacypolicy@dnadigitalconsultancy.ai"
+      }
+    ]
+  }
+];
+---
+
+<Layout
+  title="Terms & Conditions | DNA Digital Consultancy"
+  description="Terms and Conditions for DNA Digital Consultancy — the rules governing use of our website and professional services."
+>
+  <Nav />
+  <main class="legal-page legal-terms-page">
+
+    <!-- HERO -->
+    <section
+      class="legal-hero relative w-full overflow-hidden flex items-center justify-center"
+      style="height: 440px; background-color: #060505;"
+    >
+      <!-- Background image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/images/hero-bg.jpg"
+          alt=""
+          class="w-full h-full object-cover object-center"
+          style="filter: brightness(0.45) saturate(0.6) contrast(1.1);"
+        />
+        <div
+          class="absolute inset-0"
+        ></div>
+      </div>
+
+      <!-- Hero Text -->
+      <div class="legal-hero-text relative z-10 text-center px-8 pt-24">
+        <h1
+          class="font-montserrat font-semibold text-white mb-4"
+          style="font-size: 72px; line-height: 1.2; letter-spacing: -0.04em;"
+        >
+          TERMS &amp; CONDITIONS
+        </h1>
+        <p
+          class="font-merriweather font-medium"
+          style="font-size: 20px; line-height: 36px; color: #91836C;"
+        >
+          Last Updated: October 06, 2026
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTENT BODY -->
+    <section class="legal-content w-full py-[144px]" style="background-color: #FDFCF6;">
+
+      <div class="section-container">
+        <div class="mx-auto" style="max-width: 900px;">
+          <div class="flex flex-col" style="gap: 96px;">
+
+            <LegalSections sections={sections} />
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  @media (max-width: 768px) {
+    .legal-terms-page .legal-hero {
+      height: 400px !important;
+    }
+
+    .legal-terms-page .legal-hero-text {
+      padding: 0 20px !important;
+      transform: translateY(42px);
+    }
+
+    .legal-terms-page .legal-hero-text h1 {
+      font-size: 40px !important;
+      line-height: 48px !important;
+      letter-spacing: -0.06em !important;
+      margin-bottom: 28px !important;
+    }
+
+    .legal-terms-page .legal-hero-text p {
+      font-size: 16px !important;
+      line-height: 27.2px !important;
+    }
+
+    .legal-terms-page .legal-content {
+      padding-top: 80px !important;
+      padding-bottom: 80px !important;
+    }
+
+    .legal-terms-page .legal-content .mx-auto > .flex.flex-col {
+      gap: 40px !important;
+    }
+
+    .legal-terms-page .legal-content [style*='font-size: 28px'] {
+      font-size: 20px !important;
+      line-height: 34px !important;
+    }
+  }
+</style>

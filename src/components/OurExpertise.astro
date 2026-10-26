@@ -1,0 +1,763 @@
+﻿---
+// Our Expertise — exact Figma carousel layout
+
+import { practices, capabilityDescriptions } from '../data/practices';
+
+const tabs = practices.map(practice => ({
+  ...practice,
+  id: practice.tabId,
+  label: practice.title,
+  capabilities: practice.expertiseCapabilities ?? practice.capabilities,
+  featuredCap: (practice.expertiseCapabilities ?? practice.capabilities)[0],
+  featuredDesc: capabilityDescriptions[(practice.expertiseCapabilities ?? practice.capabilities)[0]],
+}));
+
+// Card height
+const CARD_HEIGHT = 415;
+---
+
+<section id="expertise" class="w-full py-[100px]" style="background-color: #E9E4DD;">
+<div class="section-container">
+  <!-- Section Header -->
+  <div class="text-center mb-12">
+    <h2 class="font-montserrat font-bold leading-tight mb-4" style="font-size: 40px; color: #4E5854; font-variant: small-caps;">Our Expertise</h2>
+    <div class="mb-5 flex justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="208" height="28" viewBox="0 0 208 28" fill="none" aria-hidden="true">
+        <g clip-path="url(#clip0_expertise)">
+          <path d="M117.338 14.0294L104.309 1L91.2797 14.0294L104.309 27.0588L117.338 14.0294Z" stroke="#796D56" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+          <path d="M113.948 14.0295L104.309 4.39062L94.6702 14.0295L104.309 23.6683L113.948 14.0295Z" fill="#766B53"/>
+          <path d="M3 14L74 14" stroke="#796D56" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round"/>
+          <path d="M134 13H205" stroke="#796D56" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_expertise">
+            <rect width="208" height="28" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+    <h3 class="font-montserrat text-[24px] font-semibold leading-[28.8px]" style="color: #2A2A2A;">From Foresight to Execution</h3>
+    <p class="font-merriweather text-[17px] font-normal leading-[29px] max-w-fit mx-auto mt-5 text-left" style="color: #2A2A2A;">
+      Our tailored methodologies accelerate your digital and strategic<br />transformation. Explore our areas of expertise below.
+    </p>
+    <div class="expertise-mobile-controls">
+      <button class="expertise-mobile-control expertise-mobile-control-prev" type="button" data-expertise-prev aria-label="Previous expertise">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="expertise-mobile-control expertise-mobile-control-next" type="button" data-expertise-next aria-label="Next expertise">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Carousel Layout -->
+  <div class="expertise-carousel" style={`position: relative; display: flex; flex-direction: row; align-items: center; justify-content: center; margin-bottom: 56px; max-width: 1050px; margin-left: auto; margin-right: auto; padding-left: 64px; padding-right: 64px;`}>
+
+    <!-- Left side stack: 3 slot containers (slot 0 = outermost, slot 2 = innermost) -->
+    <div class="expertise-side-stack" data-side="left" style={`display: flex; flex-direction: row; align-items: center; gap: 0; margin-right: 8px; flex-shrink: 0; height: ${CARD_HEIGHT}px; position: relative;`}>
+      <div class="expertise-tab-slot" data-slot="0" style="position: relative; display: flex; align-items: center; height: 100%; margin-right: -14px; z-index: 1;"></div>
+      <div class="expertise-tab-slot" data-slot="1" style="position: relative; display: flex; align-items: center; height: 100%; margin-right: -14px; z-index: 2;"></div>
+      <div class="expertise-tab-slot" data-slot="2" style="position: relative; display: flex; align-items: center; height: 100%; z-index: 3;"></div>
+    </div>
+
+    <!-- Center Card -->
+    <div class="expertise-card-shell" style={`flex: 0 1 720px; max-width: 720px; min-width: 0; height: ${CARD_HEIGHT}px; background-color: #FFFFFF; background-image: url('/images/expertise-panel-bg.png'); background-size: cover; background-position: center; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16), 0 -2px 1px rgba(0, 0, 0, 0.08); overflow: hidden; position: relative; z-index: 5;`}>
+      {tabs.map((tab, i) => (
+        <div class="expertise-panel" data-panel={tab.id} style={`position: absolute; inset: 0; z-index: 2; display: ${i === 0 ? 'flex' : 'none'}; flex-direction: column;`}>
+          <div style="padding: 32px 32px 14px; text-align: center; flex-shrink: 0;">
+            <h3 class="font-montserrat" style="font-size: 17px; font-weight: 700; line-height: 22px; color: #36342F; letter-spacing: 0;">{tab.title}</h3>
+          </div>
+          <div class="expertise-panel-content" style="display: flex; flex-direction: row; padding: 0 32px 28px; flex: 1; min-height: 0; overflow: hidden;">
+            <div class="expertise-panel-left" style="width: 46%; flex-shrink: 0; padding: 8px 22px 0 0; border-right: 1px solid rgba(160, 145, 120, 0.28); overflow-y: auto; overflow-x: hidden;">
+              <h4 class="font-montserrat" style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #36342F; margin-bottom: 16px;">Core Capabilities</h4>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                {tab.capabilities.map((cap, ci) => (
+                  <li style="margin-bottom: 7px;">
+                    <button
+                      type="button"
+                      class={`expertise-capability-btn ${ci === 0 ? 'is-active' : ''}`}
+                      data-capability-title={cap}
+                      data-capability-desc={capabilityDescriptions[cap]}
+                      data-capability-cta={tab.id === 'smb-growth' && ci === 0 ? 'true' : undefined}
+                      aria-pressed={ci === 0 ? 'true' : 'false'}
+                    >
+                      <span class="expertise-capability-dot"></span>
+                      <span class="expertise-capability-label">{cap}</span>
+                    </button>
+                    {ci === 0 && tab.subCapabilities.length > 0 && (
+                      <ul class="expertise-sub-capabilities">{(tab.expertiseSubCapabilities ?? tab.subCapabilities).map(sub => <li>{sub}</li>)}</ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="expertise-panel-right" style="flex: 1; padding: 8px 4px 0 28px; overflow-y: auto; overflow-x: hidden;">
+              <div class="expertise-feature-copy">
+                <h5 class="font-montserrat expertise-feature-title" style="font-size: 14px; font-weight: 700; line-height: 20px; color: #36342F; margin-bottom: 10px;">{tab.featuredCap}</h5>
+                <p class="font-merriweather expertise-drop-cap expertise-feature-desc" style="font-size: 12px; font-weight: 400; line-height: 1.5; color: #4C453E;">{capabilityDescriptions[tab.featuredCap] ?? tab.featuredDesc}</p>
+                <a class="expertise-dge-cta font-montserrat" href="https://digitalgrowthengine.ai" target="_blank" rel="noopener noreferrer" hidden={tab.id !== 'smb-growth'}>Click here to learn more about the Digital Growth Engine</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Right side stack -->
+    <div class="expertise-side-stack" data-side="right" style={`display: flex; flex-direction: row; align-items: center; gap: 0; margin-left: 8px; flex-shrink: 0; height: ${CARD_HEIGHT}px; position: relative;`}>
+      <div class="expertise-tab-slot" data-slot="0" style="position: relative; display: flex; align-items: center; height: 100%; margin-right: -14px; z-index: 3;"></div>
+      <div class="expertise-tab-slot" data-slot="1" style="position: relative; display: flex; align-items: center; height: 100%; margin-right: -14px; z-index: 2;"></div>
+      <div class="expertise-tab-slot" data-slot="2" style="position: relative; display: flex; align-items: center; height: 100%; z-index: 2;"></div>
+      <div class="expertise-tab-slot" data-slot="3" style="position: relative; display: flex; align-items: center; height: 100%; z-index: 1;"></div>
+    </div>
+
+    <!-- Navigation Arrow Left -->
+    <button id="expertise-prev" type="button" aria-label="Previous expertise" data-expertise-prev style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #FFFFFF; box-shadow: 0 4px 12px rgba(0,0,0,0.14); z-index: 10; border: none; cursor: pointer; transition: color 0.2s; color: #4E5854;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+
+    <!-- Navigation Arrow Right -->
+    <button id="expertise-next" type="button" aria-label="Next expertise" data-expertise-next style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #FFFFFF; box-shadow: 0 4px 12px rgba(0,0,0,0.14); z-index: 10; border: none; cursor: pointer; transition: color 0.2s; color: #4E5854;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <!-- CTA Row -->
+  <div class="flex flex-col items-center gap-5">
+    <p class="font-merriweather text-[18px] font-normal leading-[28px]" style="color: #060505;">Need guidance to the right path?</p>
+    <a href="#" data-open-ai-concierge class="inline-flex items-center justify-center font-montserrat text-[13px] font-semibold tracking-[0.12em] uppercase text-white px-10 py-[14px] transition-all duration-300 hover:opacity-90" style="background-color: #683547; letter-spacing: 0.12em;">
+      Talk to Our AI Concierge
+    </a>
+  </div>
+</div>
+</section>
+
+<script>
+import gsap from 'gsap';
+import { practices } from '../data/practices';
+
+type TabMeta = { id: string; label: string };
+
+const tabsMeta: TabMeta[] = practices.map(practice => ({ id: practice.tabId, label: practice.title }));
+
+// Start with the new SMB practice.
+const panels = document.querySelectorAll<HTMLElement>('.expertise-panel');
+const expertiseShell = document.querySelector<HTMLElement>('.expertise-card-shell');
+let currentIndex = 0;
+let expertiseShellHeightFrame: number | undefined;
+
+// Heights: innermost (slot 2 on left, slot 0 on right) = card height, then progressively shorter outward
+const HEIGHTS = {
+  innermost: 410,  // slot closest to card
+  middle: 356,
+  outermost: 312,  // slot farthest from card
+};
+
+function buildTabButton(tab: TabMeta, side: 'left' | 'right', height: number): HTMLButtonElement {
+  const btn = document.createElement('button');
+  btn.className = 'expertise-tab-btn font-montserrat';
+  btn.dataset.tab = tab.id;
+  btn.dataset.side = side;
+  btn.textContent = tab.label;
+  const baseStyle = `display: flex; align-items: center; justify-content: center; padding: 18px 8px; width: 44px; height: ${height}px; font-size: 11px; font-weight: 500; letter-spacing: 0.01em; writing-mode: vertical-rl; text-orientation: mixed; line-height: 1.05; background-color: #AAB4A5; color: rgba(255,255,255,0.94); cursor: pointer; border: none; border-radius: 6px; box-shadow: 0 8px 20px rgba(92, 101, 91, 0.14); transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, opacity 0.3s;`;
+  if (side === 'left') {
+    btn.style.cssText = baseStyle + ' transform: rotate(180deg);';
+  } else {
+    btn.style.cssText = baseStyle;
+  }
+  btn.addEventListener('click', () => {
+    const idx = tabsMeta.findIndex(t => t.id === tab.id);
+    if (idx >= 0) showTab(idx);
+  });
+  return btn;
+}
+
+function getRotatedOrder(activeIdx: number): { left: TabMeta[]; right: TabMeta[] } {
+  // Show all seven other practices: three on the left, four on the right.
+  // Left = 3 tabs before active (wrap), order: outermost → innermost
+  // Right = remaining tabs after active (wrap), order: innermost → outermost
+  const n = tabsMeta.length;
+  const left: TabMeta[] = [];
+  const right: TabMeta[] = [];
+  // Left side: positions activeIdx-3, activeIdx-2, activeIdx-1 (outer→inner)
+  for (let k = 3; k >= 1; k--) {
+    left.push(tabsMeta[(activeIdx - k + n) % n]);
+  }
+  // Right side: the four following practices (inner→outer)
+  for (let k = 1; k <= tabsMeta.length - 4; k++) {
+    right.push(tabsMeta[(activeIdx + k) % n]);
+  }
+  return { left, right };
+}
+
+function renderStacks(activeIdx: number) {
+  const { left, right } = getRotatedOrder(activeIdx);
+
+  // LEFT SIDE: slot 0 = outermost (shortest), slot 1 = middle, slot 2 = innermost (tallest)
+  const leftStack = document.querySelector<HTMLElement>('.expertise-side-stack[data-side="left"]')!;
+  const leftSlots = leftStack.querySelectorAll<HTMLElement>('.expertise-tab-slot');
+  const leftHeights = [HEIGHTS.outermost, HEIGHTS.middle, HEIGHTS.innermost];
+  leftSlots.forEach((slot, i) => {
+    slot.innerHTML = '';
+    const tab = left[i];
+    if (tab) slot.appendChild(buildTabButton(tab, 'left', leftHeights[i]));
+  });
+
+  // RIGHT SIDE: slot 0 = innermost (tallest), slot 1 = middle, slot 2 = outermost (shortest)
+  const rightStack = document.querySelector<HTMLElement>('.expertise-side-stack[data-side="right"]')!;
+  const rightSlots = rightStack.querySelectorAll<HTMLElement>('.expertise-tab-slot');
+  const rightHeights = [HEIGHTS.innermost, HEIGHTS.middle, HEIGHTS.outermost, 280];
+  rightSlots.forEach((slot, i) => {
+    slot.innerHTML = '';
+    const tab = right[i];
+    if (tab) slot.appendChild(buildTabButton(tab, 'right', rightHeights[i]));
+  });
+}
+
+function isExpertiseMobile() {
+  return window.matchMedia('(max-width: 768px)').matches;
+}
+
+function setExpertiseMobileShellHeight(panel: HTMLElement, immediate = false) {
+  if (!expertiseShell || !isExpertiseMobile()) {
+    expertiseShell?.style.removeProperty('--expertise-mobile-shell-height');
+    return;
+  }
+
+  const targetHeight = Math.ceil(Math.max(622, panel.scrollHeight + 28));
+
+  if (expertiseShellHeightFrame !== undefined) window.cancelAnimationFrame(expertiseShellHeightFrame);
+
+  if (immediate) {
+    expertiseShell.style.setProperty('--expertise-mobile-shell-height', `${targetHeight}px`);
+    return;
+  }
+
+  const currentHeight = Math.ceil(expertiseShell.getBoundingClientRect().height);
+  expertiseShell.style.setProperty('--expertise-mobile-shell-height', `${currentHeight}px`);
+
+  expertiseShellHeightFrame = window.requestAnimationFrame(() => {
+    expertiseShell.style.setProperty('--expertise-mobile-shell-height', `${targetHeight}px`);
+  });
+}
+
+function showTab(index: number) {
+  const n = tabsMeta.length;
+  currentIndex = ((index % n) + n) % n;
+  const id = tabsMeta[currentIndex].id;
+
+  renderStacks(currentIndex);
+
+  const isMobile = isExpertiseMobile();
+
+  panels.forEach(panel => {
+    const isActive = panel.dataset.panel === id;
+    if (isActive) {
+      panel.style.display = 'flex';
+      resetPanelCapability(panel);
+
+      if (isMobile) {
+        expertiseShell?.classList.add('is-mobile-switching');
+        setExpertiseMobileShellHeight(panel);
+        gsap.killTweensOf(panel);
+        gsap.fromTo(
+          panel,
+          { opacity: 0, y: 10 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.58,
+            ease: 'power2.out',
+            onComplete: () => {
+              expertiseShell?.classList.remove('is-mobile-switching');
+            },
+          },
+        );
+      } else {
+        gsap.fromTo(panel, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' });
+      }
+
+    } else {
+      panel.style.display = 'none';
+      panel.style.opacity = '0';
+    }
+  });
+}
+
+function updateCapability(button: HTMLButtonElement) {
+  const panel = button.closest<HTMLElement>('.expertise-panel');
+  if (!panel) return;
+
+  const title = button.dataset.capabilityTitle || '';
+  const desc = button.dataset.capabilityDesc || '';
+  const titleEl = panel.querySelector<HTMLElement>('.expertise-feature-title');
+  const descEl = panel.querySelector<HTMLElement>('.expertise-feature-desc');
+  const copyEl = panel.querySelector<HTMLElement>('.expertise-feature-copy');
+
+  if (!titleEl || !descEl || !copyEl || !title || !desc) return;
+
+  panel.querySelectorAll<HTMLButtonElement>('.expertise-capability-btn').forEach(capButton => {
+    const isActive = capButton === button;
+    capButton.classList.toggle('is-active', isActive);
+    capButton.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+
+  titleEl.textContent = title;
+  descEl.textContent = desc;
+  const cta = panel.querySelector<HTMLAnchorElement>('.expertise-dge-cta');
+  if (cta) cta.hidden = button.dataset.capabilityCta !== 'true';
+  const rightPane = panel.querySelector<HTMLElement>('.expertise-panel-right');
+  if (rightPane) rightPane.scrollTop = 0;
+
+  setExpertiseMobileShellHeight(panel);
+
+  gsap.fromTo(
+    copyEl,
+    { autoAlpha: 0 },
+    {
+      autoAlpha: 1,
+      duration: 1.85,
+      ease: 'sine.out',
+      overwrite: 'auto',
+      clearProps: 'opacity,visibility',
+    },
+  );
+}
+
+function resetPanelCapability(panel: HTMLElement) {
+  const capabilityList = panel.querySelector<HTMLElement>('.expertise-panel-left');
+  if (capabilityList) capabilityList.scrollTop = 0;
+  const firstButton = panel.querySelector<HTMLButtonElement>('.expertise-capability-btn');
+  if (firstButton) updateCapability(firstButton);
+}
+
+document.querySelectorAll<HTMLButtonElement>('.expertise-capability-btn').forEach(button => {
+  button.addEventListener('click', () => updateCapability(button));
+});
+
+document.querySelectorAll<HTMLElement>('[data-expertise-prev]').forEach((button) => {
+  button.addEventListener('click', () => showTab(currentIndex - 1));
+});
+
+document.querySelectorAll<HTMLElement>('[data-expertise-next]').forEach((button) => {
+  button.addEventListener('click', () => showTab(currentIndex + 1));
+});
+
+window.addEventListener('resize', () => {
+  const activePanel = document.querySelector<HTMLElement>('.expertise-panel[style*="display: flex"]');
+  if (activePanel) {
+    setExpertiseMobileShellHeight(activePanel, true);
+  }
+});
+
+(window as any).showExpertiseTab = (tabId: string, capabilityTitle?: string) => {
+  const idx = tabsMeta.findIndex(t => t.id === tabId);
+  if (idx < 0) return;
+
+  showTab(idx);
+
+  if (!capabilityTitle) return;
+
+  window.requestAnimationFrame(() => {
+    const panel = document.querySelector<HTMLElement>(`.expertise-panel[data-panel="${tabId}"]`);
+    const capabilityButton = Array.from(panel?.querySelectorAll<HTMLButtonElement>('.expertise-capability-btn') || [])
+      .find(button => button.dataset.capabilityTitle === capabilityTitle);
+
+    if (!capabilityButton) return;
+
+    updateCapability(capabilityButton);
+
+    const capabilityList = capabilityButton.closest<HTMLElement>('.expertise-panel-left');
+    if (capabilityList && capabilityList.scrollHeight > capabilityList.clientHeight) {
+      capabilityList.scrollTo({
+        top: Math.max(0, capabilityButton.offsetTop - capabilityList.offsetTop - 12),
+        behavior: 'smooth',
+      });
+    }
+  });
+};
+
+// Preserve the selected practice when arriving from another site page.
+const requestedPractice = new URLSearchParams(window.location.search).get('practice');
+const requestedIndex = tabsMeta.findIndex(tab => tab.id === requestedPractice);
+showTab(requestedIndex >= 0 ? requestedIndex : 0);
+
+document.fonts.ready.then(() => {
+  const activePanel = Array.from(panels).find(panel => panel.style.display === 'flex');
+  if (activePanel) setExpertiseMobileShellHeight(activePanel, true);
+});
+</script>
+
+<style>
+.expertise-feature-desc { white-space: pre-line; }
+.expertise-sub-capabilities { padding-left: 22px; margin: 8px 0 12px; list-style: disc; font-family: Merriweather, serif; font-size: 11px; line-height: 1.6; color: #4C453E; }
+.expertise-dge-cta { display: inline-block; margin-top: 16px; font-size: 12px; color: #683547; text-decoration: underline; }
+.expertise-dge-cta[hidden] { display: none; }
+.expertise-capability-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transform: none;
+  transition: color 0.2s ease;
+}
+
+.expertise-capability-btn:focus-visible {
+  outline: 2px solid rgba(140, 120, 96, 0.45);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.expertise-capability-dot {
+  margin-top: 6px;
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #A79682;
+  transition: background-color 0.2s ease;
+}
+
+.expertise-capability-label {
+  text-align: left;
+  font-family: 'Merriweather', serif;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #564A3D;
+  font-weight: 400;
+  text-decoration: none;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.expertise-capability-btn.is-active .expertise-capability-dot {
+  background-color: #8C7860;
+}
+
+.expertise-capability-btn:hover .expertise-capability-dot,
+.expertise-capability-btn:focus-visible .expertise-capability-dot {
+  background-color: #683547;
+}
+
+.expertise-capability-btn:hover .expertise-capability-label,
+.expertise-capability-btn:focus-visible .expertise-capability-label {
+  color: #683547;
+  text-decoration: underline;
+}
+
+.expertise-capability-btn.is-active .expertise-capability-label {
+  color: #6B5E4A;
+}
+
+.expertise-capability-btn.is-active .expertise-capability-label {
+  font-weight: 700;
+}
+
+.expertise-feature-copy {
+  will-change: transform, opacity;
+}
+
+.expertise-drop-cap::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  margin-right: 6px;
+  padding-top: 2px;
+  color: #6B5E4A;
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+}
+
+.expertise-mobile-controls {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  #expertise #expertise-prev:hover,
+  #expertise #expertise-prev:focus-visible,
+  #expertise #expertise-next:hover,
+  #expertise #expertise-next:focus-visible {
+    color: #683547 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #expertise {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+
+  #expertise h2 {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+
+  #expertise h3 {
+    font-size: 18px !important;
+    line-height: 28px !important;
+  }
+
+  #expertise .expertise-carousel {
+    align-items: center !important;
+    column-gap: 0 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    max-width: 350px !important;
+    margin-bottom: 44px !important;
+    overflow: visible !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    position: relative !important;
+    row-gap: 0 !important;
+  }
+
+  #expertise .expertise-side-stack {
+    display: none !important;
+  }
+
+  #expertise .expertise-card-shell {
+    order: 1;
+    width: 100% !important;
+    max-width: 350px !important;
+    min-height: 622px !important;
+    height: var(--expertise-mobile-shell-height, auto) !important;
+    flex: none !important;
+    margin: 0 auto;
+    background-image: none !important;
+    background-color: #F7F2E8 !important;
+    overflow: hidden !important;
+    transition: height 0.58s ease-in-out;
+    will-change: height;
+  }
+
+  #expertise .expertise-panel {
+    position: relative !important;
+    inset: auto !important;
+    width: 100%;
+  }
+
+  #expertise .expertise-card-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: url('/images/expertise-panel-bg.png');
+    background-repeat: repeat-y;
+    background-size: 1080px 622px;
+    background-position: center top;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  #expertise .expertise-panel > div:first-child {
+    padding: 16px 16px 10px !important;
+  }
+
+  #expertise .expertise-panel > div:first-child h3 {
+    font-size: 18px !important;
+    line-height: 23.4px !important;
+    color: #060505 !important;
+    opacity: 0.88;
+  }
+
+  #expertise .expertise-panel-content {
+    flex-direction: column !important;
+    padding: 0 16px 16px !important;
+    gap: 16px;
+    overflow: visible !important;
+  }
+
+  #expertise .expertise-panel-left {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(145,131,108,0.45);
+    padding: 0 0 12px !important;
+    overflow: visible !important;
+  }
+
+  #expertise .expertise-panel-left h4 {
+    font-size: 14px !important;
+    line-height: 24px !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: #060505 !important;
+    opacity: 0.88;
+  }
+
+  #expertise .expertise-panel-left ul li {
+    margin-bottom: 6px !important;
+  }
+
+  #expertise .expertise-capability-dot {
+    margin-top: 9px !important;
+  }
+
+  #expertise .expertise-capability-label {
+    font-size: 14px !important;
+    line-height: 24px !important;
+    color: #2A2A2A !important;
+    opacity: 0.88;
+  }
+
+  #expertise .expertise-capability-btn:hover .expertise-capability-label,
+  #expertise .expertise-capability-btn:focus-visible .expertise-capability-label {
+    color: #683547 !important;
+    text-decoration: underline !important;
+  }
+
+  #expertise .expertise-capability-btn.is-active .expertise-capability-label {
+    color: #6B5E4A !important;
+  }
+
+  #expertise .expertise-capability-btn.is-active .expertise-capability-label {
+    font-weight: 700 !important;
+  }
+
+  #expertise .expertise-panel-right {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  #expertise .expertise-panel-right h5 {
+    font-size: 14px !important;
+    line-height: 24px !important;
+    color: #060505 !important;
+    opacity: 0.88;
+    margin-bottom: 8px !important;
+  }
+
+  #expertise .expertise-panel-right p {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    font-weight: 500 !important;
+    color: #2A2A2A !important;
+    opacity: 0.88;
+  }
+
+  #expertise .expertise-drop-cap::first-letter {
+    font-size: 2.86em;
+    line-height: 1;
+    color: #756A57 !important;
+  }
+
+  #expertise .expertise-mobile-controls {
+    display: none !important;
+  }
+
+  #expertise .expertise-mobile-control {
+    align-items: center !important;
+    appearance: none;
+    display: inline-flex !important;
+    flex: 0 0 56px !important;
+    justify-content: center !important;
+    line-height: 0 !important;
+    margin: 0 !important;
+    max-height: 56px !important;
+    max-width: 56px !important;
+    min-height: 56px !important;
+    min-width: 56px !important;
+    order: 2;
+    padding: 0 !important;
+    position: static !important;
+    transform: translateZ(0) !important;
+    vertical-align: middle;
+    width: 56px !important;
+    height: 56px !important;
+    border: 0 !important;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #expertise .expertise-mobile-control-prev {
+    background: #C4BCAD !important;
+  }
+
+  #expertise .expertise-mobile-control-next {
+    background: #968C80 !important;
+  }
+
+  #expertise .expertise-mobile-control:active {
+    transform: translateZ(0) !important;
+  }
+
+  #expertise .expertise-mobile-control svg {
+    display: block;
+    flex: 0 0 18px;
+    width: 18px !important;
+    height: 18px !important;
+    pointer-events: none;
+    stroke: #FFFFFF !important;
+  }
+
+  #expertise #expertise-prev,
+  #expertise #expertise-next {
+    align-items: center !important;
+    background: rgba(255, 255, 255, 0.44) !important;
+    border: 1px solid rgba(145, 131, 108, 0.22) !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    color: rgba(117, 106, 87, 0.58) !important;
+    display: flex !important;
+    height: 28px !important;
+    justify-content: center !important;
+    max-height: 28px !important;
+    max-width: 28px !important;
+    min-height: 28px !important;
+    min-width: 28px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    top: 311px !important;
+    transform: translateY(-50%) !important;
+    transition: color 0.2s ease !important;
+    width: 28px !important;
+    z-index: 12 !important;
+  }
+
+  #expertise #expertise-prev {
+    left: -14px !important;
+  }
+
+  #expertise #expertise-next {
+    right: -14px !important;
+  }
+
+  #expertise #expertise-prev:hover,
+  #expertise #expertise-prev:focus-visible,
+  #expertise #expertise-next:hover,
+  #expertise #expertise-next:focus-visible {
+    color: rgba(117, 106, 87, 0.82) !important;
+  }
+
+  #expertise #expertise-prev svg,
+  #expertise #expertise-next svg {
+    height: 13px !important;
+    stroke: currentColor !important;
+    width: 13px !important;
+  }
+
+  #expertise .flex.flex-col.items-center.gap-5 > p {
+    font-size: 20px !important;
+    line-height: 28px !important;
+    text-align: center;
+  }
+
+  #expertise a[href="#contact"] {
+    width: 100%;
+    max-width: 350px;
+    min-height: 52px;
+    padding: 16px 24px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08px !important;
+  }
+}
+</style>

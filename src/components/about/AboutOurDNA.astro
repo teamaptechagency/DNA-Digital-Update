@@ -1,0 +1,409 @@
+---
+const doctrineItems = [
+  {
+    title: 'Precision',
+    subtitle: 'Performance through Technical Minimalism',
+    icon: '/images/about/dna-icon-precision.png',
+    maskSize: '67px 60px',
+    maskPosition: '-1.589px 1.8px',
+    dropCap: 'W',
+    bodyStart: 'e maximize performance through technical minimalism, removing anything that does',
+    bodyEnd: 'not serve the system’s purpose.',
+  },
+  {
+    title: 'Perspective',
+    subtitle: 'Solving for the Whole Building',
+    icon: '/images/about/dna-icon-perspective.png',
+    maskSize: '69px 60px',
+    maskPosition: '-2px 2px',
+    dropCap: 'W',
+    bodyStart: 'e solve for the "whole building," ensuring SaaS, CRM, and AI initiatives integrate into',
+    bodyEnd: 'the organization’s structural DNA rather than becoming isolated projects.',
+  },
+  {
+    title: 'Accountability',
+    subtitle: 'Partner Seniority and Roadmap Ownership',
+    icon: '/images/about/dna-icon-accountability.png',
+    maskSize: '62px 60px',
+    maskPosition: '1px 2px',
+    dropCap: 'W',
+    bodyStart: 'e execute with the seniority of a partner, taking full ownership of the technical',
+    bodyEnd: 'roadmap and the outcomes it must produce.',
+  },
+  {
+    title: 'Form Follows Function',
+    subtitle: 'Rigor in Architectural and ENG Engagement',
+    icon: '/images/about/dna-icon-form-follows-function.png',
+    maskSize: '63px 60px',
+    maskPosition: '1px 2px',
+    dropCap: 'A',
+    bodyStart: 'discipline that shapes every engagement, every architectural decision, and every line of',
+    bodyEnd: 'reasoning, ensuring systems are built to endure.',
+  },
+];
+---
+
+<section id="about-dna" class="about-dna">
+  <div class="section-container dna-inner">
+    <div class="dna-header">
+      <h2>Our Dna</h2>
+      <img src="/images/about/divider-ornament.svg" alt="" loading="lazy" decoding="async" />
+      <h3>The Firm’s Internal Operating System</h3>
+      <p>Every consultancy claims principles. We operate by doctrine</p>
+    </div>
+
+    <div class="dna-body">
+      <div class="dna-doctrine-left">
+        <h3>OPERATIONAL DOCTRINE</h3>
+        <div class="doctrine-copy">
+          <div class="doctrine-first-row">
+            <span class="left-dropcap">E</span>
+            <p>very consultancy claims principles. We operate by doctrine. Our work is governed</p>
+          </div>
+          <p>
+            by a strict Form Follows Function framework, a discipline that shapes every engagement, every architectural
+            decision, and every line of reasoning.
+          </p>
+          <p>
+            This doctrine is not an abstract philosophy; it serves as the operational engine behind every solution we
+            deliver. Rather than measuring success by billable hours or team size, we define our value by the
+            resilience and performance of the systems we build, providing not just advisory services, but the senior
+            engineering muscle and executive leadership required to move a roadmap from concept to production.
+          </p>
+          <p>
+            We don't just provide advice; we provide the senior engineering muscle and executive-level leadership
+            required to move a roadmap from concept to production.
+          </p>
+        </div>
+      </div>
+
+      <div class="dna-right-list">
+        {doctrineItems.map((item, index) => (
+          <article class={`dna-item ${index > 0 ? 'with-top-border' : ''}`}>
+            <div class="dna-item-layout">
+              <span
+                class="dna-icon"
+                style={`--icon-path:url('${item.icon}');--icon-mask-size:${item.maskSize};--icon-mask-position:${item.maskPosition};`}
+              ></span>
+              <div class="dna-item-content">
+                <div class="dna-item-titles">
+                  <h4>{item.title}</h4>
+                  <p>{item.subtitle}</p>
+                </div>
+                <div class="dna-item-copy">
+                  <p class="dna-item-copy-paragraph">
+                    <span class="dna-item-dropcap">{item.dropCap}</span>
+                    {item.bodyStart} {item.bodyEnd}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-dna {
+    background: #cdc6bc;
+    width: 100%;
+    padding: 144px 0;
+  }
+
+  .dna-inner {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .dna-header {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .dna-header h2 {
+    margin: 0;
+    color: #2a2a2a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.18;
+  }
+
+  .dna-header img {
+    width: 208px;
+    height: 28px;
+  }
+
+  .dna-header h3 {
+    margin: 0;
+    color: #2a2a2a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .dna-header p {
+    margin: 0;
+    color: #2a2a2a;
+    opacity: 0.88;
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .dna-body {
+    display: grid;
+    grid-template-columns: 400px minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+  }
+
+  .dna-doctrine-left h3 {
+    margin: 0 0 24px;
+    color: #060505;
+    font-family: 'Merriweather', serif;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.269;
+  }
+
+  .doctrine-copy {
+    border-left: 8px solid #060505;
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .doctrine-copy p {
+    margin: 0;
+    color: #2a2a2a;
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.03em;
+  }
+
+  .doctrine-first-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .left-dropcap {
+    width: 64px;
+    flex-shrink: 0;
+    margin-top: -6px;
+    color: #91836c;
+    font-family: 'Merriweather', serif;
+    font-size: 98px;
+    line-height: 1;
+  }
+
+  .dna-right-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .dna-item {
+    width: 100%;
+    padding: 0 0 4px;
+  }
+
+  .dna-item-layout {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    column-gap: 20px;
+    align-items: center;
+  }
+
+  .dna-item.with-top-border {
+    border-top: 1px solid #91836c;
+    margin-top: 24px;
+    padding-top: 24px;
+  }
+
+  .dna-icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    background: #91836c;
+    mask-mode: alpha;
+    mask-image: var(--icon-path);
+    -webkit-mask-image: var(--icon-path);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: var(--icon-mask-size, cover);
+    -webkit-mask-size: var(--icon-mask-size, cover);
+    mask-position: var(--icon-mask-position, center);
+    -webkit-mask-position: var(--icon-mask-position, center);
+  }
+
+  .dna-item-content {
+    min-width: 0;
+  }
+
+  .dna-item-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .dna-item-titles h4 {
+    margin: 0;
+    color: #060505;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+    font-variant: small-caps;
+  }
+
+  .dna-item-copy-paragraph {
+    display: flow-root;
+  }
+
+  .dna-item-dropcap {
+    float: left;
+    margin-right: 8px;
+    color: #756a57;
+    font-family: 'Merriweather', serif;
+    font-size: 46px;
+    font-weight: 600;
+    line-height: 0.66;
+    margin-top: 10px;
+    
+  }
+
+  .dna-item-titles p {
+    margin: 0;
+    color: #2a2a2a;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.375;
+  }
+
+  .dna-item-copy {
+    margin-top: 8px;
+  }
+
+  .dna-item-copy p {
+    margin: 0;
+    color: #2a2a2a;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    line-height: 1.57;
+  }
+
+  @media (max-width: 1024px) {
+    .about-dna {
+      padding: 104px 0;
+    }
+
+    .dna-body {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .dna-doctrine-left h3 {
+      font-size: 44px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-dna {
+      padding: 80px 0;
+    }
+
+    .dna-inner {
+      gap: 52px;
+    }
+
+    .dna-header h2 {
+      font-size: 32px;
+    }
+
+    .dna-header h3 {
+      font-size: 21px;
+    }
+
+    .dna-header p {
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .dna-doctrine-left h3 {
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .doctrine-copy {
+      border-left-width: 5px;
+      padding-left: 14px;
+    }
+
+    .left-dropcap {
+      width: 34px;
+      font-size: 58px;
+      margin-top: -2px;
+    }
+
+    .doctrine-copy p {
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: 0;
+    }
+
+    .dna-item-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dna-item-content {
+      width: 100%;
+    }
+
+    .dna-item-titles {
+      align-items: center;
+      text-align: center;
+    }
+
+    .dna-icon {
+      width: 52px;
+      height: 52px;
+      mask-size: contain;
+      -webkit-mask-size: contain;
+      mask-position: center;
+      -webkit-mask-position: center;
+    }
+
+    .dna-item-titles h4 {
+      font-size: 24px;
+    }
+
+    .dna-item-titles p {
+      font-size: 16px;
+    }
+
+    .dna-item-dropcap {
+      font-size: 34px;
+      line-height: 0.66;
+      margin-top: 8px;
+    }
+  }
+</style>

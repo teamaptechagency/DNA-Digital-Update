@@ -1,0 +1,23 @@
+---
+interface Props { sections: { num: string; title: string; blocks: { type: string; text: string }[] }[]; }
+const { sections } = Astro.props;
+---
+{sections.map(section => (
+  <div>
+    <div class="legal-section-heading flex items-start gap-1 pb-3 mb-4" style="border-bottom: 1px solid #E2DED6;">
+      <span class="legal-section-number font-montserrat font-semibold" style="font-size: 28px; line-height: 47.2px; color: #2A2A2A;">{section.num}</span>
+      <h2 class="font-montserrat font-semibold ml-1" style="font-size: 28px; line-height: 47.2px; color: #2A2A2A;">{section.title}</h2>
+    </div>
+    <div class="font-merriweather text-[18px] leading-[30.6px] space-y-4" style="color: rgba(42,42,42,0.88);">
+      {section.blocks.map(block => block.type === 'bullet' ? (
+        <p class="flex items-start gap-4"><span aria-hidden="true" class="flex-shrink-0 mt-[11px]" style="width: 8px; height: 8px; background-color: #9E927D;"></span><span>{block.text}</span></p>
+      ) : <p>{block.text}</p>)}
+    </div>
+  </div>
+))}
+
+<style>
+@media (max-width: 768px) {
+  .legal-section-heading h2, .legal-section-number { font-size: 20px !important; line-height: 34px !important; }
+}
+</style>

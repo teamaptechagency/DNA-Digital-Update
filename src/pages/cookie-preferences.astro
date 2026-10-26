@@ -1,0 +1,623 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout
+  title="Cookie Preferences | DNA Digital Consultancy"
+  description="Manage your privacy and consent settings for DNA Digital Consultancy."
+>
+  <Nav />
+  <main class="legal-page legal-cookie-page">
+
+    <!-- HERO -->
+    <section
+      class="legal-hero relative w-full overflow-hidden flex items-center justify-center"
+      style="height: 440px; background-color: #060505;"
+    >
+      <!-- Background image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/images/hero-bg.jpg"
+          alt=""
+          class="w-full h-full object-cover object-center"
+          style="filter: brightness(0.45) saturate(0.6) contrast(1.1);"
+        />
+        <div
+          class="absolute inset-0"
+        ></div>
+      </div>
+
+      <div class="legal-hero-text relative z-10 text-center px-8 pt-24">
+        <h1
+          class="font-montserrat font-semibold text-white mb-4"
+          style="font-size: 72px; line-height: 1.2; letter-spacing: -0.04em;"
+        >
+          COOKIE PREFERENCES
+        </h1>
+        <p
+          class="font-merriweather font-medium"
+          style="font-size: 20px; line-height: 36px; color: #91836C;"
+        >
+          Manage Your Privacy &amp; Consent Settings
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTENT BODY -->
+    <section class="legal-content cookie-content w-full py-[144px]" style="background-color: #FDFCF6;">
+      <div class="section-container">
+        <div class="mx-auto" style="max-width: 850px;">
+          <div class="flex flex-col" style="gap: 96px;">
+
+            <!-- ─── SECTION 1: INTRODUCTION ─── -->
+            <div>
+              <div class="pb-3 mb-6" style="border-bottom: 1px solid #E2DED6;">
+                <span
+                  class="font-montserrat font-semibold"
+                  style="font-size: 28px; line-height: 47.2px; color: #2A2A2A; font-variant: small-caps;"
+                >
+                  INTRODUCTION
+                </span>
+              </div>
+              <div
+                class="font-merriweather"
+                style="font-size: 14px; line-height: 30.6px; color: rgba(42,42,42,0.88); display: flow-root;"
+              >
+                <span
+                  class="float-left font-normal mr-2"
+                  style="font-family: Merriweather, serif; font-size: 60px; line-height: 0.66; color: rgba(145,131,108,0.88); margin-top: 12px;"
+                >
+                  A
+                </span>
+                t Dna Digital Consultancy, we use cookies to ensure our digital architecture performs
+                with precision. While some cookies are essential for the &ldquo;architectural
+                plates&rdquo; and security of our site to function, others help us analyze
+                performance and personalize your experience. You can adjust your preferences below at
+                any time to align with your privacy requirements.
+              </div>
+            </div>
+
+            <!-- ─── SECTION 2: THE CONTROL PANEL ─── -->
+            <div class="cookie-panel rounded-lg overflow-hidden" style="background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);">
+
+              <!-- Card Header -->
+              <div class="cookie-panel-inner px-8 pt-8 pb-0">
+                <div class="pb-3 mb-8" style="border-bottom: 1px solid #E2DED6;">
+                  <span
+                    class="font-montserrat font-semibold"
+                    style="font-size: 28px; line-height: 47.2px; color: #2A2A2A; font-variant: small-caps;"
+                  >
+                    THE CONTROL PANEL
+                  </span>
+                </div>
+
+                <!-- Cookie Rows -->
+                <div class="flex flex-col" style="gap: 20px; margin-bottom: 0;">
+
+                  <!-- Essential Cookies (always active, non-interactive) -->
+                  <div
+                    class="rounded"
+                    style="background: #F4F3F2; border-left: 4px solid #E2DED6; padding: 32px;"
+                  >
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                      <div class="flex items-center gap-4 flex-wrap">
+                        <span
+                          class="font-montserrat font-semibold"
+                          style="font-size: 24px; line-height: 28.8px; color: #2A2A2A;"
+                        >
+                          Essential Cookies
+                        </span>
+                        <!-- Always Active badge -->
+                        <span
+                          class="font-montserrat font-medium whitespace-nowrap"
+                          style="font-size: 14px; line-height: 19.6px; color: #91836C; background: #fff; padding: 4px 8px; border-radius: 20px;"
+                        >
+                          Always Active
+                        </span>
+                      </div>
+                      <!-- Required indicator -->
+                      <div class="flex items-center gap-2 flex-shrink-0 mt-0.5">
+                        <span
+                          class="inline-flex items-center justify-center flex-shrink-0"
+                          style="width: 20px; height: 20px; background: #fff; border-radius: 4px;"
+                        >
+                          <svg width="12" height="9" viewBox="0 0 12 9" fill="none">
+                            <path d="M1 4.5L4.5 8L11 1" stroke="#2A2A2A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span
+                          class="font-montserrat"
+                          style="font-size: 16px; line-height: 19.6px; color: rgba(42,42,42,0.88);"
+                        >
+                          Required
+                        </span>
+                      </div>
+                    </div>
+                    <p
+                      class="font-montserrat"
+                      style="font-size: 14px; line-height: 19.6px; color: rgba(42,42,42,0.88);"
+                    >
+                      These cookies are fundamental to the operation of the site. They enable core
+                      features like the glassmorphism navbar, secure form submissions (GoHighLevel
+                      integration), and the &ldquo;sliding plate&rdquo; layout. Without these, the
+                      site cannot function as intended.
+                    </p>
+                  </div>
+
+                  <!-- Analytics & Performance (toggleable) -->
+                  <div
+                    class="rounded"
+                    style="background: #fff; padding: 32px; border-radius: 4px;"
+                  >
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                      <span
+                        class="font-montserrat font-semibold"
+                        style="font-size: 24px; line-height: 28.8px; color: #2A2A2A;"
+                      >
+                        Analytics &amp; Performance
+                      </span>
+                      <!-- Toggle -->
+                      <label class="toggle-switch flex-shrink-0" for="analytics-toggle">
+                        <input type="checkbox" id="analytics-toggle" aria-label="Allow analytics and performance cookies" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <p
+                      class="font-montserrat"
+                      style="font-size: 14px; line-height: 19.6px; color: rgba(42,42,42,0.88);"
+                    >
+                      We use these to measure the efficiency of our user journeys. They allow us to
+                      see how visitors interact with our Practice and Product pages so we can
+                      proactively anticipate and refine the digital experience. These cookies do not
+                      track your activity across other websites and do not collect personal
+                      identifiers.
+                    </p>
+                  </div>
+
+                  <!-- Marketing & Personalization (toggleable) -->
+                  <div
+                    class="rounded"
+                    style="background: #fff; padding: 32px; border-radius: 4px;"
+                  >
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                      <span
+                        class="font-montserrat font-semibold"
+                        style="font-size: 24px; line-height: 28.8px; color: #2A2A2A;"
+                      >
+                        Marketing &amp; Personalization
+                      </span>
+                      <!-- Toggle -->
+                      <label class="toggle-switch flex-shrink-0" for="marketing-toggle">
+                        <input type="checkbox" id="marketing-toggle" aria-label="Allow marketing and personalization cookies" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <p
+                      class="font-montserrat"
+                      style="font-size: 14px; line-height: 19.6px; color: rgba(42,42,42,0.88);"
+                    >
+                      These cookies help us tailor our communications. If you engage with our AI
+                      Strategy or Software Development content, these pixels ensure future
+                      interactions are relevant to your technical and business interests. Enabling
+                      this allows us to provide a more curated, high-authority experience.
+                    </p>
+                  </div>
+
+                </div><!-- /cookie rows -->
+              </div><!-- /card header + rows -->
+
+              <!-- Card Action Bar -->
+              <div
+                class="cookie-action-bar flex items-center justify-between px-8"
+                style="border-top: 1px solid #E2DED6; padding-top: 24px; padding-bottom: 24px;"
+              >
+                <div class="cookie-action-buttons flex items-center gap-4">
+                  <button
+                    id="accept-btn"
+                    class="font-montserrat font-semibold cursor-pointer transition-opacity hover:opacity-90"
+                    style="font-size: 14px; line-height: 17.07px; color: #fff; background: #91836C; border: 1.5px solid #91836C; padding: 14px 24px; border-radius: 6px;"
+                  >
+                    ACCEPT ALL COOKIES
+                  </button>
+                  <button
+                    id="decline-btn"
+                    class="font-montserrat font-semibold cursor-pointer transition-all hover:bg-[#91836C] hover:text-white"
+                    style="font-size: 14px; line-height: 17.07px; color: #91836C; background: transparent; border: 1.5px solid #91836C; padding: 14px 24px; border-radius: 6px;"
+                  >
+                    DECLINE ALL NON-ESSENTIAL COOKIES
+                  </button>
+                </div>
+              </div>
+
+            </div><!-- /control panel card -->
+
+            <!-- ─── SECTION 3: YOUR PRIVACY RIGHTS ─── -->
+            <div>
+              <div class="pb-3 mb-6" style="border-bottom: 1px solid #E2DED6;">
+                <span
+                  class="font-montserrat font-semibold"
+                  style="font-size: 28px; line-height: 47.2px; color: #2A2A2A; font-variant: small-caps;"
+                >
+                  YOUR PRIVACY RIGHTS <span style="font-size: 22px;">(Legal &amp; CCPA Requirements)</span>
+                </span>
+              </div>
+
+              <div class="flex flex-col" style="gap: 16px;">
+                <!-- Bullet 1 -->
+                <div class="flex items-start gap-4">
+                  <span
+                    class="flex-shrink-0 mt-[7px]"
+                    style="width: 8px; height: 8px; background-color: #9E927D; display: inline-block;"
+                  ></span>
+                  <p
+                    class="font-montserrat"
+                    style="font-size: 14px; line-height: 19.6px; color: rgba(42,42,42,0.88);"
+                  >
+                    <button id="ccpa-opt-out" type="button" class="font-semibold cookie-rights-link">Do Not Sell or Share My Personal Information</button>:
+                    {' '}Clicking this link will automatically disable all Marketing and Personalization cookies.
+                  </p>
+                </div>
+
+                <!-- Bullet 2 -->
+                <div class="flex items-start gap-4">
+                  <span
+                    class="flex-shrink-0 mt-[7px]"
+                    style="width: 8px; height: 8px; background-color: #9E927D; display: inline-block;"
+                  ></span>
+                  <p
+                    class="font-montserrat"
+                    style="font-size: 14px; line-height: 19.6px; color: rgba(42,42,42,0.88);"
+                  >
+                    <strong class="font-semibold" style="color: #2A2A2A;">California Privacy Rights:</strong>
+                    {' '}If you are a California resident, you have the right under the CCPA/CPRA to request a report of the data we have collected or to request its deletion. Please use the <button type="button" data-open-conversation class="font-semibold cookie-rights-link">Contact Us</button> form to submit a &ldquo;Privacy Data Request.&rdquo;
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─── SECTION 4: YOUR CONSENT HISTORY ─── -->
+            <div>
+              <div class="pb-3 mb-6" style="border-bottom: 1px solid #E2DED6;">
+                <span
+                  class="font-montserrat font-semibold"
+                  style="font-size: 28px; line-height: 47.2px; color: #2A2A2A; font-variant: small-caps;"
+                >
+                  YOUR CONSENT HISTORY
+                </span>
+              </div>
+
+              <!-- Consent data card -->
+              <div
+                class="rounded mb-3"
+                style="background: #fff; border: 1px solid #E2DED6; border-radius: 4px; padding: 32px;"
+              >
+                <div class="flex items-stretch gap-0">
+                  <!-- Last Action -->
+                  <div class="flex flex-col gap-2" style="min-width: 180px;">
+                    <span
+                      class="font-montserrat"
+                      style="font-size: 14px; line-height: 19.6px; color: rgba(42,42,42,0.88);"
+                      title="The date and time you last saved a cookie preference on this device."
+                    >
+                      Last Action
+                    </span>
+                    <span id="consent-last-action"
+                      class="font-montserrat font-semibold"
+                      style="font-size: 14px; line-height: 19.6px; color: #2A2A2A;"
+                    >
+                      No preference saved
+                    </span>
+                  </div>
+
+                  <!-- Vertical divider -->
+                  <div class="mx-8" style="width: 1px; background: #E2DED6; flex-shrink: 0;"></div>
+
+                  <!-- Consent ID -->
+                  <div class="flex flex-col gap-2">
+                    <span
+                      class="font-montserrat"
+                      style="font-size: 14px; line-height: 19.6px; color: rgba(42,42,42,0.88);"
+                      title="A unique reference number generated each time you save your preferences. Quote this if you contact us about a privacy request."
+                    >
+                      Consent ID
+                    </span>
+                    <span id="consent-id"
+                      class="font-montserrat font-semibold"
+                      style="font-size: 14px; line-height: 19.6px; color: #2A2A2A;"
+                    >
+                      Not generated
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Note -->
+              <p
+                class="font-merriweather"
+                style="font-size: 12px; line-height: 30.6px; color: rgba(42,42,42,0.50);"
+              >
+                <strong class="font-semibold" style="color: rgba(42,42,42,0.7);">Last Action</strong> is when you last saved a preference here; <strong class="font-semibold" style="color: rgba(42,42,42,0.7);">Consent ID</strong> is a unique reference generated at that time. This data helps our lead architect address specific privacy inquiries or audit requests — quote your Consent ID when you do.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* ── Toggle Switch ── */
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 28px;
+    cursor: pointer;
+  }
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+  .slider {
+    position: absolute;
+    inset: 0;
+    background-color: #CDC6BC;
+    border-radius: 100px;
+    transition: background-color 0.2s ease;
+  }
+  .slider::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  }
+  .toggle-switch input:checked + .slider {
+    background-color: #2A2A2A;
+  }
+  .toggle-switch input:checked + .slider::before {
+    transform: translateX(36px);
+  }
+  .toggle-switch:focus-within .slider {
+    outline: 2px solid #91836C;
+    outline-offset: 2px;
+  }
+  .cookie-rights-link {
+    appearance: none;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #2A2A2A;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  .legal-cookie-page .cookie-action-bar {
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 768px) {
+    .legal-cookie-page .legal-hero {
+      height: 400px !important;
+    }
+
+    .legal-cookie-page .legal-hero-text {
+      padding: 0 20px !important;
+      transform: translateY(42px);
+    }
+
+    .legal-cookie-page .legal-hero-text h1 {
+      font-size: 40px !important;
+      line-height: 48px !important;
+      letter-spacing: -0.06em !important;
+      margin-bottom: 28px !important;
+    }
+
+    .legal-cookie-page .legal-hero-text p {
+      font-size: 16px !important;
+      line-height: 27.2px !important;
+    }
+
+    .legal-cookie-page .cookie-content {
+      padding-top: 80px !important;
+      padding-bottom: 80px !important;
+    }
+
+    .legal-cookie-page .cookie-content .mx-auto > .flex.flex-col {
+      gap: 40px !important;
+    }
+
+    .legal-cookie-page .cookie-content [style*='font-size: 28px'] {
+      font-size: 20px !important;
+      line-height: 34px !important;
+    }
+
+    .legal-cookie-page .cookie-panel {
+      border: 1px solid #E2DED6;
+      border-radius: 8px !important;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16) !important;
+    }
+
+    .legal-cookie-page .cookie-panel-inner {
+      padding: 20px 16px 0 !important;
+    }
+
+    .legal-cookie-page .cookie-panel-inner [style*='font-size: 24px'] {
+      font-size: 18px !important;
+      line-height: 23.4px !important;
+    }
+
+    .legal-cookie-page .cookie-panel-inner [style*='font-size: 14px'] {
+      line-height: 19.6px !important;
+    }
+
+    .legal-cookie-page .cookie-panel .rounded[style*='padding: 32px'] {
+      padding: 16px !important;
+    }
+
+    .legal-cookie-page .cookie-panel .rounded[style*='background: #fff; padding: 32px'] {
+      border: 1px solid #E2DED6;
+    }
+
+    .legal-cookie-page .cookie-action-bar {
+      border-top: none !important;
+      padding: 0 16px 20px !important;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    .legal-cookie-page .cookie-action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .legal-cookie-page .cookie-rights-link {
+      display: inline;
+      min-height: 32px;
+      text-align: left;
+      touch-action: manipulation;
+    }
+
+    .legal-cookie-page #accept-btn {
+      order: 1;
+      width: 100%;
+      padding: 16px 24px !important;
+      font-size: 14px !important;
+      line-height: normal !important;
+      border-radius: 6px !important;
+    }
+
+    .legal-cookie-page #decline-btn {
+      order: 2;
+      width: 100%;
+      padding: 16px 24px !important;
+      text-align: center;
+      border: 1.5px solid #91836C !important;
+    }
+
+    .legal-cookie-page .cookie-content [style*='min-width: 180px'] {
+      min-width: 0 !important;
+      width: 100%;
+    }
+
+    .legal-cookie-page .cookie-content .flex.items-stretch.gap-0 {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .legal-cookie-page .cookie-content .flex.items-stretch.gap-0 > .mx-8 {
+      margin: 0 !important;
+      width: 55px !important;
+      height: 1px;
+      background: #E2DED6 !important;
+    }
+  }
+</style>
+
+<script>
+  // ── Load saved preferences ──
+  function getToggles() {
+    return {
+      analytics: document.getElementById('analytics-toggle') as HTMLInputElement | null,
+      marketing: document.getElementById('marketing-toggle') as HTMLInputElement | null,
+    };
+  }
+
+  function getConsentApi() {
+    return (window as any).DNAConsent as {
+      read: () => any;
+      save: (analytics: boolean, marketing: boolean, source?: string) => any;
+    } | undefined;
+  }
+
+  function renderConsent(consent: any) {
+    const { analytics, marketing } = getToggles();
+    if (analytics) analytics.checked = consent?.analytics ?? false;
+    if (marketing) marketing.checked = consent?.marketing ?? false;
+
+    const lastAction = document.getElementById('consent-last-action');
+    const consentId = document.getElementById('consent-id');
+    if (lastAction) {
+      lastAction.textContent = consent?.timestamp
+        ? new Intl.DateTimeFormat(undefined, { dateStyle: 'long', timeStyle: 'short' }).format(new Date(consent.timestamp))
+        : 'No preference saved';
+    }
+    if (consentId) consentId.textContent = consent?.consentID || 'Not generated';
+  }
+
+  function saveCurrent(source: string) {
+    const { analytics, marketing } = getToggles();
+    return getConsentApi()?.save(!!analytics?.checked, !!marketing?.checked, source);
+  }
+
+  // Decline All
+  document.getElementById('decline-btn')?.addEventListener('click', () => {
+    const { analytics, marketing } = getToggles();
+    if (analytics) analytics.checked = false;
+    if (marketing) marketing.checked = false;
+    saveCurrent('decline-all');
+  });
+
+  // Accept All
+  document.getElementById('accept-btn')?.addEventListener('click', () => {
+    const { analytics, marketing } = getToggles();
+    if (analytics) analytics.checked = true;
+    if (marketing) marketing.checked = true;
+    saveCurrent('accept-all');
+  });
+
+  function optOutMarketingCookies() {
+    const { analytics, marketing } = getToggles();
+    if (marketing) marketing.checked = false;
+    renderConsent(getConsentApi()?.save(!!analytics?.checked, false, 'ccpa-opt-out'));
+  }
+
+  const ccpaOptOut = document.getElementById('ccpa-opt-out');
+  let ccpaPointerHandled = false;
+
+  ccpaOptOut?.addEventListener('pointerup', (event) => {
+    event.preventDefault();
+    ccpaPointerHandled = true;
+    optOutMarketingCookies();
+  });
+
+  ccpaOptOut?.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (ccpaPointerHandled) {
+      ccpaPointerHandled = false;
+      return;
+    }
+    optOutMarketingCookies();
+  });
+
+  window.addEventListener('dna:consent-changed', (event) => {
+    renderConsent((event as CustomEvent).detail);
+  });
+
+  window.addEventListener('dna:consent-ready', () => {
+    renderConsent(getConsentApi()?.read());
+  }, { once: true });
+
+  renderConsent(getConsentApi()?.read());
+</script>

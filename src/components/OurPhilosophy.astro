@@ -1,0 +1,325 @@
+﻿---
+// Our Philosophy — exact Figma 2-column layout
+// Left: big quote + body text with drop-cap
+// Right: "THE THREE PILLARS" + 3 items stacked vertically (each with icon, title, drop-cap body)
+---
+
+<section id="philosophy" class="w-full py-[100px]" style="background-color: #CDC6BC;">
+  <div class="section-container">
+    <!-- Section Header — centered -->
+    <div class="text-center mb-12 philosophy-header">
+      <h2 class="font-montserrat font-bold leading-tight mb-4" style="font-size: 40px; color: #4E5854; font-variant: small-caps;">Our Philosophy</h2>
+      <div class="mb-5 flex justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="208" height="28" viewBox="0 0 208 28" fill="none" aria-hidden="true">
+          <g clip-path="url(#clip0_our_philosophy)">
+            <path d="M117.338 14.0294L104.309 1L91.2797 14.0294L104.309 27.0588L117.338 14.0294Z" stroke="#796D56" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+            <path d="M113.948 14.0295L104.309 4.39062L94.6702 14.0295L104.309 23.6683L113.948 14.0295Z" fill="#766B53"/>
+            <path d="M3 14L74 14" stroke="#796D56" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round"/>
+            <path d="M134 13H205" stroke="#796D56" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_our_philosophy">
+              <rect width="208" height="28" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      <h3 class="font-montserrat text-[24px] font-semibold leading-[28.8px]" style="color: #2A2A2A;">Defining the Principles that Guide Every Solution</h3>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div class="flex flex-col lg:flex-row gap-16 items-start mb-14 philosophy-layout">
+      <!-- Left Column: Big Quote + Body Text -->
+      <div class="lg:w-[44%] flex-shrink-0 philosophy-quote">
+        <h2 class="font-montserrat font-bold leading-[1.15] mb-8 philosophy-main-title" style="font-size: clamp(30px, 3.2vw, 46px); color: #060505;">
+          Built on Integrity.<br />Engineered for<br />Outcomes.
+        </h2>
+        <!-- Body text with left border accent and drop-cap -->
+        <div class="pl-6 philosophy-body" style="border-left: 6px solid #000000;">
+          <p class="font-merriweather text-[15px] font-normal leading-[26px] philosophy-main-text" style="color: #000000;">
+            <span class="float-left mr-2 mt-0.5" style="color: var(--Button-Active, #756A57); font-family: 'Merriweather', serif; font-size: 58px; font-style: normal; font-weight: 700; line-height: 49px;">A</span>
+            Legacy of Accountability. Dna Digital Consultancy was founded on a simple, uncompromising principle; we do exactly what we say we'll do. In an industry often clouded by hype and over-promises, we operate with a conservative, pragmatic lens and a military-grade commitment to the mission. We don't measure our success by billable hours or the size of the team, but by the resilience and performance of the solutions we deliver. We view every engagement as a mission-critical deployment, stripping away the ambiguity that often plagues digital transformation. By operating through a conservative, pragmatic lens and a military-grade commitment to the objective, we ensure that architectural integrity and strategic clarity are never sacrificed for convenience.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Three Pillars -->
+      <div class="flex-1 philosophy-pillars">
+        <h4 class="font-montserrat mb-8 philosophy-pillars-heading" style="color: var(--Text-Heading, #060505); font-family: 'Montserrat', sans-serif; font-size: 24px; font-style: normal; font-weight: 600; line-height: 28.8px; letter-spacing: -0.48px; text-transform: uppercase;">The Three Pillars of Our Philosophy.</h4>
+        
+        <!-- Pillar 1 -->
+        <div class="flex items-start gap-5 pb-7 mb-7 philosophy-pillar" style="border-bottom: 1px solid rgba(107,94,74,0.3);">
+          <div class="w-[62px] h-[56px] flex-shrink-0 self-center flex items-center justify-center philosophy-pillar-icon">
+            <img src="/images/philosophy/icons/pillar-1.svg" alt="Radical candor icon" class="w-full h-full object-contain" loading="lazy" />
+          </div>
+          <div class="pl-4 philosophy-pillar-content" style="border-left: 6px solid #91836C;">
+            <h5 class="font-montserrat text-[16px] font-bold leading-[20px] mb-3 philosophy-pillar-title" style="color: #2A2A2A;">Radical Candor over Billable Hours</h5>
+            <p class="font-merriweather text-[14px] font-normal leading-[22px] philosophy-pillar-text" style="color: #3A3A3A;">
+              <span class="philosophy-pillar-dropcap">W</span>e speak with clarity, not convenience. Our seniority and experience give us the freedom to prioritize your long-term stability over short-term project economics. If a path is high-risk, wasteful, or misaligned with your objectives, we flag it immediately—even when it's not in our financial interest.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="flex items-start gap-5 pb-7 mb-7 philosophy-pillar" style="border-bottom: 1px solid rgba(107,94,74,0.3);">
+          <div class="w-[57px] h-[60px] flex-shrink-0 self-center flex items-center justify-center philosophy-pillar-icon">
+            <img src="/images/philosophy/icons/pillar-2.svg" alt="Proactive risk icon" class="w-full h-full object-contain" loading="lazy" />
+          </div>
+          <div class="pl-4 philosophy-pillar-content" style="border-left: 6px solid #91836C;">
+            <h5 class="font-montserrat text-[16px] font-bold leading-[20px] mb-3 philosophy-pillar-title" style="color: #2A2A2A;">Proactive Risk Anticipation</h5>
+            <p class="font-merriweather text-[14px] font-normal leading-[22px] philosophy-pillar-text" style="color: #3A3A3A;">
+              <span class="philosophy-pillar-dropcap">E</span>xperience has taught us where complexity hides. With thirty years of navigating the evolution of enterprise technology, we have the pattern recognition to see structural risks before they become problems. We don't just engineer risk out of the blueprint; we provide the proactive oversight required to anticipate issues as a project evolves.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="flex items-start gap-5 philosophy-pillar">
+          <div class="w-[50px] h-[62px] flex-shrink-0 self-center flex items-center justify-center philosophy-pillar-icon">
+            <img src="/images/philosophy/icons/pillar-3.svg" alt="High-performance integrity icon" class="w-full h-full object-contain" loading="lazy" />
+          </div>
+          <div class="pl-4 philosophy-pillar-content" style="border-left: 6px solid #91836C;">
+            <h5 class="font-montserrat text-[16px] font-bold leading-[20px] mb-3 philosophy-pillar-title" style="color: #2A2A2A;">High-Performance Integrity</h5>
+            <p class="font-merriweather text-[14px] font-normal leading-[22px] philosophy-pillar-text" style="color: #3A3A3A;">
+              <span class="philosophy-pillar-dropcap">I</span>ntegrity isn't just a value; it's our operating system. Forged in the rigor of our founder's Military service and sharpened through decades of executive-level delivery, we bring a high-performer culture to every engagement. We don't just follow directions; we manage the mission.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center philosophy-cta-wrap">
+      <div class="philosophy-mobile-motto" style="display: none; align-items: center; justify-content: center; gap: 8px; margin-bottom: 24px;">
+        <div style="flex: 1; height: 1px; background: rgba(145,131,108,0.35);"></div>
+        <p class="font-merriweather" style="font-size: 8px; line-height: 22px; color: rgba(0,0,0,0.6); white-space: nowrap;">Strategy Architected • Integrity Represented • Success, Delivered</p>
+        <div style="flex: 1; height: 1px; background: rgba(145,131,108,0.35);"></div>
+      </div>
+      <a id="philosophy-expertise-cta" href="#expertise" class="inline-flex items-center justify-center font-montserrat text-[13px] font-semibold tracking-[0.12em] uppercase text-white px-10 py-[14px] transition-all duration-300 hover:opacity-90" style="background-color: #683547; letter-spacing: 0.12em;">
+        Explore Our Expertise
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.fromTo(
+    '.philosophy-quote',
+    { opacity: 0, x: -50 },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 1.1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.philosophy-quote',
+        start: 'top 80%',
+        toggleActions: 'restart none none reset',
+      },
+    }
+  );
+  gsap.fromTo(
+    '.philosophy-pillars',
+    { opacity: 0, x: 50 },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 1.1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.philosophy-pillars',
+        start: 'top 80%',
+        toggleActions: 'restart none none reset',
+      },
+    }
+  );
+
+  const philosophyCta = document.getElementById('philosophy-expertise-cta') as HTMLAnchorElement | null;
+
+  philosophyCta?.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const currentSection = document.getElementById('philosophy');
+    const targetSection = document.getElementById('expertise') || (currentSection?.nextElementSibling as HTMLElement | null);
+
+    if (!targetSection) return;
+
+    const nav = document.getElementById('main-nav');
+    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+    const targetTop = targetSection.getBoundingClientRect().top + window.scrollY - navHeight;
+
+    window.history.replaceState(null, '', '#expertise');
+    window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+  });
+</script>
+
+<style>
+#philosophy .philosophy-pillar-text {
+  display: flow-root;
+}
+
+#philosophy .philosophy-pillar-dropcap {
+  float: left;
+  display: inline-block;
+  margin-right: 8px;
+  color: #756a57;
+  font-family: 'Merriweather', serif;
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 0.66;
+  margin-top: 10px;
+}
+
+#philosophy .philosophy-pillar-icon {
+  width: 64px !important;
+  height: 64px !important;
+  flex: 0 0 64px;
+}
+
+#philosophy .philosophy-pillars-heading::after {
+  content: '';
+  display: block;
+  margin-top: 24px;
+  border-top: 1px solid var(--Divider, #91836C);
+}
+
+@media (max-width: 768px) {
+  #philosophy {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+
+  #philosophy .philosophy-header {
+    margin-bottom: 40px !important;
+  }
+
+  #philosophy .philosophy-header h2 {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+
+  #philosophy .philosophy-header h3 {
+    font-size: 18px !important;
+    line-height: 28px !important;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #philosophy .philosophy-layout {
+    gap: 40px !important;
+    margin-bottom: 36px !important;
+  }
+
+  #philosophy .philosophy-main-title {
+    font-size: 44px !important;
+    line-height: 44px !important;
+    margin-bottom: 16px !important;
+  }
+
+  #philosophy .philosophy-body {
+    padding-left: 12px !important;
+    border-left-width: 4px !important;
+  }
+
+  #philosophy .philosophy-main-text {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    color: #2A2A2A !important;
+  }
+
+  #philosophy .philosophy-main-text > span:first-child {
+    font-size: 46px !important;
+    line-height: 42px !important;
+    margin-right: 6px !important;
+    margin-top: 2px !important;
+  }
+
+  #philosophy .philosophy-pillars-heading {
+    font-size: 32px !important;
+    line-height: 26px !important;
+    letter-spacing: 0 !important;
+    margin-bottom: 20px !important;
+  }
+
+  #philosophy .philosophy-pillar {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 14px !important;
+    padding-bottom: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  #philosophy .philosophy-pillar-icon {
+    width: 64px !important;
+    height: 64px !important;
+    align-self: center !important;
+  }
+
+  #philosophy .philosophy-pillar-content {
+    width: 100%;
+    padding-left: 12px !important;
+    border-left-width: 4px !important;
+  }
+
+  #philosophy .philosophy-pillar-title {
+    font-size: 14px !important;
+    line-height: 24px !important;
+    margin-bottom: 8px !important;
+  }
+
+  #philosophy .philosophy-pillar-text {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    color: #2A2A2A !important;
+  }
+
+  #philosophy .philosophy-pillar-dropcap {
+    display: inline-block;
+    font-size: 34px;
+    line-height: 0.66;
+    margin-right: 6px;
+    margin-top: 8px;
+  }
+
+  #philosophy .philosophy-mobile-motto {
+    display: flex !important;
+    margin-bottom: 28px !important;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  #philosophy .philosophy-mobile-motto > div {
+    display: block;
+    flex: 1 1 20px !important;
+    max-width: 28px;
+    height: 1px !important;
+    background: rgba(78,88,84,0.2) !important;
+  }
+
+  #philosophy .philosophy-mobile-motto p {
+    max-width: 330px;
+    white-space: normal !important;
+    color: #4E5854 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 22px !important;
+    opacity: 0.9;
+  }
+
+  #philosophy .philosophy-cta-wrap a {
+    width: 100%;
+    max-width: 350px;
+    min-height: 52px;
+    font-size: 16px !important;
+    letter-spacing: 0.005em !important;
+  }
+}
+</style>

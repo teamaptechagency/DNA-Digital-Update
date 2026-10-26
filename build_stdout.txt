@@ -1,0 +1,36 @@
+21:43:36 [types] Generated 299ms
+21:43:36 [build] output: "static"
+21:43:36 [build] directory: D:\Projects\DNA Digital\dist\
+21:43:36 [build] Collecting build info...
+21:43:36 [build] ✓ Completed in 610ms.
+21:43:36 [build] Building static entrypoints...
+21:43:44 [vite] [32m✓ built in 7.97s[39m
+21:43:44 [build] ✓ Completed in 8.24s.
+
+ building client (vite) 
+21:43:44 [vite] transforming...
+21:43:46 [vite] [32m✓[39m 18 modules transformed.
+21:43:46 [vite] rendering chunks...
+21:43:46 [vite] computing gzip size...
+21:43:46 [vite] [2mdist/[22m[36m_astro/hoisted.Bzru7HBr.js  [39m[1m[2m 0.50 kB[22m[1m[22m[2m │ gzip:  0.24 kB[22m
+21:43:46 [vite] [2mdist/[22m[36m_astro/hoisted.D_fPg0gx.js  [39m[1m[2m 1.09 kB[22m[1m[22m[2m │ gzip:  0.47 kB[22m
+21:43:46 [vite] [2mdist/[22m[36m_astro/hoisted.BteYgWn3.js  [39m[1m[2m 1.10 kB[22m[1m[22m[2m │ gzip:  0.51 kB[22m
+21:43:46 [vite] [2mdist/[22m[36m_astro/hoisted.BF9zt2Tx.js  [39m[1m[2m47.94 kB[22m[1m[22m[2m │ gzip: 19.76 kB[22m
+21:43:46 [vite] [2mdist/[22m[36m_astro/index.SFc2wnMY.js    [39m[1m[2m70.44 kB[22m[1m[22m[2m │ gzip: 27.81 kB[22m
+21:43:46 [vite] [32m✓ built in 2.21s[39m
+
+ generating static routes 
+21:43:46 ▶ src/pages/about.astro
+21:43:46   └─ /about/index.html (+35ms)
+21:43:46 ▶ src/pages/cookie-preferences.astro
+21:43:46   └─ /cookie-preferences/index.html (+12ms)
+21:43:46 ▶ src/pages/privacy-policy.astro
+21:43:47   └─ /privacy-policy/index.html (+10ms)
+21:43:47 ▶ src/pages/terms-and-conditions.astro
+21:43:47   └─ /terms-and-conditions/index.html (+11ms)
+21:43:47 ▶ src/pages/index.astro
+21:43:47   └─ /index.html (+23ms)
+21:43:47 ✓ Completed in 164ms.
+
+21:43:47 [build] 5 page(s) built in 11.43s
+21:43:47 [build] Complete!

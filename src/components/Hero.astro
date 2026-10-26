@@ -1,0 +1,110 @@
+﻿---
+// Hero section — full bleed background image, dark overlay, white typography
+---
+
+<section id="hero" class="relative w-full min-h-[720px] md:min-h-screen overflow-hidden flex items-center" style="background-color: #1a1a1a;">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/images/hero-bg.jpg"
+      alt="DNA Digital Consultancy Background"
+      class="w-full h-full object-cover object-center"
+    />
+    <!-- Overlay gradient: dark left, fading right -->
+    <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(6,5,5,0.88) 30%, rgba(6,5,5,0.55) 65%, rgba(6,5,5,0.2) 100%);"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="section-container relative z-10 pt-[80px] pb-[30px] md:pt-[160px] md:pb-24">
+    <div class="w-full flex flex-col items-center text-center">
+      <!-- Main Heading -->
+      <h1
+        id="hero-heading"
+        class="font-montserrat font-bold text-white leading-[1.2] mb-8"
+        style="font-size: clamp(34px, 8.8vw, 72px); max-width: 1000px; letter-spacing: -0.045em;"
+      >
+        Re-Engineering Your<br />
+        <em class="not-italic font-bold" style="text-decoration: underline; text-underline-offset: 6px;">Business</em> Dna to <em class="italic" style="color: #E0C9A3; text-decoration: underline; text-underline-offset: 6px;">Outperform</em><br />
+        Your Competition
+      </h1>
+
+      <!-- Subtitle -->
+      <div class="mb-10">
+        <p
+          id="hero-subtitle"
+          class="font-merriweather text-[16px] md:text-[20px] font-normal leading-[27.2px] md:leading-[36px] text-white/90"
+          style="max-width: 700px;"
+        >
+          Strategic leadership and precision engineering for AI transformation, legacy modernization, and scalable growth.
+        </p>
+      </div>
+
+      <!-- CTA Button -->
+      <a
+        id="hero-cta"
+        href="#"
+        data-open-conversation
+        class="inline-flex items-center justify-center w-full md:w-auto font-montserrat text-[14px] md:text-[16px] font-semibold uppercase text-white transition-all duration-1000 hover:brightness-125"
+        style="background: rgba(145,131,108,0.40); padding: 16px 20px; border-radius: 6px; letter-spacing: 0.005em;"
+      >
+        Explore a Potential Partnership
+      </a>
+    </div>
+  </div>
+
+
+</section>
+
+<script>
+  import gsap from 'gsap';
+
+  // Hero entrance animations
+  const tl = gsap.timeline({ delay: 0.3 });
+
+  tl.fromTo(
+    '#hero-heading',
+    { opacity: 0, y: 60 },
+    { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }
+  )
+  .fromTo(
+    '#hero-subtitle',
+    { opacity: 0, y: 40 },
+    { opacity: 1, y: 0, duration: 1, ease: 'power2.out' },
+    '-=0.7'
+  )
+  .fromTo(
+    '#hero-cta',
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+    '-=0.5'
+  );
+</script>
+
+<style>
+@media (max-width: 768px) {
+  #hero {
+    min-height: 680px;
+  }
+
+  #hero-heading {
+    line-height: 1.14 !important;
+  }
+
+  #hero-heading {
+    max-width: 350px !important;
+  }
+
+  #hero-subtitle {
+    max-width: 350px !important;
+  }
+
+  #hero-cta {
+    max-width: 350px !important;
+  }
+}
+
+#hero-cta:hover,
+#hero-cta:focus-visible {
+  transform: translateY(-3px) !important;
+}
+</style>

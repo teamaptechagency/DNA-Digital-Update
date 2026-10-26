@@ -1,0 +1,191 @@
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const sectionSelector = 'main section:not(#hero):not(#about-hero)';
+  const stackSelector = 'main section';
+
+  function getNavOffset() {
+    return document.getElementById('main-nav')?.offsetHeight || 0;
+  }
+
+  function getNavStopPosition() {
+    return `top ${getNavOffset()}px`;
+  }
+
+  function getPlateHandoffPosition(nextSection?: HTMLElement) {
+    const handoffDistance = nextSection?.id === 'our-difference'
+      ? Math.min(220, Math.max(160, window.innerHeight * 0.18))
+      : Math.min(560, Math.max(320, window.innerHeight * 0.45));
+
+    return `top ${getNavOffset() - handoffDistance}px`;
+  }
+
+  function getPlateScrollTop(section: HTMLElement) {
+    const pinTrigger = ScrollTrigger.getAll().find((trigger) => (
+      trigger.trigger === section && Boolean((trigger.vars as any).pin)
+    ));
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+    const navAdjustedTop = sectionTop - getNavOffset();
+    const isTallSection = section.scrollHeight > window.innerHeight;
+
+    if (section.id === 'clients') {
+      return navAdjustedTop;
+    }
+
+    if (pinTrigger && !isTallSection) {
+      return pinTrigger.start + 1;
+    }
+
+    return navAdjustedTop;
+  }
+
+  function scrollToPlateSection(targetId: string) {
+    const section = document.getElementById(targetId);
+
+    if (!section) return false;
+
+    ScrollTrigger.refresh();
+
+    window.scrollTo({
+      top: Math.max(0, getPlateScrollTop(section)),
+      behavior: 'smooth',
+    });
+
+    window.history.replaceState(null, '', `#${targetId}`);
+    return true;
+  }
+
+  function initScrollPlates() {
+    const sections = gsap.utils.toArray<HTMLElement>(sectionSelector);
+    const stackSections = gsap.utils.toArray<HTMLElement>(stackSelector);
+
+    if (sections.length < 2) return;
+
+    gsap.set(sections, {
+      position: 'relative',
+      zIndex: (index) => index + 1,
+    });
+
+    sections.forEach((section, index) => {
+      section.classList.add('scroll-plate');
+      const isTallSection = section.scrollHeight > window.innerHeight;
+
+      if (index === sections.length - 1) return;
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: () => isTallSection ? 'bottom bottom' : getNavStopPosition(),
+        endTrigger: sections[index + 1],
+        end: () => getPlateHandoffPosition(sections[index + 1]),
+        pin: true,
+        pinType: 'fixed',
+        pinSpacing: false,
+        anticipatePin: 0.5,
+        fastScrollEnd: false,
+        invalidateOnRefresh: true,
+      });
+    });
+
+    const hero = document.getElementById('hero') || document.getElementById('about-hero');
+
+    if (hero && stackSections[1] === sections[0]) {
+      const firstSectionIsTall = sections[0].scrollHeight > window.innerHeight;
+
+      gsap.set(hero, {
+        position: 'relative',
+        zIndex: 0,
+      });
+
+      ScrollTrigger.create({
+        trigger: hero,
+        start: 'top top',
+        endTrigger: sections[0],
+        end: () => firstSectionIsTall
+          ? 'bottom bottom'
+          : getPlateHandoffPosition(),
+        pin: true,
+        pinType: 'fixed',
+        pinSpacing: false,
+        anticipatePin: 0.5,
+        fastScrollEnd: false,
+        invalidateOnRefresh: true,
+      });
+    }
+  }
+
+  function resetScrollPlates() {
+    ScrollTrigger.getAll().forEach((trigger) => {
+      if (
+        trigger.trigger instanceof HTMLElement &&
+        (
+          trigger.trigger.classList.contains('scroll-plate') ||
+          trigger.trigger.id === 'hero' ||
+          trigger.trigger.id === 'about-hero'
+        )
+      ) {
+        trigger.kill();
+      }
+    });
+
+    gsap.set(sectionSelector, {
+      clearProps: 'position,zIndex,transform',
+    });
+
+    gsap.set('#hero, #about-hero', {
+      clearProps: 'position,zIndex,transform',
+    });
+
+    document.querySelectorAll<HTMLElement>('.scroll-plate').forEach((section) => {
+      section.classList.remove('scroll-plate');
+    });
+
+    delete (window as any).scrollToPlateSection;
+  }
+
+  resetScrollPlates();
+
+  const mm = gsap.matchMedia();
+
+  mm.add('(min-width: 769px)', () => {
+    if (reduceMotionQuery.matches) {
+      resetScrollPlates();
+      return;
+    }
+
+    initScrollPlates();
+    (window as any).scrollToPlateSection = scrollToPlateSection;
+
+    const initialHash = window.location.hash.replace('#', '');
+
+    if (initialHash) {
+      window.setTimeout(() => {
+        scrollToPlateSection(initialHash);
+      }, 150);
+    }
+
+    return resetScrollPlates;
+  });
+</script>
+
+<style is:global>
+  .scroll-plate {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-start;
+    overflow: visible;
+  }
+
+  .scroll-plate > .section-container {
+    width: 100%;
+  }
+
+  #clients.scroll-plate {
+    align-items: stretch;
+    flex-direction: column;
+  }
+</style>

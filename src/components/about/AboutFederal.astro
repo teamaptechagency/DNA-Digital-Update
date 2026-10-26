@@ -1,0 +1,334 @@
+---
+const naicsCategories = [
+  {
+    label: 'Primary NAICS',
+    items: ['541512 | Computer Systems Design Services'],
+  },
+  {
+    label: 'Core Technical',
+    items: [
+      '541511 | Custom Computer Programming Services',
+      '541519 | Other Computer Related Services',
+      '541513 | Computer Facilities Management Services',
+      '518210 | Computing Infrastructure Providers, Data Processing, Web Hosting',
+      '519190 | All Other Information Services',
+    ],
+  },
+  {
+    label: 'Consulting, Leadership & Governance',
+    items: [
+      '541611 | Administrative & Management Consulting Services',
+      '541618 | Other Management Consulting Services',
+      '541614 | Process, Distribution & Logistics Consulting',
+    ],
+  },
+  {
+    label: 'AI, Automation & Analytics',
+    items: [
+      '541715 | R&D in Physical, Engineering, and Life Sciences',
+      '541690 | Other Scientific & Technical Consulting Services',
+      '541720 | R&D in Social Sciences & Humanities',
+    ],
+  },
+  {
+    label: 'Training & Enablement',
+    items: ['611420 | Computer Training', '611430 | Professional & Management Development Training'],
+  },
+  {
+    label: 'Creative, CX, and Digital Experience',
+    items: ['541430 | Graphic Design Services', '541613 | Marketing Consulting Services', '541810 | Advertising Services'],
+  },
+];
+
+const systemData = [
+  { label: 'SAM Status', value: 'Active', mono: false },
+  { label: 'UEI', value: 'MQNMTNP46YT4', mono: true },
+  { label: 'CAGE Code', value: '1ARP7', mono: true },
+];
+---
+
+<section id="about-federal" class="about-federal">
+  <div class="section-container federal-inner">
+    <header class="federal-header">
+      <h2>Federal &amp; Enterprise Readiness</h2>
+      <img src="/images/about/divider-ornament.svg" alt="" loading="lazy" decoding="async" />
+      <h3>Institutional Data and Compliance Classifications</h3>
+      <p>
+        Official registration and system data for public sector, federal, and highly regulated commercial engagements.
+      </p>
+    </header>
+
+    <div class="federal-content">
+      <article class="federal-card naics-card">
+        <h4>NAICS Classifications</h4>
+
+        <div class="naics-list">
+          {naicsCategories.map((category, index) => (
+            <div class={`naics-row ${index < naicsCategories.length - 1 ? 'with-border' : ''}`}>
+              <p class="category-label">{category.label}</p>
+              <div class="category-items">
+                {category.items.map((item, itemIndex) => (
+                  <p class={itemIndex < category.items.length - 1 ? 'with-divider' : ''}>{item}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class="federal-card system-card">
+        <h4>System Data</h4>
+        <div class="system-list">
+          {systemData.map((item) => (
+            <p>
+              {item.label}: <span class={item.mono ? 'mono' : ''}>{item.value}</span>
+            </p>
+          ))}
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-federal {
+    background: #e9e4dd;
+    width: 100%;
+    padding: 144px 0;
+  }
+
+  .federal-inner {
+    max-width: 1080px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .federal-header {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .federal-header h2 {
+    margin: 0;
+    color: #2a2a2a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.18;
+  }
+
+  .federal-header img {
+    width: 208px;
+    height: 28px;
+  }
+
+  .federal-header h3 {
+    margin: 0;
+    color: #2a2a2a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .federal-header p {
+    margin: 0;
+    color: #2a2a2a;
+    opacity: 0.88;
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 630px;
+  }
+
+  .federal-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 252px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .federal-card {
+    border-radius: 8px;
+    background-color: #f4f3f2;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+    padding: 32px;
+  }
+
+  .federal-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background-image: url('/images/practices/about-pattern-bg-lg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.02);
+    transform-origin: center;
+    z-index: 0;
+  }
+
+  .federal-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .system-card::before {
+    background-image: url('/images/practices/about-pattern-bg-sm.png');
+  }
+
+  .federal-card h4 {
+    margin: 0 0 16px;
+    color: #060505;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .naics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .naics-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding-bottom: 6px;
+  }
+
+  .naics-row.with-border {
+    border-bottom: 1px solid #91836c;
+  }
+
+  .category-label {
+    margin: 0;
+    width: 108px;
+    flex-shrink: 0;
+    color: #2a2a2a;
+    opacity: 0.88;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.8;
+  }
+
+  .category-items {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .category-items p {
+    margin: 0;
+    color: #2a2a2a;
+    opacity: 0.88;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    line-height: 1.8;
+    padding-bottom: 6px;
+  }
+
+  .category-items p.with-divider {
+    border-bottom: 1px solid #91836c;
+  }
+
+  .system-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .system-list p {
+    margin: 0;
+    color: #2a2a2a;
+    opacity: 0.88;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .system-list .mono {
+    font-family: 'B612 Mono', monospace;
+  }
+
+  @media (max-width: 1024px) {
+    .about-federal {
+      padding: 104px 0;
+    }
+
+    .federal-content {
+      grid-template-columns: 1fr;
+    }
+
+    .system-card {
+      max-width: 420px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-federal {
+      padding: 80px 0;
+    }
+
+    .federal-inner {
+      gap: 40px;
+    }
+
+    .federal-header h2 {
+      font-size: 28px;
+      line-height: 36px;
+      color: #4e5854;
+    }
+
+    .federal-header h3 {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    .federal-header p {
+      font-size: 16px;
+      line-height: 27.2px;
+    }
+
+    .federal-card {
+      padding: 16px;
+    }
+
+    .system-card {
+      order: -1;
+    }
+
+    .federal-card h4 {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    .category-label,
+    .category-items p,
+    .system-list p {
+      font-size: 14px;
+      line-height: 25.2px;
+    }
+
+    .naics-row {
+      gap: 12px;
+      flex-direction: column;
+    }
+
+    .category-label {
+      width: auto;
+    }
+  }
+</style>

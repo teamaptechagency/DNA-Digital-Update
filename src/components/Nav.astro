@@ -1,0 +1,1144 @@
+﻿---
+// Nav component — transparent over hero, white on scroll
+
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+const isAbout = currentPath === '/about';
+
+import { practices } from '../data/practices';
+const practiceLinks = practices.map(practice => ({ label: practice.title, href: `/?practice=${practice.tabId}#expertise`, tabId: practice.tabId }));
+
+const productLinks = [
+  {
+    "label": "Digital Growth Engine",
+    "href": "https://digitalgrowthengine.ai"
+  },
+  {
+    "label": "CPMAI Mastery System",
+    "href": "https://www.cpmaimastery.com/"
+  },
+  {
+    "label": "Mobile Apps",
+    "href": "#"
+  }
+];
+---
+
+<nav
+id="main-nav"
+class="fixed top-0 left-0 right-0 z-[200] h-[72px] md:h-[112px] flex items-center transition-all duration-500"
+>
+<div class="section-container w-full flex items-center justify-between">
+  <!-- Logo Block -->
+  <a href="/" class="flex-shrink-0 flex flex-col items-start">
+    <img
+      src="/images/logo.svg"
+      alt="DNA Digital Consultancy"
+      class="nav-logo-img h-[44px] md:h-[80px] w-auto"
+    />
+  </a>
+
+  <!-- Desktop Nav Links -->
+  <div class="desktop-nav-links hidden lg:flex items-center gap-8">
+    <a
+      href="/"
+      data-nav-link
+      data-nav-section="home"
+      class={`nav-link font-montserrat text-[14px] font-semibold uppercase text-white hover:text-dna-gold-light transition-colors duration-300 ${isHome ? 'nav-link-active' : ''}`}
+    >
+      Home
+    </a>
+
+    <div class="relative group nav-menu-group">
+      <button
+        type="button"
+        data-nav-section="practices"
+        class="nav-link font-montserrat text-[14px] font-semibold uppercase text-white hover:text-dna-gold-light transition-colors duration-300 flex items-center gap-[8px]"
+      >
+        Practices
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" style="width: 12px; height: 7.4px; aspect-ratio: 60 / 37;">
+          <path d="M6 7.4L0 1.4L1.4 0L6 4.6L10.6 0L12 1.4L6 7.4Z" fill="white" />
+        </svg>
+      </button>
+      <div class="nav-menu-panel absolute left-0 top-full pt-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-200">
+        <div class="nav-dropdown min-w-[320px] rounded-[8px] p-3 border" style="background: rgba(6,5,5,0.96); border-color: rgba(145,131,108,0.5);">
+          {practiceLinks.map((link) => (
+            <a
+              href={link.href}
+              data-expertise-tab={link.tabId || null}
+              class="nav-practice-link nav-submenu-link block px-3 py-2 font-merriweather text-[13px] leading-[18px] transition-colors duration-200 hover:text-dna-gold-light"
+              style="color: rgba(244,243,242,0.88);"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="relative group nav-menu-group">
+      <button
+        type="button"
+        data-nav-section="products"
+        class="nav-link font-montserrat text-[14px] font-semibold uppercase text-white hover:text-dna-gold-light transition-colors duration-300 flex items-center gap-[8px]"
+      >
+        Products
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" style="width: 12px; height: 7.4px; aspect-ratio: 60 / 37;">
+          <path d="M6 7.4L0 1.4L1.4 0L6 4.6L10.6 0L12 1.4L6 7.4Z" fill="white" />
+        </svg>
+      </button>
+      <div class="nav-menu-panel absolute left-0 top-full pt-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-200">
+        <div class="nav-dropdown min-w-[220px] rounded-[8px] p-3 border" style="background: rgba(6,5,5,0.96); border-color: rgba(145,131,108,0.5);">
+          {productLinks.map((link) => (
+            <a
+              href={link.href}
+              class="nav-submenu-link block px-3 py-2 font-merriweather text-[13px] leading-[18px] transition-colors duration-200 hover:text-dna-gold-light"
+              style="color: rgba(244,243,242,0.88);"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <a
+      href="/about"
+      data-nav-link
+      data-nav-section="about"
+      class={`nav-link font-montserrat text-[14px] font-semibold uppercase text-white hover:text-dna-gold-light transition-colors duration-300 ${isAbout ? 'nav-link-active' : ''}`}
+    >
+      About
+    </a>
+  </div>
+
+  <!-- CTA Button -->
+  <button
+    type="button"
+    data-open-conversation
+    class="nav-conversation-btn hidden lg:inline-flex items-center justify-center px-5 py-[11px] font-montserrat text-[14px] font-bold uppercase transition-all duration-300 flex-shrink-0"
+  >
+    Start a Conversation
+  </button>
+
+  <!-- Mobile Menu Toggle -->
+  <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+<!-- Mobile Menu -->
+<div
+  id="mobile-menu"
+  class="hidden fixed top-[72px] left-0 right-0 z-50 py-8 px-5 flex-col gap-5 shadow-2xl"
+  style="background: #F4F3F2; max-height: calc(100vh - 72px); overflow-y: auto;"
+>
+  <a
+    href="/"
+    class="font-montserrat text-[16px] font-bold text-[#5D5749] uppercase tracking-[0.02em] hover:text-[#91836C] transition-colors"
+  >
+    Home
+  </a>
+
+  <div class="mobile-nav-group border-t border-[#D5CFC5] pt-4">
+    <div class="w-full flex items-center justify-between gap-3">
+      <button
+        type="button"
+        data-mobile-toggle="mobile-practices-submenu"
+        data-nav-section="practices"
+        aria-expanded="false"
+        aria-controls="mobile-practices-submenu"
+        class="mobile-nav-label font-montserrat text-[16px] font-bold text-[#5D5749] uppercase tracking-[0.02em] hover:text-[#91836C] transition-colors"
+      >
+        Practices
+      </button>
+      <button
+        type="button"
+        class="mobile-nav-toggle h-8 w-8 inline-flex items-center justify-center"
+        data-mobile-toggle="mobile-practices-submenu"
+        aria-expanded="false"
+        aria-controls="mobile-practices-submenu"
+        aria-label="Toggle practices submenu"
+      >
+        <svg class="mobile-nav-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none">
+          <path d="M6 7.4L0 1.4L1.4 0L6 4.6L10.6 0L12 1.4L6 7.4Z" fill="#5D5749"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-practices-submenu" class="mobile-submenu hidden mt-3 pl-2">
+      {practiceLinks.map((link) => (
+        <a
+          href={link.href}
+          data-expertise-tab={link.tabId || null}
+          class="nav-practice-link nav-submenu-link block py-2 font-merriweather text-[15px] leading-[22px] text-[#5D5749] hover:text-[#91836C] transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="mobile-nav-group border-t border-[#D5CFC5] pt-4">
+    <div class="w-full flex items-center justify-between gap-3">
+      <button
+        type="button"
+        data-mobile-toggle="mobile-products-submenu"
+        data-nav-section="products"
+        aria-expanded="false"
+        aria-controls="mobile-products-submenu"
+        class="mobile-nav-label font-montserrat text-[16px] font-bold text-[#5D5749] uppercase tracking-[0.02em] hover:text-[#91836C] transition-colors"
+      >
+        Products
+      </button>
+      <button
+        type="button"
+        class="mobile-nav-toggle h-8 w-8 inline-flex items-center justify-center"
+        data-mobile-toggle="mobile-products-submenu"
+        aria-expanded="false"
+        aria-controls="mobile-products-submenu"
+        aria-label="Toggle products submenu"
+      >
+        <svg class="mobile-nav-caret" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none">
+          <path d="M6 7.4L0 1.4L1.4 0L6 4.6L10.6 0L12 1.4L6 7.4Z" fill="#5D5749"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-products-submenu" class="mobile-submenu hidden mt-3 pl-2">
+      {productLinks.map((link) => (
+        <a
+          href={link.href}
+          class="nav-submenu-link block py-2 font-merriweather text-[15px] leading-[22px] text-[#5D5749] hover:text-[#91836C] transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <a
+    href="/about"
+    class="font-montserrat text-[16px] font-bold text-[#5D5749] uppercase tracking-[0.02em] hover:text-[#91836C] transition-colors"
+  >
+    About
+  </a>
+
+  <button
+    type="button"
+    data-open-conversation
+    class="w-full text-center mt-2 font-montserrat text-[14px] font-semibold uppercase text-white py-4 rounded-[6px]"
+    style="background: #756A57; letter-spacing: 0.02em;"
+  >
+    Start a Conversation
+  </button>
+</div>
+</nav>
+
+<!-- Conversation Form Panel -->
+<aside
+  id="conversation-panel"
+  class="fixed right-0 top-[72px] md:top-[112px] z-[110] h-[calc(100vh-72px)] md:h-[calc(100vh-112px)] w-full md:w-[420px] max-w-[420px] translate-x-full opacity-0 pointer-events-none transition-all duration-300 ease-out overflow-hidden"
+  style="box-shadow: -24px 0 60px rgba(0,0,0,0.42), inset 1px 0 0 rgba(255,255,255,0.08);"
+  aria-hidden="true"
+>
+  <div class="conversation-panel-content relative z-10 h-full">
+    <button
+      id="conversation-close"
+      type="button"
+      class="conversation-close-btn"
+      aria-label="Close conversation form"
+    >
+      <span class="conversation-close-line conversation-close-line-a"></span>
+      <span class="conversation-close-line conversation-close-line-b"></span>
+    </button>
+
+    <div class="conversation-title-wrap">
+      <h3 class="conversation-title">Thank you for taking the next step</h3>
+    </div>
+
+    <button
+      id="conversation-close-inline"
+      type="button"
+      class="conversation-close-inline-btn"
+      aria-label="Close conversation form"
+    >
+      Close
+    </button>
+
+    <!-- LeadConnector Embedded Form -->
+    <div class="conversation-form conversation-leadconnector-form">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/sLvKUPU9fncv2nyE5VeJ"
+        style="width:100%;height:100%;border:none;border-radius:8px;"
+        id="inline-sLvKUPU9fncv2nyE5VeJ"
+        data-layout='{"id":"INLINE"}'
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-id="sLvKUPU9fncv2nyE5VeJ"
+        data-form-name="Form 0"
+        data-height="785"
+        data-cookie-consent="true"
+        data-cookie-consent-provider="auto"
+        data-layout-iframe-id="inline-sLvKUPU9fncv2nyE5VeJ"
+        title="Start a Conversation Form"
+      >
+      </iframe>
+    </div>
+  </div>
+</aside>
+
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+<script>
+// Scroll behavior: transparent → white bg
+const nav = document.getElementById('main-nav') as HTMLElement;
+const mobileBtn = document.getElementById('mobile-menu-btn') as HTMLButtonElement;
+const mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
+const navLinks = document.querySelectorAll<HTMLElement>('#main-nav [data-nav-link]');
+
+const panel = document.getElementById('conversation-panel') as HTMLElement;
+const panelClose = document.getElementById('conversation-close') as HTMLButtonElement;
+const panelCloseInline = document.getElementById('conversation-close-inline') as HTMLButtonElement;
+
+const aiPanel = document.getElementById('ai-concierge-panel') as HTMLElement;
+const aiClose = document.getElementById('ai-concierge-close') as HTMLButtonElement;
+const aiChatForm = document.getElementById('ai-chat-form') as HTMLFormElement;
+const aiChatInput = document.getElementById('ai-chat-input') as HTMLInputElement;
+const aiChatThread = document.getElementById('ai-chat-thread') as HTMLElement;
+const GHL_WIDGET_ID = '6ac5795bc407264032740ca8';
+
+function clickElement(el: HTMLElement) {
+  el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+  el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+  el.click();
+}
+
+function findGhlLauncher(): HTMLElement | null {
+  const selectors = [
+    `button[data-widget-id="${GHL_WIDGET_ID}"]`,
+    `[data-widget-id="${GHL_WIDGET_ID}"]:not(script)`,
+    'button[class*="chat-widget"]',
+    'button[id*="chat-widget"]',
+    'button[class*="lc_chat"]',
+    'button[id*="lc_chat"]',
+    'div[class*="chat-widget-launcher"]',
+    'div[id*="chat-widget-launcher"]',
+    'iframe[src*="leadconnectorhq.com"][src*="chat"]',
+  ];
+
+  for (const selector of selectors) {
+    const el = document.querySelector(selector);
+    if (el && el instanceof HTMLElement) return el;
+  }
+
+  return null;
+}
+
+function openGhlAiConciergeWidget(): boolean {
+  const w = window as any;
+
+  // Known direct APIs used by LeadConnector widgets.
+  const apiCandidates: Array<((widgetId?: string) => void) | undefined> = [
+    w?.leadConnector?.chatWidget?.openWidget,
+    w?.LeadConnector?.chatWidget?.open,
+    w?.LeadConnector?.widget?.open,
+    w?.LeadConnectorWidget?.open,
+    w?.LC_API?.open_chat_window,
+    w?.LC_API?.openChat,
+    w?.LC_API?.openChatWidget,
+    w?.GHLChatWidget?.open,
+  ];
+
+  for (const fn of apiCandidates) {
+    if (typeof fn === 'function') {
+      try {
+        fn(GHL_WIDGET_ID);
+        return true;
+      } catch {
+        try {
+          fn();
+          return true;
+        } catch {
+          // try next candidate
+        }
+      }
+    }
+  }
+
+  // Fallback: click launcher elements injected by the widget.
+  const launcher = findGhlLauncher();
+
+  if (launcher) {
+    clickElement(launcher);
+    return true;
+  }
+
+  return false;
+}
+
+function closeGhlAiConciergeWidget() {
+  const w = window as any;
+  const chatWidget = w?.leadConnector?.chatWidget;
+
+  if (typeof chatWidget?.closeWidget === 'function') {
+    chatWidget.closeWidget();
+    return;
+  }
+
+  const closeCandidates: Array<(() => void) | undefined> = [
+    w?.LeadConnector?.chatWidget?.close,
+    w?.LeadConnector?.widget?.close,
+    w?.LeadConnectorWidget?.close,
+    w?.LC_API?.close_chat_window,
+    w?.LC_API?.closeChat,
+    w?.LC_API?.closeChatWidget,
+    w?.GHLChatWidget?.close,
+  ];
+
+  for (const closeWidget of closeCandidates) {
+    if (typeof closeWidget !== 'function') continue;
+
+    try {
+      closeWidget();
+      return;
+    } catch {
+      // Try the next supported widget API.
+    }
+  }
+}
+
+function openConversationPanel() {
+  if (!panel) return;
+
+  closeAiConciergePanel();
+  closeGhlAiConciergeWidget();
+
+  panel.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+  panel.classList.add('translate-x-0', 'opacity-100');
+  panel.setAttribute('aria-hidden', 'false');
+  const content = panel.querySelector<HTMLElement>('.conversation-panel-content');
+  if (content) {
+    content.scrollTop = 0;
+    window.requestAnimationFrame(() => { content.scrollTop = 0; });
+  }
+}
+
+function closeConversationPanel() {
+  if (!panel) return;
+
+  panel.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+  panel.classList.remove('translate-x-0', 'opacity-100');
+  panel.setAttribute('aria-hidden', 'true');
+}
+
+window.addEventListener('message', (event) => {
+  if (!panel || !Array.isArray(event.data)) return;
+
+  const formFrame = document.getElementById('inline-sLvKUPU9fncv2nyE5VeJ') as HTMLIFrameElement | null;
+  const [action, userDataKey] = event.data;
+
+  if (
+    event.source === formFrame?.contentWindow &&
+    action === 'set-sticky-contacts' &&
+    typeof userDataKey === 'string' &&
+    userDataKey.includes(formFrame.id)
+  ) {
+    panel.classList.add('conversation-panel-submitted');
+  }
+});
+
+function closeAiConciergePanel() {
+  if (!aiPanel) return;
+
+  aiPanel.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+  aiPanel.classList.remove('translate-x-0', 'opacity-100');
+  aiPanel.setAttribute('aria-hidden', 'true');
+}
+
+function openAiConciergePanel() {
+  closeConversationPanel();
+
+  if (openGhlAiConciergeWidget()) {
+    return;
+  }
+
+  // Widget may still be initializing; retry briefly before fallback.
+  setTimeout(() => {
+    if (openGhlAiConciergeWidget()) return;
+
+    setTimeout(() => {
+      if (openGhlAiConciergeWidget()) return;
+
+      // Backup behavior if widget is still unavailable.
+      if (!aiPanel) return;
+
+      aiPanel.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+      aiPanel.classList.add('translate-x-0', 'opacity-100');
+      aiPanel.setAttribute('aria-hidden', 'false');
+    }, 500);
+  }, 300);
+}
+
+function isGhlChatFrame(element: Element | null): element is HTMLIFrameElement {
+  if (!(element instanceof HTMLIFrameElement)) return false;
+
+  const source = element.getAttribute('src') || '';
+  return (
+    source.includes('leadconnectorhq.com') &&
+    !source.includes('/widget/form/')
+  );
+}
+
+// GHL renders the launcher inside the <chat-widget> custom element. Composed
+// pointer events cross its shadow-DOM boundary and are retargeted to that host.
+document.addEventListener('pointerdown', (event) => {
+  const target = event.target as Element | null;
+
+  if (target?.closest('chat-widget')) {
+    closeConversationPanel();
+  }
+}, true);
+
+// Fallback for widget versions that render the launcher in an iframe.
+window.addEventListener('blur', () => {
+  setTimeout(() => {
+    if (isGhlChatFrame(document.activeElement)) {
+      closeConversationPanel();
+    }
+  }, 0);
+});
+
+function updateNav() {
+  if (!nav) return;
+
+  if (window.scrollY > 80) {
+    nav.classList.add('nav-scrolled');
+  } else {
+    nav.classList.remove('nav-scrolled');
+  }
+
+  updateActiveNavLink();
+}
+
+window.addEventListener('scroll', updateNav, { passive: true });
+window.addEventListener('hashchange', updateNav);
+updateNav();
+
+function getNavOffset() {
+  return nav?.offsetHeight || 0;
+}
+
+function setActiveNavLink(sectionName: string) {
+  navLinks.forEach((link) => {
+    const isActive = link.dataset.navSection === sectionName;
+    link.classList.toggle('nav-link-active', isActive);
+
+    if (isActive) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+function getActiveNavSection() {
+  if (window.location.pathname !== '/') {
+    return window.location.pathname.startsWith('/about') ? 'about' : '';
+  }
+
+  return 'home';
+}
+
+function updateActiveNavLink() {
+  setActiveNavLink(getActiveNavSection());
+}
+
+function scrollToNavTarget(targetId: string) {
+  const target = document.getElementById(targetId);
+
+  if (!target) return false;
+
+  const scrollToPlateSection = (window as any).scrollToPlateSection;
+
+  if (target.matches('section') && typeof scrollToPlateSection === 'function') {
+    return scrollToPlateSection(targetId);
+  }
+
+  const targetTop = target.getBoundingClientRect().top + window.scrollY - getNavOffset();
+
+  window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+  window.history.replaceState(null, '', `#${targetId}`);
+  return true;
+}
+
+document.querySelectorAll<HTMLAnchorElement>('#main-nav [data-scroll-target]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const targetId = link.dataset.scrollTarget;
+
+    if (!targetId || window.location.pathname !== '/') return;
+
+    event.preventDefault();
+    setActiveNavLink(link.dataset.navSection || '');
+    scrollToNavTarget(targetId);
+  });
+});
+
+mobileBtn?.addEventListener('click', () => {
+  const isHidden = mobileMenu.classList.contains('hidden');
+
+  if (isHidden) {
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.classList.add('flex');
+    mobileBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('mobile-menu-open');
+  } else {
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('flex');
+    mobileBtn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('mobile-menu-open');
+  }
+});
+
+function closeMobileMenu() {
+  mobileMenu.classList.add('hidden');
+  mobileMenu.classList.remove('flex');
+  mobileBtn?.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('mobile-menu-open');
+}
+
+document.querySelectorAll<HTMLButtonElement>('[data-mobile-toggle]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.dataset.mobileToggle;
+    const panel = targetId ? document.getElementById(targetId) : null;
+
+    if (!panel) return;
+
+    const expanded = !panel.classList.contains('hidden');
+    const nextExpanded = !expanded;
+
+    document.querySelectorAll<HTMLButtonElement>(`[data-mobile-toggle="${targetId}"]`).forEach((toggle) => {
+      toggle.setAttribute('aria-expanded', nextExpanded ? 'true' : 'false');
+    });
+
+    panel.classList.toggle('hidden', expanded);
+  });
+});
+
+document.addEventListener('click', (event) => {
+  const target = event.target as Element | null;
+  const trigger = target?.closest('[data-open-conversation]');
+
+  if (!trigger) return;
+
+  event.preventDefault();
+
+  closeMobileMenu();
+  openConversationPanel();
+});
+
+panelClose?.addEventListener('click', closeConversationPanel);
+panelCloseInline?.addEventListener('click', closeConversationPanel);
+aiClose?.addEventListener('click', closeAiConciergePanel);
+
+document.addEventListener('click', (event) => {
+  const target = event.target as Element | null;
+  const trigger = target?.closest('[data-open-ai-concierge]');
+
+  if (!trigger) return;
+
+  event.preventDefault();
+
+  closeMobileMenu();
+  openAiConciergePanel();
+});
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeConversationPanel();
+    closeAiConciergePanel();
+  }
+});
+
+(window as any).openAIConcierge = openAiConciergePanel;
+
+aiChatForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const text = aiChatInput?.value?.trim();
+
+  if (!text || !aiChatThread) return;
+
+  const safeText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  const userRow = document.createElement('div');
+  userRow.className = 'ai-row ai-row-user';
+  userRow.innerHTML = `<div class="ai-bubble ai-bubble-user"><p>${safeText}</p></div>`;
+  aiChatThread.appendChild(userRow);
+
+  const botRow = document.createElement('div');
+  botRow.className = 'ai-row ai-row-assistant';
+  botRow.innerHTML = `
+    <div class="ai-avatar" aria-hidden="true">✦</div>
+    <div class="ai-bubble ai-bubble-assistant">
+      <p>Thanks. Our AI Concierge received your message and will guide you to the right practice area.</p>
+    </div>
+  `;
+  aiChatThread.appendChild(botRow);
+
+  aiChatInput.value = '';
+  aiChatThread.scrollTop = aiChatThread.scrollHeight;
+});
+
+// Close mobile menu on link click
+mobileMenu?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 1024) {
+    closeMobileMenu();
+  }
+});
+
+document.querySelectorAll<HTMLAnchorElement>('.nav-practice-link').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const targetId = link.hash.replace('#', '');
+    const tabId = link.dataset.expertiseTab;
+
+    if (!targetId) {
+      event.preventDefault();
+      return;
+    }
+
+    if (!document.getElementById(targetId) || window.location.pathname !== '/') {
+      return;
+    }
+
+    event.preventDefault();
+    scrollToNavTarget(targetId);
+    window.history.replaceState(null, '', link.href);
+
+    if (!tabId) return;
+
+    setTimeout(() => {
+      const fn = (window as any).showExpertiseTab;
+      if (fn) fn(tabId);
+    }, 700);
+  });
+});
+
+document.querySelectorAll<HTMLAnchorElement>('.nav-submenu-link').forEach((link) => {
+  link.addEventListener('click', () => {
+    const group = link.closest('.nav-menu-group');
+
+    if (!group) return;
+
+    group.classList.add('is-locked');
+
+    const unlock = () => {
+      group.classList.remove('is-locked');
+      group.removeEventListener('mouseleave', unlock);
+    };
+
+    group.addEventListener('mouseleave', unlock, { once: true });
+
+    // Prevent sticky focus keeping the dropdown interactive after click.
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+  });
+});
+</script>
+
+<style>
+#conversation-panel .conversation-panel-content { overflow-y: auto; overscroll-behavior: contain; }
+#conversation-panel .conversation-leadconnector-form { height: auto; min-height: 785px; overflow: visible; flex-shrink: 0; }
+#conversation-panel iframe { background: transparent !important; width: 100% !important; border: none !important; min-height: 785px; }
+.nav-menu-group.is-locked .nav-menu-panel {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+#main-nav .desktop-nav-links:has(.nav-menu-group:hover)
+  .nav-menu-group:not(:hover) > .nav-menu-panel {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: none;
+}
+
+#main-nav {
+  background: rgba(26, 26, 26, 0.86);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 0;
+}
+
+#main-nav .nav-logo-img {
+  transition: height 0.35s ease;
+}
+
+#main-nav .nav-link {
+  color: #ffffff;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  line-height: 1;
+}
+
+#main-nav button.nav-link,
+#main-nav .mobile-nav-label {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  transform: none;
+}
+
+#main-nav button.nav-link:hover,
+#main-nav button.nav-link:focus-visible,
+#main-nav .mobile-nav-label:hover,
+#main-nav .mobile-nav-label:focus-visible {
+  transform: none;
+}
+
+#main-nav .mobile-nav-label {
+  text-align: left;
+}
+
+#main-nav .nav-link:hover,
+#main-nav .nav-menu-group:hover > .nav-link,
+#main-nav .nav-menu-group:focus-within > .nav-link {
+  color: #f5e9d4;
+}
+
+#main-nav .nav-link svg path {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+}
+
+#main-nav .nav-link:hover svg path,
+#main-nav .nav-menu-group:hover > .nav-link svg path,
+#main-nav .nav-menu-group:focus-within > .nav-link svg path {
+  fill: #f5e9d4;
+}
+
+#main-nav .nav-link.nav-link-active {
+  border-bottom: 0;
+}
+
+#main-nav .nav-link.nav-link-active::after,
+#main-nav .nav-link:hover::after,
+#main-nav .nav-link:focus-visible::after,
+#main-nav .nav-menu-group:hover > .nav-link::after,
+#main-nav .nav-menu-group:focus-within > .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+#main-nav .nav-dropdown .nav-submenu-link:hover,
+#main-nav .nav-dropdown .nav-submenu-link:focus {
+  color: #f5e9d4 !important;
+  background: rgba(145, 131, 108, 0.2);
+  outline: none;
+}
+
+#main-nav .nav-conversation-btn {
+  background: #f5f5f5;
+  color: #756a57;
+  letter-spacing: 0.005em;
+  border-radius: 6px;
+  transform: translateY(0);
+}
+
+#main-nav .nav-conversation-btn:hover,
+#main-nav .nav-conversation-btn:focus-visible {
+  background: #ffffff;
+  transform: translateY(-3px);
+  outline: none;
+}
+
+#main-nav.nav-scrolled {
+  background: rgba(26, 26, 26, 0.92);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  box-shadow: none;
+  border-bottom: 0;
+}
+
+#main-nav.nav-scrolled .nav-link {
+  color: #ffffff;
+}
+
+#main-nav.nav-scrolled .nav-link:hover {
+  color: #f5e9d4;
+}
+
+#main-nav.nav-scrolled .nav-link svg path {
+  fill: #ffffff;
+}
+
+#main-nav.nav-scrolled .nav-link:hover svg path,
+#main-nav.nav-scrolled .nav-menu-group:hover > .nav-link svg path,
+#main-nav.nav-scrolled .nav-menu-group:focus-within > .nav-link svg path {
+  fill: #f5e9d4;
+}
+
+#main-nav.nav-scrolled .nav-link.nav-link-active {
+  border-bottom: 0;
+}
+
+#main-nav.nav-scrolled .nav-link.nav-link-active::after {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+#main-nav.nav-scrolled #mobile-menu-btn {
+  color: #ffffff;
+}
+
+#main-nav.nav-scrolled .nav-conversation-btn {
+  background: #f5f5f5;
+  color: #756a57;
+}
+
+#main-nav.nav-scrolled .nav-conversation-btn:hover,
+#main-nav.nav-scrolled .nav-conversation-btn:focus-visible {
+  background: #ffffff;
+  transform: translateY(-3px);
+  outline: none;
+}
+
+#conversation-panel {
+  background: rgba(26, 26, 26, 0.86);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+.mobile-nav-toggle[aria-expanded='true'] .mobile-nav-caret {
+  transform: rotate(180deg);
+}
+
+.mobile-nav-caret {
+  transition: transform 0.2s ease;
+}
+
+.conversation-panel-content {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(145, 131, 108, 0.65) rgba(255, 255, 255, 0.08);
+}
+
+.conversation-close-btn {
+  position: absolute;
+  top: 26px;
+  right: 10.5px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.9;
+  z-index: 20;
+}
+
+.conversation-close-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 1.5px;
+  background: #91836c;
+  transform-origin: center;
+}
+
+.conversation-close-line-a {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.conversation-close-line-b {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.conversation-title-wrap {
+  width: 356px;
+  max-width: 100%;
+  min-height: 58px;
+  padding-right: 28px;
+}
+
+.conversation-title {
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28.8px;
+  color: #f5e9d4;
+}
+
+.conversation-close-inline-btn {
+  display: none;
+  align-self: flex-start;
+  min-height: 42px;
+  padding: 12px 26px;
+  border: 0;
+  border-radius: 6px;
+  background: #683547;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: translateY(0);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.conversation-close-inline-btn:hover,
+.conversation-close-inline-btn:focus-visible {
+  background: #7a4054;
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.conversation-panel-submitted .conversation-title-wrap {
+  display: none;
+}
+
+.conversation-panel-submitted .conversation-close-inline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 425px;
+  z-index: 30;
+  transform: translateX(-50%);
+}
+
+.conversation-panel-submitted .conversation-close-inline-btn:hover,
+.conversation-panel-submitted .conversation-close-inline-btn:focus-visible {
+  transform: translateX(-50%) translateY(-3px);
+}
+
+.conversation-leadconnector-form {
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.conversation-leadconnector-form iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
+  background: transparent;
+}
+
+@media (max-height: 920px) {
+  .conversation-panel-content {
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .conversation-title {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .conversation-leadconnector-form,
+  .conversation-leadconnector-form iframe {
+    min-height: 560px;
+  }
+
+  .conversation-panel-submitted .conversation-close-inline-btn {
+    top: 390px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .conversation-title {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .conversation-panel-content {
+    padding: 22px;
+    gap: 20px;
+  }
+
+  .conversation-title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  #main-nav {
+    height: 72px;
+  }
+
+  #conversation-panel {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    right: 0 !important;
+  }
+
+  #mobile-menu {
+    width: 100vw;
+    left: 0;
+    right: 0;
+  }
+
+  .conversation-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .conversation-leadconnector-form,
+  .conversation-leadconnector-form iframe {
+    min-height: 620px;
+  }
+
+  .conversation-panel-submitted .conversation-close-inline-btn {
+    top: 375px;
+  }
+}
+</style>
