@@ -173,3 +173,39 @@ ion-list, ion-item { --background: transparent !important; background: transpare
 .live-message-end-pane {
   margin-bottom: 16px !important;
 }
+
+/* Give the restart action a clear button surface and interaction states. */
+.live-message-end-feedback {
+  background: #2b2823 !important;
+  border: 1px solid rgba(145,131,108,.65) !important;
+  border-radius: 10px !important;
+  padding: 14px !important;
+}
+ion-button.reset-chat-button {
+  display: block !important;
+  width: max-content !important;
+  margin: 10px 0 0 !important;
+  min-height: 38px !important;
+  background: #91836c !important;
+  border: 1px solid #b9aa8e !important;
+  border-radius: 7px !important;
+  --background: #91836c !important;
+  --background-hover: #a5967b !important;
+  --background-focused: #a5967b !important;
+  --background-activated: #7e7059 !important;
+  --padding-start: 18px !important;
+  --padding-end: 18px !important;
+  --padding-top: 9px !important;
+  --padding-bottom: 9px !important;
+  --border-radius: 6px !important;
+  --color: #ffffff !important;
+  font-weight: 700 !important;
+  letter-spacing: .04em !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,.22) !important;
+  cursor: pointer !important;
+}
+ion-button.reset-chat-button:hover { background: #a5967b !important; }
+ion-button.reset-chat-button:focus-within {
+  outline: 2px solid #ffffff !important;
+  outline-offset: 3px !important;
+}
