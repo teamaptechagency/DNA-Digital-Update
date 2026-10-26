@@ -124,7 +124,7 @@ ion-list, ion-item { --background: transparent !important; background: transpare
   box-shadow: 0 2px 6px rgba(0,0,0,.18) !important;
 }
 .bubble.outgoing { background: #6b5c47 !important; }
-.bubble.informational { background: #4e4436 !important; }
+:host .message-container .bubble.informational { background: #4e4436 !important; }
 .message-container { margin-block: 5px !important; }
 
 /* The composer owns the border; its textarea stays inside the same radius. */
@@ -149,3 +149,11 @@ ion-list, ion-item { --background: transparent !important; background: transpare
 }
 
 .bubble.bubble-footer-padding { padding-bottom: 28px !important; }
+
+/* System messages need inset space even when Ionic removes their item padding. */
+:host .message-container .bubble.informational {
+  box-sizing: border-box !important;
+  padding: 12px 14px !important;
+}
+.bubble.informational slot::slotted(*) { margin: 0 !important; }
+.info-message-container { padding-inline: 3px !important; }
