@@ -157,3 +157,14 @@ ion-list, ion-item { --background: transparent !important; background: transpare
 }
 .bubble.informational slot::slotted(*) { margin: 0 !important; }
 .info-message-container { padding-inline: 3px !important; }
+
+/* Informational messages have no timestamp; remove their reserved footer area. */
+:host .message-container.info-message-container .bubble.informational.bubble-footer-padding {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 12px 14px !important;
+}
+:host .message-container.info-message-container .bubble.informational > .footer {
+  display: none !important;
+}
