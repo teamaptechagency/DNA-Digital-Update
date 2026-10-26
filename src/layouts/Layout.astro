@@ -1,5 +1,6 @@
 ---
 import CookieConsent from '../components/CookieConsent.astro';
+import ChatWidgetTheme from '../components/ChatWidgetTheme.astro';
 
 export interface Props {
   title?: string;
@@ -53,6 +54,7 @@ const imageUrl = new URL(image, Astro.site).href;
 
     <CookieConsent />
 
+    <ChatWidgetTheme />
     <!-- GHL AI Concierge Chat Widget -->
 <script
 src="https://widgets.leadconnectorhq.com/loader.js"

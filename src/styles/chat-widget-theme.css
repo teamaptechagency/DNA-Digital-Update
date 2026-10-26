@@ -1,0 +1,88 @@
+/* Injected only into the chat widget and its nested open shadow roots. */
+:host {
+  --chat-widget-background-color: #1a1a1a !important;
+  --chat-widget-received-message-color: #5a4d3b !important;
+  --chat-widget-sender-message-color: #5a4d3b !important;
+  --chat-widget-received-message-text-color: #ffffff !important;
+  --chat-widget-sender-message-text-color: #ffffff !important;
+  --chat-widget-welcome-message-text-color: #ffffff !important;
+  --chat-widget-system-message-text-color: #ffffff !important;
+  --chat-widget-header-message-text-color: #ffffff !important;
+  --ion-text-color: #ffffff !important;
+  --ion-background-color: #5a4d3b !important;
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Include legal copy, voice-agent labels, system messages and nested slots. */
+*:not(style):not(script), *::before, *::after {
+  color: #ffffff !important;
+}
+
+.chat-selection-root,
+.chat-selection-actions,
+.chat-selection-button,
+.lc_text-widget_sub-heading--root,
+.lc_text-widget--form,
+.lc_text-widget--text-input,
+.lc_text-widget--text-input-input,
+.lc_legal-text-wrapper,
+.lc_legal-text-container,
+.lc_legal-consent-block,
+.lc_legal-text,
+input:not([type='checkbox']):not([type='hidden']),
+textarea, select,
+.iti__country-list,
+ion-card {
+  background: #5a4d3b !important;
+  --background: #5a4d3b !important;
+  --color: #ffffff !important;
+}
+
+.chat-selection-button,
+.lc_text-widget--text-input-input,
+input:not([type='checkbox']):not([type='hidden']), textarea, select {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.chat-selection-button {
+  --background-hover: #6b5c47 !important;
+  --background-focused: #6b5c47 !important;
+  --background-activated: #6b5c47 !important;
+}
+.chat-selection-button svg [stroke] { stroke: #ffffff !important; }
+input::placeholder, textarea::placeholder { color: #ffffff !important; opacity: 1 !important; }
+input, textarea { caret-color: #ffffff !important; color-scheme: dark; }
+input:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0 1000px #5a4d3b inset !important;
+}
+.iti__selected-flag, .iti__country { background-color: #5a4d3b !important; }
+.iti__country:hover, .iti__country.iti__highlight { background-color: #6b5c47 !important; }
+.iti__arrow { border-top-color: #ffffff !important; }
+.lc_legal-msg a, .lc_legal-notice a { text-decoration: underline !important; }
+ion-checkbox {
+  --checkbox-background: #5a4d3b !important;
+  --checkbox-background-checked: #5a4d3b !important;
+  --border-color: rgba(255,255,255,.7) !important;
+  --border-color-checked: #ffffff !important;
+  --checkmark-color: #ffffff !important;
+}
+:focus-visible { outline: 2px solid #ffffff !important; outline-offset: 2px; }
+
+/* GHL paints the input-card shell using a pseudo-element. */
+.lc_text-widget--form::after,
+.lc_text-widget--form::before {
+  background: #5a4d3b !important;
+}
+.chat-selection-root, .chat-selection-actions, .lc_text-widget--text-input {
+  border-color: rgba(255,255,255,.2) !important;
+}
+.lc_text-widget_sub-heading--root { border-radius: 8px !important; }
+:host { color-scheme: dark; }
+* { scrollbar-color: #91836c #1a1a1a; }
+.lc_text-widget--form::after, .lc_text-widget--form::before {
+  border-color: rgba(255,255,255,.2) !important;
+}
+
+.lc_text-widget--voice-ai-badge { background: #5a4d3b !important; }

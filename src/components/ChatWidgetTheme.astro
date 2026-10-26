@@ -1,0 +1,45 @@
+<!-- Keep remote GHL widget surfaces consistent across its nested shadow roots. -->
+<script>
+  import widgetTheme from '../styles/chat-widget-theme.css?raw';
+
+  const styleId = 'dna-chat-widget-theme';
+  const observed = new WeakSet<ShadowRoot>();
+  let queued = false;
+
+  function themeRoot(root: ShadowRoot) {
+    if (!root.querySelector(`#${styleId}`)) {
+      const style = document.createElement('style');
+      style.id = styleId;
+      style.textContent = widgetTheme;
+      root.append(style);
+    }
+    if (!observed.has(root)) {
+      observed.add(root);
+      // GHL mounts new screens and Ionic controls after the widget first loads.
+      new MutationObserver(scheduleTheme).observe(root, { childList: true, subtree: true });
+    }
+    root.querySelectorAll('*').forEach((element) => {
+      if (element.shadowRoot) themeRoot(element.shadowRoot);
+    });
+  }
+
+  function applyTheme() {
+    queued = false;
+    document.querySelectorAll('chat-widget').forEach((widget) => {
+      if (widget.shadowRoot) themeRoot(widget.shadowRoot);
+    });
+  }
+
+  function scheduleTheme() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(applyTheme);
+  }
+
+  new MutationObserver(scheduleTheme).observe(document.body, { childList: true, subtree: true });
+  applyTheme();
+  // Shadow-root attachment does not generate a childList mutation on its host.
+  // Cover asynchronous custom-element hydration, then rely on screen mutations.
+  const hydrationTimer = window.setInterval(scheduleTheme, 500);
+  window.setTimeout(() => window.clearInterval(hydrationTimer), 30000);
+</script>
